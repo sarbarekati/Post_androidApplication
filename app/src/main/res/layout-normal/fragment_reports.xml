@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bg_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_ultra_larg"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginRight="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large"
+
+        android:id="@+id/Report_fragment_frameLayout_filter_container">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_large"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/please_select_report"
+                android:visibility="gone"
+                />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:id="@+id/Report_fragment_rdGroup_reports"
+                android:visibility="gone"
+                >
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/General_Report"
+                    android:id="@+id/Report_fragment_rdbutton_general"
+                    android:checked="true"
+                    />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Rahsepari_report"
+                    android:id="@+id/Report_fragment_rdbutton_rahsepari"
+                    />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Peymankari_Report"
+                    android:id="@+id/Report_fragment_rdbutton_peymankari"
+                    />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Masirha_report"
+                    android:id="@+id/Report_fragment_rdbutton_masir"
+                    />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@drawable/filter"
+            app:backgroundTint="@color/deep_yellow"
+            android:layout_marginLeft="@dimen/Report_fragment_fab_margin"
+            android:id="@+id/Report_fragment_fab_filter"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/Report_fragment_fab_margin_bottom"
+            />
+
+
+
+
+    </FrameLayout>
+
+
+
+    <com.github.florent37.arclayout.ArcLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:id="@+id/head_arc"
+        app:arc_cropDirection="cropInside"
+        android:visibility="gone"
+        app:arc_height="@dimen/title_arc_height">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/deep_yellow"
+                android:text="گزارش های سامانه پست"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+    </com.github.florent37.arclayout.ArcLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/head_arc"
+        android:id="@+id/report_fragment_rc"
+        android:layout_margin="16dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+
+</RelativeLayout>
+

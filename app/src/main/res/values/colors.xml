@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#ffc600</color>
+    <color name="deep_yellow">#ffa000</color>
+    <color name="colorPrimaryDark">#003678</color>
+    <color name="colorPrimary">#004ba7</color>
+    <color name="gray_light">#B8BABB</color>
+    <color name="yellow_light">#ffd180</color>
+    <color name="gray_300">#bdbdbd</color>
+    <color name="gray_100">#f5f5f5</color>
+    <color name="blue_500">#1565c0</color>
+    <color name="peacock_blue">#004ba7</color>
+    <color name="gray_title">#8affffff</color>
+    <color name="deep_dark_blue">#001e44</color>
+    <color name="mdtp_accent_color">@color/colorPrimary</color>
+    <color name="mdtp_accent_color_dark">@color/colorPrimaryDark</color>
+    <color name="gray_700">#616161</color>
+    <color name="mini_fab">#e9e9e9</color>
+    <color name="blue_child_alarm">#002451</color>
+    <color name="red">#E91E63</color>
+    <color name="purple">#9C27B0</color>
+
+
+</resources>

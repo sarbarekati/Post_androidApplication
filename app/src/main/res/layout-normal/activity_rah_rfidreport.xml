@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_main"
+    android:layoutDirection="ltr"
+    >
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:text="نمایش گزارش"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/Filter_Activity_fab_accept_filter"
+        />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/title_container"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="گزارش های رهسپاری"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:layout_marginRight="72dp"
+            android:textStyle="bold"
+            android:id="@+id/title_filter"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/rah_rfid_imgView_back"
+            android:src="@drawable/ic_arrow_right_white_24dp"
+            />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_container"
+        android:layout_above="@id/Filter_Activity_fab_accept_filter"
+
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            >
+
+            <RelativeLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rah_rfid_txt_count_of_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="تعداد خودروها:"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/carCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="110dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    tools:text="68" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/spinner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container">
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/check_box_spinners"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="انتخاب خودرو"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:buttonTint="@color/colorAccent"
+
+                    />
+
+                <LinearLayout
+                    android:id="@+id/spinner_container_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@id/check_box_spinners"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/container_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/check_box_spinners">
+
+
+                        <TextView
+                            android:id="@+id/text_access_one"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_one"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/container_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_one"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/text_access_two"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"></android.support.v7.widget.AppCompatSpinner>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_two"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/container_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_two"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/text_access_three"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"></android.support.v7.widget.AppCompatSpinner>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_three"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/container_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_three"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/text_access_four"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"></android.support.v7.widget.AppCompatSpinner>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_four"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/container_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_four"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/text_access_five"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_five"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"></android.support.v7.widget.AppCompatSpinner>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_five"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/container_driver"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/container_five"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/text_access_diver"
+
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:visibility="gone"
+                            tools:text="69" />
+
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/spinner_driver"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layoutDirection="rtl"
+                            app:backgroundTint="@color/gray_title"></android.support.v7.widget.AppCompatSpinner>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/spinner_driver"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/code_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner_container"
+                android:layout_marginTop="10dp">
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/check_Box_code_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:layoutDirection="rtl"
+                    android:text="کد خودرو:"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:buttonTint="@color/colorAccent" />
+
+
+                <LinearLayout
+                    android:id="@+id/car_number_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/check_Box_code_number"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_car_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="8sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/gray_title" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/car_online_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/code_container"
+                android:padding="8dp"
+                android:visibility="gone">
+
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layoutDirection="rtl"
+                    android:text="نمایش خودروهای آنلاین"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:id="@+id/online_cars_checkBox"
+                    app:buttonTint="@color/colorAccent"
+
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/filter_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/car_online_container">
+
+                <TextView
+                    android:id="@+id/rah_rfid_txt_filterTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layoutDirection="rtl"
+                    android:text="نوع گزارش گیری"
+                    android:textColor="@color/gray_title"
+                    android:textSize="11sp" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/rah_rfid_spinner_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/rah_rfid_txt_filterTitle"
+                    android:layout_marginTop="4dp"
+                    android:layoutDirection="rtl"
+                    android:visibility="visible"
+                    app:backgroundTint="@color/gray_title">
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/rah_rfid_spinner_filter"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/gray_title" />
+
+                <LinearLayout
+                    android:id="@+id/rah_rfid_layout_speed_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rah_rfid_spinner_filter"
+                    android:layout_margin="6dp"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/speed_to"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_speed_max_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="تا سرعت"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/rah_rfid_edt_speed_end"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:paddingTop="2dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="20dp"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:textSize="11sp"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            app:backgroundTint="@color/gray_title" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_speedometer_grey600_24dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/speed_from"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_speed_min_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="از سرعت"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/rah_rfid_edt_speed_start"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:paddingTop="2dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:textSize="11sp"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            app:backgroundTint="@color/gray_title" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_speedometer_grey600_24dp" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rah_rfid_layout_length_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rah_rfid_layout_speed_container"
+                    android:layout_margin="6dp"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:visibility="visible">
+
+
+                    <RelativeLayout
+                        android:id="@+id/mile_to"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_length_max_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/length_max"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/rah_rfid_edt_length_end"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:paddingTop="4dp"
+
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="20dp"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@color/gray_light"
+                            app:backgroundTint="@color/gray_title" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_road_grey600_24dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mile_from"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_length_min_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/length_min"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/rah_rfid_edt_length_start"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:paddingTop="4dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@color/gray_light"
+                            app:backgroundTint="@color/gray_title" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_road_grey600_24dp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rah_rfid_layout_Time_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rah_rfid_layout_length_container"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/time_to"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/time_to_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="تا ساعت"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_end_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="20dp"
+                            android:hint="23:59"
+                            android:inputType="time"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/clock" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="20dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/time_from"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/time_from_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:text="از ساعت"
+                            android:textColor="@color/gray_title"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/rah_rfid_txt_start_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="20dp"
+                            android:hint="00:00"
+                            android:inputType="time"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/white"
+                            android:textSize="11sp" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/clock" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="20dp"
+                            android:background="@color/gray_title" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/filter_container">
+
+                <TextView
+                    android:id="@+id/rah_rfid_txt_choose_path"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:text=" انتخاب مسیر"
+                    android:textColor="@color/gray_title" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/path_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/rah_rfid_txt_choose_path"
+                    android:layout_marginTop="4dp"
+                    android:layoutDirection="rtl"
+                    app:backgroundTint="@color/gray_title"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/path_spinner"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/gray_title" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/date_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/path"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+                <RelativeLayout
+                    android:id="@+id/date_to"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="4dp"
+
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/date_to_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+
+                        android:text="تا تاریخ"
+                        android:textColor="@color/gray_title"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/rah_rfid_txt_end_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingTop="4dp"
+                        tools:hint="1396/10/25"
+                        android:inputType="time"
+                        android:maxLines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="11sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/calendar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/gray_title" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/date_from"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/date_from_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+
+                        android:text="از تاریخ"
+                        android:textColor="@color/gray_title"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/rah_rfid_txt_start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="20dp"
+                        android:paddingTop="4dp"
+                        tools:hint="1396/10/25"
+                        android:inputType="time"
+                        android:maxLines="1"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="11sp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/calendar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/gray_title" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/rah_rfid_layout_date_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/path"
+                android:layout_margin="6dp"
+                android:background="@color/colorPrimaryDark"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/rah_rfid_btn_date_end"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/dialog_btn_shape"
+                    android:gravity="center"
+                    android:text="@string/date_end" />
+
+                <Button
+                    android:id="@+id/rah_rfid_btn_date_start"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/dialog_btn_shape"
+                    android:gravity="center"
+                    android:text="@string/date_start" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

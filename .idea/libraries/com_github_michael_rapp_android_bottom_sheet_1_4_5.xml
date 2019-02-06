@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.michael-rapp:android-bottom-sheet-1.4.5">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-bottom-sheet-1.4.5.aar/1a0f2ebad9c94deeef754ac07a2b8fb3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-bottom-sheet-1.4.5.aar/1a0f2ebad9c94deeef754ac07a2b8fb3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.michael-rapp/android-bottom-sheet/1.4.5/ad68ef2815c900c42ea2d2b25aeb6e3e3d037d4a/android-bottom-sheet-1.4.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

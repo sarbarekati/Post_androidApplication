@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.anad.mobile.post.Activity.FilterActivity">
+
+    <RelativeLayout
+        android:id="@+id/Filter_Activity_card_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/Filter_Activity_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/Filter_Activity_title_margin"
+            android:text="@string/General_Report"
+            android:textColor="@color/colorAccent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Filter_Activity_card_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/Filter_Activity_card_title"
+        android:layout_marginTop="@dimen/Filter_Activity_card_margin_top"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/Filter_Activity_fab_accept_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/Report_fragment_fab_margin"
+                android:layout_marginLeft="@dimen/Report_fragment_fab_margin"
+                android:src="@drawable/check" />
+
+            <ScrollView
+                android:id="@+id/Filter_Activity_filter_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/Filter_Activity_scroll_padding"
+                android:layout_above="@id/Filter_Activity_fab_accept_filter">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Filter_Activity_txt_org_name"
+                        tools:text="دفتر مدیریت پست"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/colorAccent"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorAccent"
+                        android:layout_marginBottom="4dp"
+                        android:orientation="vertical"
+                        android:id="@+id/Filter_Activity_linearLayout_line"
+                        android:layout_below="@id/Filter_Activity_txt_org_name"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/User_Access"
+                        android:textColor="@color/colorAccent"
+                        android:layout_below="@id/Filter_Activity_linearLayout_line"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="8dp"
+                        android:id="@+id/Filter_Activity_txt_user_access"
+                        />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:id="@+id/Filter_Activity_spinner_index_1"
+                        android:layout_below="@id/Filter_Activity_txt_user_access"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:visibility="gone"
+                        android:id="@+id/Filter_Activity_spinner_index_2"
+                        android:layout_below="@id/Filter_Activity_spinner_index_1"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:visibility="gone"
+                        android:id="@+id/Filter_Activity_spinner_index_3"
+                        android:layout_below="@id/Filter_Activity_spinner_index_2"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:visibility="gone"
+                        android:id="@+id/Filter_Activity_spinner_index_4"
+                        android:layout_below="@id/Filter_Activity_spinner_index_3"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:visibility="gone"
+                        android:id="@+id/Filter_Activity_spinner_index_5"
+                        android:layout_below="@id/Filter_Activity_spinner_index_4"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:backgroundTint="@color/colorAccent"
+                        android:layoutDirection="rtl"
+                        android:layout_margin="4dp"
+                        android:visibility="gone"
+                        android:id="@+id/Filter_Activity_spinner_driver"
+                        android:layout_below="@id/Filter_Activity_spinner_index_5"
+                        >
+
+                    </android.support.v7.widget.AppCompatSpinner>
+                </RelativeLayout>
+
+
+
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

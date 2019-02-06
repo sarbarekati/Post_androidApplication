@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/map_change_view"
+        android:title="نوع نقشه"
+        android:icon="@drawable/ic_map"
+        />
+
+
+    <item
+        android:id="@+id/map_update"
+        android:title="به روز رسانی نقشه"
+        android:icon="@drawable/ic_map"
+       />
+
+
+    <item
+        android:id="@+id/map_filter"
+        android:title="فیلترهای نقشه"
+        android:icon="@drawable/ic_map"
+        />
+
+
+
+</menu>

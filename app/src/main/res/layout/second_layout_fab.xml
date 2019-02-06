@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/yellow_light"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="انتخاب تاریخ"
+                android:background="@color/blue_500"
+                android:layout_margin="4dp"
+                android:id="@+id/select_date"
+                android:textColor="@color/deep_yellow"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مشخص کردن متحرک"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/title_choice"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                android:layoutDirection="rtl"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:checked="true"
+                android:layout_below="@id/select_date"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_container"
+                android:orientation="vertical"
+                android:layout_below="@id/title_choice"
+                >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_choice"
+                android:id="@+id/container_one"
+                >
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_one"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_one"
+                android:id="@+id/container_two"
+                android:visibility="gone"
+                >
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_two"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_two"
+                android:id="@+id/container_three"
+                android:visibility="gone"
+                >
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_three"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_three"
+                android:id="@+id/container_four"
+                android:visibility="gone"
+                >
+
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_four"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_four"
+                android:id="@+id/container_five"
+                android:visibility="gone"
+                >
+
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_five"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_five"
+                android:id="@+id/container_driver"
+                android:visibility="gone"
+                >
+
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_driver"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentRight="true"
+                    >
+
+                    <Spinner
+                        android:id="@+id/spinner_driver"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="وارد کردن کد خودرو"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/code_choice"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                android:layoutDirection="rtl"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:layout_below="@id/spinner_container"
+                />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="4dp"
+                android:id="@+id/card_car_number"
+                android:layout_below="@id/code_choice"
+                android:layout_margin="4dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/car_number_container"
+
+                    >
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        android:hint="12345"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="@color/deep_yellow"
+                        android:id="@+id/edt_code_Car"
+
+                        />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/deep_yellow"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:text="کد خودرو:"
+                        android:layout_margin="4dp"
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_car_number"
+                android:text="نمایش پیوسته"
+                android:layoutDirection="rtl"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="8dp"
+                android:id="@+id/ch_show_continues"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/ch_show_continues"
+                android:layout_margin="8dp"
+                android:id="@+id/speed_container"
+                >
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="123"
+                    android:id="@+id/edt_max_speed"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimaryDark"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="سرعت بالاتر از :"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+
+                    android:id="@+id/title_max_speed"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="123"
+                    android:maxLines="1"
+                    android:id="@+id/edt_min_speed"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="سرعت پایین تر از :"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:id="@+id/title_min_speed"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/stop_time_container"
+                android:layout_below="@id/speed_container"
+                android:layout_margin="8dp"
+                >
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="123"
+                    android:id="@+id/edt_stop_time"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:maxLines="1"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.1"
+                    android:layout_height="wrap_content"
+                    android:text="زمان توقف :"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:id="@+id/title_stop_time"
+                    />
+
+            </LinearLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stop_time_container"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                app:backgroundTint="@color/deep_yellow"
+                android:src="@drawable/check"
+                android:id="@+id/check_filter"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

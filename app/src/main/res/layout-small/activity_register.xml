@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bg">
+
+<ImageView
+    android:layout_width="@dimen/Register_img_logo_width"
+    android:layout_height="@dimen/Register_img_logo_height"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="@dimen/Register_img_logo_margin_top"
+    android:id="@+id/Register_img_logo"
+    android:src="@drawable/post_logo"/>
+
+    <TextView
+        android:id="@+id/Register_txtView_register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Register_img_logo"
+        android:layout_marginTop="14dp"
+        android:text="@string/register"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_txtView_register_title"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/Register_layout_margin_top"
+        android:id="@+id/Register_linearLayout_editTextContainer"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Register_edt_height"
+            android:singleLine="true"
+            android:layout_marginLeft="@dimen/Register_edt_margin_left"
+            android:layout_marginRight="@dimen/Register_edt_margin_right"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:gravity="right|bottom"
+            android:textColorHint="@android:color/white"
+            android:hint="@string/user_name"
+            android:background="@drawable/login_edt_shape"
+            android:paddingBottom="@dimen/Register_edt_padding_bottom"
+            android:id="@+id/Register_edtText_userName"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Register_edt_height"
+            android:singleLine="true"
+            android:hint="@string/password"
+            android:gravity="right|bottom"
+            android:layout_marginLeft="@dimen/Register_edt_margin_left"
+            android:layout_marginRight="@dimen/Register_edt_margin_right"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:paddingBottom="@dimen/Register_edt_padding_bottom"
+            android:textColorHint="@android:color/white"
+            android:inputType="textPassword"
+            android:background="@drawable/login_edt_shape"
+            android:id="@+id/Register_edtText_password"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/no_password_validate"
+            android:visibility="gone"
+            android:id="@+id/Register_txtView_passwordValidation"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Register_edt_height"
+            android:singleLine="true"
+            android:hint="@string/password_verify"
+            android:inputType="textPassword"
+            android:layout_marginLeft="@dimen/Register_edt_margin_left"
+            android:gravity="right|bottom"
+            android:layout_marginRight="@dimen/Register_edt_margin_right"
+            android:textColorHint="@android:color/white"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:paddingBottom="@dimen/Register_edt_padding_bottom"
+            android:background="@drawable/login_edt_shape"
+            android:id="@+id/Register_edtText_password_verify"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/no_verify"
+            android:visibility="gone"
+            android:id="@+id/Register_txtView_password_verify"
+            />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Register_Container_name"
+            android:visibility="gone"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/name"
+                android:id="@+id/Register_edtText_Name"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Register_Container_family_name"
+            android:visibility="gone"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/family_name"
+                android:id="@+id/Register_edtText_family_name"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Register_Container_phoneNumber"
+            android:visibility="gone"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:id="@+id/Register_edtText_phoneNumber"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Register_spin_job"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+    <com.victor.loading.rotate.RotateLoading
+        android:layout_width="@dimen/loading_width_height"
+        android:layout_height="@dimen/loading_width_height"
+        android:layout_gravity="center"
+        android:layout_below="@id/Register_linearLayout_editTextContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/loading_margin_top_register"
+        android:id="@+id/Register_rotate_loading"
+        app:loading_width="@dimen/loading_width"
+        app:loading_color="@color/colorAccent"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Register_btn_height"
+        android:background="@color/colorAccent"
+        android:text="@string/next_register_step"
+        android:id="@+id/Register_btn_next_step"
+        android:textColor="@color/colorPrimary"
+        android:textSize="10sp"
+        android:layout_marginBottom="@dimen/Register_btn_margin_bottom"
+        android:layout_alignParentBottom="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Register_txt_back_to_login"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+
+        android:id="@+id/Register_txt_back_to_login"
+        android:layout_marginBottom="@dimen/Register_txt_back_margin_bottom"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path
+        name="report_pdf_path"
+        path="Post_document/" />
+    <external-path
+        name="update_pdf_path"
+        path="POST_Application/" />
+    <external-path
+        name="external_files"
+        path="." />
+</paths>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/yellow_light"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/title_container"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="فیلتر های گزارشگیری"
+            android:textColor="@color/deep_yellow"
+            android:layout_alignParentRight="true"
+            android:textSize="24sp"
+            android:layout_marginRight="16dp"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/container"
+    android:layout_below="@id/title_container"
+    >
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:text="تعداد ماشین ها"
+        android:textStyle="bold"
+        android:textColor="@color/deep_yellow"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_margin="4dp"
+        android:textColor="@color/deep_yellow"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="سطح دسترسی کاربری"/>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container"
+        android:id="@+id/container_one"
+        >
+
+
+<TextView
+    android:layout_width="0dp"
+    android:layout_weight="0.5"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:text="69"
+    android:layout_margin="8dp"
+    android:gravity="center"
+    android:textColor="@color/deep_yellow"
+    android:id="@+id/text_access_one"
+    />
+
+<android.support.v7.widget.CardView
+    android:id="@+id/card_one"
+    android:layout_width="0dp"
+    android:layout_weight="2"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
+    android:layout_margin="8dp"
+    android:layout_alignParentRight="true"
+    >
+
+                    <Spinner
+                        android:id="@+id/spinner_one"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        >
+                    </Spinner>
+</android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_one"
+        android:id="@+id/container_two"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="69"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/deep_yellow"
+            android:id="@+id/text_access_two"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_two"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_margin="8dp"
+            android:layout_alignParentRight="true"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_two"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layoutDirection="rtl"
+                >
+            </Spinner>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_two"
+        android:id="@+id/container_three"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="69"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/deep_yellow"
+            android:id="@+id/text_access_three"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_three"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_margin="8dp"
+            android:layout_alignParentRight="true"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_three"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layoutDirection="rtl"
+                >
+            </Spinner>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_three"
+        android:id="@+id/container_four"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="69"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/deep_yellow"
+            android:id="@+id/text_access_four"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_four"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_margin="8dp"
+            android:layout_alignParentRight="true"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_four"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layoutDirection="rtl"
+                >
+            </Spinner>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_four"
+        android:id="@+id/container_five"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="69"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/deep_yellow"
+            android:id="@+id/text_access_five"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_five"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_margin="8dp"
+            android:layout_alignParentRight="true"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_five"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layoutDirection="rtl"
+                >
+            </Spinner>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container_five"
+        android:id="@+id/container_driver"
+        >
+
+
+        <TextView
+            android:layout_width="0dp"
+
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="69"
+            android:visibility="invisible"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textColor="@color/deep_yellow"
+            android:id="@+id/text_access_diver"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_driver"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_margin="8dp"
+            android:layout_alignParentRight="true"
+            >
+
+            <Spinner
+                android:id="@+id/spinner_driver"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layoutDirection="rtl"
+                >
+            </Spinner>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        android:id="@+id/card_car_number"
+        android:layout_below="@id/container_driver"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/car_number_container"
+            >
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:hint="12345"
+                android:gravity="center"
+                android:textColorHint="@color/deep_yellow"
+                android:textColor="@color/deep_yellow"
+
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textColor="@color/deep_yellow"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="کد خودرو:"
+                android:layout_margin="4dp"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        android:id="@+id/card_car_online"
+        android:layout_below="@id/card_car_number"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/car_online_container"
+            android:padding="12dp"
+            >
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/deep_yellow"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="وضعیت خودروها (آنلاین/آفلاین)"
+                android:layout_marginRight="24dp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

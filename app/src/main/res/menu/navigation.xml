@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/Main_bottom_nav_report"
+        android:title="@string/bottom_nav_reports"
+        android:icon="@drawable/ic_file_document_outline_white_24dp"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        />
+
+
+    <item
+        android:id="@+id/Main_bottom_nav_map"
+        android:title="@string/bottom_nav_map"
+        android:icon="@drawable/ic_map_white_24dp"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/Main_bottom_nav_alarms"
+        android:title="@string/bottom_nav_alarms"
+        android:icon="@drawable/ic_bell_ring_white_24dp"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        />
+
+
+    <item
+        android:id="@+id/Main_bottom_nav_Dashboard"
+        android:title="@string/managar_dashboard"
+        android:icon="@drawable/chart"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+
+        />
+
+    <item
+        android:id="@+id/Main_bottom_nav_profile"
+        android:title="@string/bottom_nav_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_white_24dp"
+        app:showAsAction="ifRoom"
+        />
+
+
+
+
+
+</menu>

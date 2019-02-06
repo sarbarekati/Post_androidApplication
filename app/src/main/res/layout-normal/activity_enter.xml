@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layoutDirection="ltr"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.anad.mobile.post.Activity.EnterActivity">
+    
+    
+    <ImageView
+        android:layout_width="@dimen/Enter_img_logo_width"
+        android:layout_height="@dimen/Enter_img_logo_height"
+        android:src="@drawable/post_logo"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/Enter_img_logo_margin_top"
+        android:id="@+id/Enter_img_logo"
+        android:contentDescription="@string/desc_post_logo"
+        />
+    
+    <TextView
+        android:layout_width="@dimen/Enter_txt_title_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/Enter_img_logo"
+        android:textSize="20sp"
+        android:gravity="center"
+
+        android:id="@+id/Enter_txt_title"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/Enter_txt_title_margin_top"
+        android:text="@string/enter_txt_title"
+        />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/Enter_layout_btnContainer_height"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:background="@color/colorAccent"
+    android:layout_marginBottom="@dimen/Enter_layout_btnContainer_margin_bottom"
+    >
+
+    <Button
+        android:id="@+id/activity_enter_btn_register"
+        style="?android:buttonBarButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:text="@string/register_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+
+        android:visibility="gone" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/activity_enter_btn_login"
+        android:text="@string/login_label"
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        style="?android:buttonBarButtonStyle"
+        />
+
+</LinearLayout>
+    
+    <ImageView
+        android:layout_width="@dimen/Enter_img_logo_width"
+        android:layout_height="@dimen/Enter_img_anadLogo_height"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/anad_logo"
+        android:contentDescription="@string/desc_anad_logo"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+
+        />
+
+</RelativeLayout>

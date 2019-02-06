@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.github.michael-rapp:android-util-1.19.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-util-1.19.0.aar/40ad50cea4791461c0a9c6db2e5a9da8/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-util-1.19.0.aar/40ad50cea4791461c0a9c6db2e5a9da8/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.michael-rapp/android-util/1.19.0/f503669f92187d09f1e0583d9e44c8a4846b1aab/android-util-1.19.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

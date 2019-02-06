@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">Post</string>
+    <string name="register_label">ثبت نام</string>
+    <string name="login_label">ورود</string>
+    <string name="user_name">نام کاربری</string>
+    <string name="password">کلمه عبور</string>
+    <string name="password_verify">تکرار کلمه عبور</string>
+    <string name="no_internet_connection">خطای اتصال به سرور.لطفا از وصل بودن اینترنت خود اطمینان حاصل نمایید.</string>
+    <string name="remember_me">مرا بخاطر بسپار</string>
+    <string name="no_verify">رمز وارد شده با رمز عبور همخوانی ندارد.</string>
+    <string name="no_password_validate">رمز عبور باید بیشتر از 8 کاراکتر و شامل حروف بزرگ و کوچک انگلیسی و عدد باشد.</string>
+    <string name="phone_number">شماره تلفن همراه</string>
+    <string name="please_enter_user_name">لطفا نام کاربری و رمز عبور خود را وارد نمایید.</string>
+    <string name="please_enter_password">لطفا نام کاربری و رمز عبور خود را وارد نمایید.</string>
+    <string name="name">نام</string>
+    <string name="family_name">نام خانوادگی</string>
+    <string name="enter_phone_number">لطفا شماره تلفن همراه خود را وارد نمایید.</string>
+    <string name="forget_password">فراموشی کلمه عبور</string>
+    <string name="enter_register_code">کد 4 رقمی ارسال شده را وارد نمایید.</string>
+    <string name="ok">تایید</string>
+    <string name="title_activity_register_code">RegisterCode</string>
+    <string name="wrong_register_code">کد 4 رقمی وارد شده،نادرست است.</string>
+    <string name="inter_to_app">ورود به سامانه</string>
+    <string name="splash_title">سامانه مدیریت خودروهای شرکت ملی پست جمهوری اسلامی ایران</string>
+    <string name="register">ثبت نام در سامانه</string>
+    <string name="next_register_step">مرحله بعد</string>
+    <string name="Register_complete">تکمیل ثبت نام</string>
+    <string name="Resigter_name">نام</string>
+    <string name="Register_family_name">نام خانوادگی</string>
+    <string name="Register_phone_number">09*********</string>
+    <string name="Register_job">سمت</string>
+    <string name="Register_send_data">ارسال اطلاعات</string>
+    <string name="Register_back_title">بازگشت</string>
+    <string name="enter_txt_title">به سامانه مدیریت خودروهای شرکت ملی پست جمهوری اسلامی ایران خوش آمدید.</string>
+    <string name="desc_post_logo">لوگو پست</string>
+    <string name="desc_anad_logo">لوگو آناد</string>
+    <string name="Login_txt_back_to_register">ثبت نام</string>
+    <string name="Register_txt_back_to_login">ورود</string>
+    <string name="enter_register_code_title">وارد کردن کد چهار رقمی</string>
+    <string name="enter_your_user_name">لطفا نام کاربری خود را وارد نمایید.</string>
+    <string name="restore_password">بازیابی کلمه عبور</string>
+    <string name="resend_message">ارسال مجدد پیامک</string>
+    <string name="enter_phone_number_resend">شماره تلفن همراه خود را وارد نمایید.</string>
+    <string name="please_enter_phone_number">لطفا شماره تلفن همراه خود را وارد نمایید.</string>
+    <string name="please_enter_your_user_name">لطفا نام کاربری و رمز عبور خود را وارد نمایید.</string>
+    <string name="Can_not_register_with_this_phone_number">این شماره تلفن همراه قبلا ثبت شده است.</string>
+    <string name="Can_not_register_with_this_user_name">با این نام کاربری نمی توانید ثبت نام نمایید.</string>
+    <string name="Must_enter_name">وارد کردن نام اجباری است.</string>
+    <string name="Must_enter_last_name">وارد کردن نام خانوادگی اجباری است.</string>
+    <string name="Must_enter_phone_number">وارد کردن شماره تلفن همراه اجباری است.</string>
+    <string name="Log_in_succeed">ورود با موفقیت انجام شد.</string>
+    <string name="Log_in_failed">کد 4 رقمی وارد شده اشتباه است.</string>
+    <string name="mobile_number">شماره تلفن همراه</string>
+    <string name="your_register_complete_and_wait_for_admin_accept">ثبت نام شما با موفقیت انجام شد و منتظر تائید ادمین می باشد.</string>
+    <string name="back_to_enter_page">بازگشت به صفحه نخست</string>
+    <string name="wait_for_accept">حساب کاربری شما منتظر تائید ادمین است.</string>
+    <string name="Account_is_active">اکانت شما فعال شده است.</string>
+    <string name="Account_accept_not_active">حساب کاربری شما تائید شده است و منتظر فعال سازی است.</string>
+    <string name="Account_Cancel">متاسفانه حساب کاربری شما کنسل شده است.</string>
+    <string name="No_Account_with_this_Information">کاربری با این مشخصات موجود نمی باشد.</string>
+    <string name="Username_or_Password_enter_incorrect">نام کاربری یا رمز عبور را اشتباه وارد کرده اید.</string>
+
+    <string name="Phone_number_is_less_than_11_number">شماره وارد شده صحیح نمی باشد.</string>
+    <string name="bottom_nav_map">نقشه</string>
+    <string name="bottom_nav_reports">گزارشات</string>
+    <string name="bottom_nav_more">بیشتر</string>
+    <string name="bottom_nav_alarms">هشدارها</string>
+    <string name="please_select_report">نوع گزارش را انتخاب نمایید</string>
+    <string name="General_Report">گزارش های عمومی</string>
+    <string name="Rahsepari_report">گزارش های رهسپاری</string>
+    <string name="Peymankari_Report">گزارش های پیمانکاری</string>
+    <string name="Masirha_report">گزارش مسیر های طی شده</string>
+    <string name="head">سرشاخه</string>
+    <string name="Cars_state">وضعیت خودروها</string>
+    <string name="User_Access">زیر مجموعه های کاربر :</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="you_current_position">موقعیت فعلی شما</string>
+    <string name="Filter_desire_Car">فیلتر کردن ماشین مورد نظر</string>
+    <string name="speed_max">تا سرعت</string>
+    <string name="speed_min">از سرعت</string>
+    <string name="length_max">تا مسافت</string>
+    <string name="length_min">از مسافت</string>
+    <string name="time_start">تا ساعت</string>
+    <string name="time_end">از ساعت</string>
+    <string name="date_title_report"> تاریخ :</string>
+    <string name="path_title_report">مسیر :</string>
+    <string name="driver_name_title_report">نام راننده :</string>
+    <string name="driver_code_title_report">کد راننده :</string>
+    <string name="date_start">از تاریخ :</string>
+    <string name="date_end">تا تاریخ :</string>
+    <string name="please_enter_start_date">لطفا تاریخ شروع را وارد نمایید.</string>
+    <string name="please_enter_end_date">تاریخ پایان را مشخص نمایید.</string>
+    <string name="all_item">همه موارد</string>
+    <string name="bargiri_date">تاریخ بارگیری</string>
+    <string name="bargiri_time">مدت زمان بارگیری</string>
+    <string name="harkat_date">تاریخ حرکت</string>
+    <string name="mogharar_time">ساعت مقرر</string>
+    <string name="harkat_time">ساعت حرکت</string>
+    <string name="late">تاخیر</string>
+    <string name="soon">تعجیل</string>
+    <string name="destination_date">تاریخ ورود به مقصد</string>
+    <string name="destination_time">ساعت ورود به مقصد</string>
+    <string name="bazgoshayi_date">تاریخ بازگشایی درب خودرو در مقصد</string>
+    <string name="bazrgoshayi_time">زمان بازگشایی درب خودرو در مقصد</string>
+    <string name="tahvil_marsolat_time">مدت زمان تحویل و تحول مرسولات</string>
+    <string name="tey_moghrar_time">زمان مقرر طی مسیر از مبدا تا مقصد</string>
+    <string name="tey_masir_realy">زمان طی مسیر از مبدا تا مقصد</string>
+    <string name="tey_length">مسافت طی شده از مبدا تا مقصد</string>
+    <string name="avg_speed">سرعت میانگین</string>
+    <string name="max_speed">بیشینه سرعت</string>
+    <string name="mobadele_name">نام نقطه مبادله:</string>
+    <string name="mobadele_date">تاریخ:</string>
+    <string name="mobadele_time">مدت مبادله:</string>
+    <string name="mobadele_moghrar_vorod">ساعت مقرر ورود</string>
+    <string name="mobadele_vorod">ساعت ورود</string>
+    <string name="mobadele_moghrar_khoroj">ساعت مقرر خروج</string>
+    <string name="mobadele_khoroj">ساعت خروج</string>
+    <string name="mobadele_vorod_late">تاخیر در ورود</string>
+    <string name="mobadele_vorod_soon">تعجیل در ورود</string>
+    <string name="mobadele_khoroj_late">تاخیر در خروج</string>
+    <string name="mobadele_khoroj_soon">تعجیل در خروج</string>
+    <string name="rahsepari_report">گزارش های رهسپاری</string>
+    <string name="rahsepari_report_form">گزارش فرم رهسپاری</string>
+    <string name="rfid_report">گزارش های پیمانکاری</string>
+    <string name="rfid_report_form">گزارش فرم پیمانکاری</string>
+    <string name="path_report">گزارش مسیر های طی شده</string>
+    <string name="for_this_filter_have_not_any_car">برای مورد انتخابی هیچ خودرویی موجود نمی باشد.</string>
+    <string name="bottom_nav_profile">پروفایل</string>
+    <string name="post_app_name">سامانه مدیریت خودروهای شرکت ملی پست</string>
+    <string name="alarms_setting">تنظیمات هشدارها</string>
+    <string name="save">ذخیره</string>
+    <string name="enable_notification">فعال سازی اعلان</string>
+    <string name="speed_over_100">سرعت بالای 100</string>
+    <string name="show_report">نمایش گزارش</string>
+    <string name="km_per_hour">به کیلومتر در ساعت</string>
+    <string name="map_type_street">نوع نقشه : خیابان</string>
+    <string name="map_type_satelite">نوع نقشه : ماهواره</string>
+    <string name="save_alarm">بایگانی کردن</string>
+    <string name="share_alarm">اشتراک گذاری</string>
+    <string name="no_report_available">با توجه به فیلترهای اعمال شده گزارشی وجود ندارد.</string>
+    <string name="Please_wait_until_update_complete">در حال دریافت نسخه بروزرسانی نرم افزار اندروید پست...</string>
+    <string name="Deny">رد کردن</string>
+    <string name="Do_you_want_to_update">مایل به بروزرسانی نرم افزار هستید؟</string>
+    <string name="bad_request_message">برای ورود ابتدا باید ثبت نام کرده و یا در صورت ثبت نام قبلی وارد صفحه ورود شوید</string>
+    <string name="your_phone_is_root">دستگاه شما روت شده است.لذا تمامی عواقب استفاده از برنامه در این دستگاه بر عهده شما می باشد.</string>
+    <string name="cancel">انصراف</string>
+    <string name="map_exception">خطا در دریافت اطلاعات نقشه</string>
+    <string name="managar_dashboard">داشبورد مدیریتی</string>
+    <string name="open_door_in_wrong_location">دفعات بازگشایی در نقاط غیر مجاز</string>
+    <string name="Error_To_Receive_Data">خطا در دریافت اطلاعات</string>
+
+
+    <string-array name="Report_filters">
+        <item>تاخیر در خروج از مبدا </item>
+        <item>تاخیر در ورود به مقصد </item>
+        <item>تعجیل در ورود به مقصد </item>
+        <item>براساس مدت بارگیری </item>
+        <item>براساس زمان مقرر خروج از مبدا </item>
+        <item>براساس زمان مقرر ورود به مقصد </item>
+        <item>براساس زمان طی مسیر </item>
+        <item>براساس سرعت میانگین </item>
+        <item>براساس تخلف سرعت </item>
+        <item>براساس مسافت طی شده </item>
+    </string-array>
+
+</resources>

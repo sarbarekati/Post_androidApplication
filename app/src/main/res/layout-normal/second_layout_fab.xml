@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_main"
+    android:layoutDirection="ltr"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:id="@+id/check_filter"
+        android:text="@string/show_report"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scroll_root"
+        android:layout_above="@id/check_filter"
+        android:layout_marginBottom="14dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:id="@+id/date_picker_container"
+                android:layout_marginTop="16dp"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_title"
+                    android:layout_alignParentRight="true"
+                    android:text="انتخاب تاریخ"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/date_label"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:layout_below="@id/date_label"
+                    android:layout_alignParentRight="true"
+                    tools:text="1396/11/20"
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/select_date"
+                    />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/calendar"
+                    android:layout_below="@id/date_label"
+                    android:layout_marginTop="4dp"
+
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_title"
+                    android:layout_below="@id/select_date"
+                    android:layout_marginTop="8dp"
+                    />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="انتخاب خودرو"
+                android:textColor="@color/gray_title"
+                android:id="@+id/title_choice"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_normal"
+                android:layoutDirection="rtl"
+                android:textStyle="bold"
+                android:textSize="@dimen/margin_large"
+                app:buttonTint="@color/colorAccent"
+                android:checked="true"
+                android:layout_below="@id/date_picker_container"
+                />
+
+            <LinearLayout
+                android:id="@+id/spinner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_choice"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/container_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title_choice"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_one"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_two"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    >
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_three"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    >
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_four"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_four"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    >
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_five"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_driver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/container_five"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    >
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinner_driver"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layoutDirection="rtl"
+                        app:backgroundTint="@color/gray_title"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_title"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="انتخاب براساس کد خودرو"
+                android:textColor="@color/gray_title"
+                android:id="@+id/code_choice"
+                app:buttonTint="@color/colorAccent"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_normal"
+                android:layoutDirection="rtl"
+                android:textStyle="bold"
+                android:textSize="@dimen/margin_large"
+                android:layout_below="@id/spinner_container"
+                />
+
+            <LinearLayout
+                android:id="@+id/car_number_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_below="@id/code_choice"
+                >
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/edt_code_Car"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textSize="12sp"
+                    app:backgroundTint="@color/gray_title"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+
+                    />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/car_number_container"
+                android:text="نمایش پیوسته"
+                android:layoutDirection="rtl"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/gray_title"
+                app:buttonTint="@color/colorAccent"
+                android:layout_margin="@dimen/margin_normal"
+                android:id="@+id/ch_show_continues"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/ch_show_continues"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:id="@+id/speed_container"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/speed_max"
+                        android:id="@+id/speed_max_label"
+                        android:textColor="@color/gray_title"
+                        android:textSize="12sp"
+                        />
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edt_max_speed"
+                        android:layout_below="@id/speed_max_label"
+                        app:backgroundTint="@color/gray_title"
+                        android:hint="100"
+                        android:inputType="number"
+                        android:gravity="right"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/speed_max_dimension_label"
+                        android:layout_below="@id/edt_max_speed"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/km_per_hour"
+                        android:textColor="@color/gray_title"
+                        android:textSize="12sp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/speed_min"
+                        android:id="@+id/speed_min_label"
+                        android:textColor="@color/gray_title"
+                        android:textSize="12sp"
+                        />
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edt_min_speed"
+                        android:layout_below="@id/speed_min_label"
+                        app:backgroundTint="@color/gray_title"
+                        android:hint="20"
+                        android:gravity="right"
+                        android:inputType="number"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/speed_min_dimension_label"
+                        android:layout_below="@id/edt_min_speed"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/km_per_hour"
+                        android:textColor="@color/gray_title"
+                        android:textSize="12sp"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="12dp"
+                android:gravity="right"
+                android:layout_below="@id/speed_container"
+                >
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/stop_time_container"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:text="زمان توقف"
+                        android:textColor="@color/gray_title"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:id="@+id/title_stop_time"
+                        />
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:hint="2"
+                        android:inputType="number"
+                        android:layout_below="@id/title_stop_time"
+                        android:textColorHint="@android:color/white"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/edt_stop_time"
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="@color/gray_title"
+                        android:maxLines="1"
+                        android:textSize="14sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/edt_stop_time"
+                        android:layout_alignParentRight="true"
+                        android:text="به دقیقه"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray_title"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

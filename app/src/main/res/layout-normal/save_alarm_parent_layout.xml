@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/parent_expandable"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/alarm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/alarm_chevron"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                tools:text="نام هشدار" />
+
+            <RelativeLayout
+                android:id="@+id/badge_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:layout_toStartOf="@id/alarm_title"
+                android:background="@drawable/badge">
+
+                <TextView
+                    android:id="@+id/alarm_txt_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"
+                    tools:text="50" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/alarm_chevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/ic_chevron_down_white_24dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rc_container"
+    android:layout_below="@id/parent_expandable"
+    >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/alarm_child_rc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+</ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/more_btn"
+        android:layout_below="@id/rc_container"
+        android:background="@color/blue_child_alarm"
+        android:text="بیشتر"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        />
+</RelativeLayout>

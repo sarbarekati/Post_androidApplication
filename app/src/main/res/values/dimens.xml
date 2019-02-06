@@ -1,0 +1,168 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!-- ###LOGIN ACTIVITY DIMENSIONS### -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="login_btn_size">48dp</dimen>
+    <dimen name="forget_pass_margin_top">28dp</dimen>
+    <dimen name="forget_pass_margin_right">59dp</dimen>
+    <dimen name="login_btn_margin_top">32dp</dimen>
+    <dimen name="login_check_box_margin_top">16dp</dimen>
+    <dimen name="login_check_box_margin_right">16dp</dimen>
+    <dimen name="login_edt_margin_top">22dp</dimen>
+    <dimen name="login_edt_margin_right">16dp</dimen>
+    <dimen name="login_edt_margin_left">16dp</dimen>
+    <dimen name="login_layout_container_margin_top">26dp</dimen>
+    <dimen name="login_txt_title_margin_top">10dp</dimen>
+    <dimen name="login_img_logo_margin_top">51dp</dimen>
+
+    <!-- Splash ACTIVITY -->
+    <dimen name="splash_img_logo_margin_top">94dp</dimen>
+    <dimen name="splash_img_logo_height">86dp</dimen>
+    <dimen name="splash_img_logo_width">105dp</dimen>
+    <dimen name="splash_img_anad_height">64dp</dimen>
+    <dimen name="splash_img_anad_width">56dp</dimen>
+    <dimen name="splash_img_anad_margin_bottom">11dp</dimen>
+    <dimen name="Splash_txt_title_width">167dp</dimen>
+
+
+    <!-- Register Activity -->
+    <dimen name="Register_img_logo_width">66dp</dimen>
+    <dimen name="Register_img_logo_height">54dp</dimen>
+    <dimen name="Register_img_logo_margin_top">52dp</dimen>
+    <dimen name="Register_layout_margin_top">6dp</dimen>
+    <dimen name="Register_edt_height">54dp</dimen>
+    <dimen name="Register_edt_margin_left">10dp</dimen>
+    <dimen name="Register_edt_margin_right">10dp</dimen>
+    <dimen name="Register_btn_height">62dp</dimen>
+    <dimen name="Register_btn_margin_bottom">56dp</dimen>
+    <dimen name="Register_edt_padding_bottom">3.5dp</dimen>
+    <dimen name="Register_txt_back_margin_bottom">20dp</dimen>
+
+
+    <!-- Register next ACTIVITY -->
+    <dimen name="Register_next_txt_title_margin_top">54.6dp</dimen>
+    <dimen name="Register_next_txt_title_margin_bottom">11.5dp</dimen>
+    <dimen name="Register_next_edt_height">54.6dp</dimen>
+    <dimen name="Register_next_edt_margin_right">11dp</dimen>
+    <dimen name="Register_next_edt_margin_left">11dp</dimen>
+    <dimen name="Register_next_edt_padding_bottom">3.5dp</dimen>
+    <dimen name="Register_next_btn_height">62dp</dimen>
+    <dimen name="Register_next_btn_margin_bottom">56.6dp</dimen>
+    <dimen name="Register_next_txt_back_height">21.5dp</dimen>
+    <dimen name="Register_next_txt_back_margin_bottom">19.3dp</dimen>
+
+    <!-- Enter ACTIVITY -->
+
+    <dimen name="Enter_img_logo_width">106dp</dimen>
+    <dimen name="Enter_img_logo_height">86dp</dimen>
+    <dimen name="Enter_img_logo_margin_top">94dp</dimen>
+    <dimen name="Enter_txt_title_width">166dp</dimen>
+    <dimen name="Enter_txt_title_height">36dp</dimen>
+    <dimen name="Enter_txt_title_margin_top">30dp</dimen>
+    <dimen name="Enter_layout_btnContainer_height">62dp</dimen>
+    <dimen name="Enter_layout_btnContainer_margin_bottom">72dp</dimen>
+    <dimen name="Enter_img_anadLogo_width">64dp</dimen>
+    <dimen name="Enter_img_anadLogo_height">64dp</dimen>
+    <dimen name="Enter_img_anadLogo_margin_bottom">10dp</dimen>
+
+
+    <!-- Register Code ACTIVITY -->
+
+    <dimen name="Register_code_edt_margin_top">32dp</dimen>
+
+    <!-- Forget password dialog -->
+    <dimen name="forget_pass_root_width">300dp</dimen>
+    <dimen name="forget_pass_root_height">200dp</dimen>
+    <dimen name="forget_pass_edt_height">24dp</dimen>
+    <dimen name="forget_pass_edt_margin_top">56dp</dimen>
+    <dimen name="forget_pass_btn_margin_bottom">24dp</dimen>
+    <dimen name="dialog_padding_sides">8dp</dimen>
+    <dimen name="forget_pass_rd_margin_right">24dp</dimen>
+    <dimen name="forget_pass_rd_margin_top">16dp</dimen>
+
+    <!-- Component Dimension -->
+    <dimen name="loading_width">4dp</dimen>
+    <dimen name="loading_width_height">64dp</dimen>
+    <dimen name="loading_margin_top">24dp</dimen>
+    <dimen name="loading_margin_top_register">16dp</dimen>
+    <dimen name="loading_margin_top_register_next">8dp</dimen>
+    <dimen name="Login_rotate_loading_width_height">40dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="Report_fragment_rd_group_margin_top">8dp</dimen>
+    <dimen name="Report_fragment_rd_container_padding">16dp</dimen>
+
+
+    <!-- Report Fragment-->
+    <dimen name="Report_fragment_fab_margin">16dp</dimen>
+    <dimen name="Report_fragment_fab_margin_bottom">18dp</dimen>
+    <dimen name="Report_fragment_switch_margin_left">5.6dp</dimen>
+    <dimen name="Report_fragment_root_margin">5.6dp</dimen>
+    <dimen name="Report_fragment_btn_margin">2dp</dimen>
+    <dimen name="Report_fragment_root_padding">2.4dp</dimen>
+    <dimen name="Report_fragment_scroll_veiw_margin">10.6dp</dimen>
+    <dimen name="Report_fragment_card_margin_top">5.6dp</dimen>
+    <dimen name="Report_fragment_card_elevation">2.4dp</dimen>
+    <dimen name="Report_fragment_card_radius">2.4dp</dimen>
+    <dimen name="Report_fragment_main_root_padding">5.6dp</dimen>
+
+    <!-- Main Activity-->
+    <dimen name="Main_bottom_navigation_elevation">8dp</dimen>
+    <dimen name="Main_Navigation_view_width">250dp</dimen>
+    <dimen name="Report_fragment_report_container_height">240dp</dimen>
+    <dimen name="Report_fragment_report_card_height">200dp</dimen>
+
+    <!-- Filter Activity -->
+    <dimen name="Filter_Activity_root_padding">16dp</dimen>
+    <dimen name="Filter_Activity_title_margin">8dp</dimen>
+    <dimen name="Filter_Activity_card_margin_top">8dp</dimen>
+    <dimen name="Filter_Activity_card_elevation">4dp</dimen>
+    <dimen name="Filter_Activity_scroll_padding">8dp</dimen>
+
+
+    <!-- new dimension -->
+
+
+    <dimen name="activity_report_title_padding">12dp</dimen>
+    <dimen name="act_rep_repTitle_padding">16dp</dimen>
+    <dimen name="act_rep_title_height">32dp</dimen>
+    <dimen name="act_rep_padding_title">6dp</dimen>
+    <dimen name="act_rep_margin_bottom_title">6dp</dimen>
+    <dimen name="act_rep_padding_right">2dp</dimen>
+    <dimen name="act_rep_margin_right">6dp</dimen>
+    <dimen name="act_rep_card_elevation">4dp</dimen>
+    <dimen name="act_rep_margin_top_fold">2dp</dimen>
+    <dimen name="act_rep_height_fold">256dp</dimen>
+    <dimen name="act_rep_fold_title_height">50dp</dimen>
+    <dimen name="act_rep_fold_btn_size">24dp</dimen>
+    <dimen name="act_rep_margin_larg">12dp</dimen>
+    <dimen name="act_rep_fold_main_height">48dp</dimen>
+
+
+
+    <dimen name="margin_verySmall">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_normal">6dp</dimen>
+    <dimen name="margin_after_normal">8dp</dimen>
+
+    <dimen name="margin_large">12dp</dimen>
+    <dimen name="margin_xlarge">16dp</dimen>
+    <dimen name="margin_xxlarge">24dp</dimen>
+
+    <dimen name="act_rep_mobadele_title">40dp</dimen>
+
+    <dimen name="margin_ultra_larg">80dp</dimen>
+    <dimen name="title_arc_height">24dp</dimen>
+    <dimen name="title_height">64dp</dimen>
+    <dimen name="show_path_height">100dp</dimen>
+    <dimen name="report_item_height">56dp</dimen>
+    <dimen name="mobadele_six">4dp</dimen>
+    <dimen name="margin_ten">8dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">11sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">8sp</dimen>
+
+</resources>

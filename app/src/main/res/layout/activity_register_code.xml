@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bg">
+    <ImageView
+        android:layout_width="@dimen/Enter_img_logo_width"
+        android:layout_height="@dimen/Enter_img_logo_height"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/post_logo"
+        android:id="@+id/Register_Code_img_logo"
+        android:layout_marginTop="@dimen/Register_img_logo_margin_top"/>
+    <TextView
+        android:layout_width="@dimen/Enter_txt_title_width"
+        android:layout_height="@dimen/Enter_txt_title_height"
+        android:text="@string/enter_register_code_title"
+        android:layout_below="@+id/Register_Code_img_logo"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:id="@+id/Register_Code_txt_title"
+        android:layout_marginTop="@dimen/Enter_txt_title_margin_top"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_register_code"
+            android:maxLines="1"
+            android:maxLength="4"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:layout_below="@id/Register_Code_txt_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/Register_code_edt_margin_top"
+            android:layout_marginRight="@dimen/Register_edt_margin_right"
+            android:layout_marginLeft="@dimen/Register_edt_margin_left"
+            android:background="@drawable/login_edt_shape"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/Register_edt_padding_bottom"
+            android:id="@+id/Register_Code_edt_registerCode"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Register_Code_edt_registerCode"
+        android:id="@+id/Register_txt_wrong_registerCode"
+        android:textColor="@android:color/holo_red_light"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/wrong_register_code"
+        android:layout_centerHorizontal="true"
+        />
+
+    <com.victor.loading.rotate.RotateLoading
+        android:layout_width="@dimen/loading_width_height"
+        android:layout_height="@dimen/loading_width_height"
+        android:layout_gravity="center"
+        android:layout_below="@id/Register_txt_wrong_registerCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/loading_margin_top"
+        android:id="@+id/Register_Code_rotate_loading"
+        app:loading_width="@dimen/loading_width"
+        app:loading_color="@color/colorAccent"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Register_btn_height"
+        android:text="@string/ok"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_marginBottom="@dimen/Register_btn_margin_bottom"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/RegisterCode_btn_accept"
+        />
+
+</RelativeLayout>

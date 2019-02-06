@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bg_main"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/app_bar_container"
+        android:background="@color/colorPrimary">
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentLeft="true"
+            android:text="@string/alarms_setting"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:background="@drawable/button_alarm"
+            android:padding="4dp"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/alarms_btn_setting"
+            />
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/alarm_app_bar"
+            android:layout_marginTop="10dp"
+            >
+            <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/alarm_tabLayout"
+                app:tabIndicatorHeight="4dp"
+                >
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar_container"
+        android:id="@+id/alarms_viewPager"
+        >
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_simple"
+    android:padding="8dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:layout_alignParentRight="true"
+        android:text="ساعت حرکت از مبدا"
+        android:id="@+id/mabda_run_title"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mabda_run_title"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="تعجیل"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_tajil"
+                android:background="@drawable/shape_simple"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="07:36"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_tajil_data"
+                android:background="@drawable/shape_simple"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="تاخیر"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_takhir"
+                android:background="@drawable/shape_simple"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_takhir_data"
+                android:background="@drawable/shape_simple"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="حرکت"
+                android:id="@+id/mabda_in_out_run"
+                android:textSize="6sp"
+                android:background="@drawable/shape_simple"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="12:54"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_run_data"
+                android:background="@drawable/shape_simple"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ساعت مقرر"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_moghrar"
+                android:background="@drawable/shape_simple"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="20:30"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_mogharar_data"
+                android:background="@drawable/shape_simple"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="تاریخ"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_date"
+                android:background="@drawable/shape_simple"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1396/06/23"
+                android:textSize="6sp"
+                android:id="@+id/mabda_in_out_date_data"
+                android:background="@drawable/shape_simple"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bg"
+    tools:context="com.anad.mobile.post.Activity.Splash">
+
+    <ImageView
+        android:layout_width="@dimen/splash_img_logo_width"
+        android:layout_height="@dimen/splash_img_logo_height"
+        android:id="@+id/Splash_img_logo"
+        android:src="@drawable/post_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/splash_img_logo_margin_top"
+        android:adjustViewBounds="true"
+        />
+    <TextView
+        android:layout_width="@dimen/Splash_txt_title_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:text="@string/splash_title"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/Splash_txt_title"
+        android:textColor="@android:color/white"/>
+
+    <com.victor.loading.rotate.RotateLoading
+        android:layout_width="@dimen/loading_width_height"
+        android:layout_height="@dimen/loading_width_height"
+        android:layout_below="@id/Splash_txt_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/loading_margin_top"
+        android:id="@+id/Splash_rotate_loading"
+        app:loading_width="@dimen/loading_width"
+        app:loading_color="@color/colorAccent"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/splash_img_logo_width"
+        android:layout_height="@dimen/splash_img_anad_height"
+        android:id="@+id/Splash_img_anad"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/splash_img_anad_margin_bottom"
+        android:adjustViewBounds="true"
+        android:src="@drawable/anad_logo"
+        android:visibility="gone"
+        />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="@dimen/loading_width_height"
+        android:layout_height="@dimen/loading_width_height"
+        android:src="@drawable/repeat"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Splash_txt_title"
+        android:layout_marginTop="@dimen/loading_margin_top"
+        android:id="@+id/splash_fbtn_retry"
+        android:visibility="gone"
+        app:elevation="0dp"
+        />
+    
+
+</RelativeLayout>

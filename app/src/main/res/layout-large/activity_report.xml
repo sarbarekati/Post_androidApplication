@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/yellow_light"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_container"
+        android:background="@color/colorPrimaryDark"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="گزارش فرم رهسپاری"
+            android:textColor="@color/deep_yellow"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/act_rep_repTitle_padding"
+            android:textStyle="bold"
+            android:id="@+id/report_title"
+            />
+        <LinearLayout
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/act_rep_title_height"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/activity_report_title_padding"
+            android:layout_below="@id/report_title"
+            >
+            <TextView
+                android:id="@+id/date_report"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="1396/11/03"
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/date_title"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:text="تاریخ:"
+                android:gravity="left"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/driver_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="قیصران پور"
+                android:textColor="@android:color/white"
+                android:paddingRight="8dp"
+                />
+            <TextView
+                android:id="@+id/name_title"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:layout_height="wrap_content"
+                android:text="نام راننده:"
+                android:textColor="@android:color/white"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/activity_report_title_padding"
+            android:paddingTop="@dimen/act_rep_padding_title">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/act_rep_margin_bottom_title"
+                >
+                <TextView
+                    android:id="@+id/path_report"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:text="چابهار - زاهدان"
+                    />
+                <TextView
+                    android:id="@+id/path_title"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:text="مسیر:"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/act_rep_margin_bottom_title"
+                >
+                <TextView
+                    android:id="@+id/car_code_report"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="wrap_content"
+                    android:text="1271"
+                    android:textColor="@android:color/white"
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:id="@+id/car_code_title"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:paddingRight="@dimen/act_rep_padding_right"
+                    android:layout_height="wrap_content"
+                    android:text="کد خودرو :"
+
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+                <TextView
+                    android:id="@+id/car_number_report"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:text="94715الف"
+
+                    android:textColor="@android:color/white"
+                    />
+                <TextView
+                    android:id="@+id/car_number_title"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="wrap_content"
+                    android:text="پلاک:"
+
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/title_container"
+        >
+        <RelativeLayout
+            android:id="@+id/card_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/act_rep_margin_right"
+        android:layout_marginLeft="@dimen/act_rep_margin_right"
+        app:cardElevation="@dimen/act_rep_card_elevation"
+        android:layout_marginTop="@dimen/act_rep_margin_top_fold"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:id="@+id/inception_head_container"
+        >
+        <com.ramotion.foldingcell.FoldingCell
+            android:id="@+id/folding_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:ignore="ExtraText"
+
+            >
+            ​<RelativeLayout
+            android:id="@+id/cell_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_rep_height_fold"
+                android:id="@+id/mabda_child"
+                android:orientation="vertical">
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/act_rep_fold_title_height"
+                    app:cardBackgroundColor="@color/deep_yellow"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mdtp_white"
+                        android:text="اطلاعات حرکت و بارگیری از مبدا"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_margin="@dimen/act_rep_margin_bottom_title"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/inception_rc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/inception_minus_btn"
+                android:layout_width="@dimen/act_rep_fold_btn_size"
+                android:layout_height="@dimen/act_rep_fold_btn_size"
+                android:layout_below="@id/mabda_child"
+                android:background="@drawable/minus_box"
+                android:layout_marginLeft="@dimen/act_rep_margin_larg"
+                android:layout_marginBottom="@dimen/act_rep_margin_larg"
+                />
+        </RelativeLayout>
+            ​<FrameLayout
+                android:id="@+id/cell_title_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/act_rep_fold_main_height"
+                    android:text="اطلاعات مبدا"
+                    android:id="@+id/title_mabda"
+                    android:textColor="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:paddingRight="@dimen/act_rep_margin_larg"
+                    android:background="@color/colorPrimaryDark"
+                    />
+                <Button
+                    android:id="@+id/inception_plus_btn"
+                    android:layout_width="@dimen/act_rep_fold_btn_size"
+                    android:layout_height="@dimen/act_rep_fold_btn_size"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/plus_box"
+                    android:layout_marginLeft="@dimen/act_rep_margin_larg"
+                    />
+            </FrameLayout>
+            ​
+        </com.ramotion.foldingcell.FoldingCell>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:layout_marginLeft="@dimen/margin_normal"
+        app:cardElevation="@dimen/act_rep_card_elevation"
+        android:layout_below="@id/inception_head_container"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:layout_marginTop="@dimen/margin_small"
+        android:id="@+id/destination_head_container"
+        >
+        <com.ramotion.foldingcell.FoldingCell
+            android:id="@+id/folding_cell_destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:ignore="ExtraText"
+
+            >
+            ​<RelativeLayout
+            android:id="@+id/destination_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_rep_height_fold"
+                android:id="@+id/maghsad_child"
+                android:orientation="vertical">
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/act_rep_fold_title_height"
+                    app:cardBackgroundColor="@color/deep_yellow"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mdtp_white"
+                        android:text="اطلاعات ورود و تحویل مرسولات در مبدا"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_margin="@dimen/margin_normal"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/destination_rc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/destination_minus_btn"
+                android:layout_width="@dimen/act_rep_fold_btn_size"
+                android:layout_height="@dimen/act_rep_fold_btn_size"
+                android:layout_below="@id/maghsad_child"
+                android:background="@drawable/minus_box"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                />
+        </RelativeLayout>
+            ​<FrameLayout
+            android:id="@+id/destination_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_rep_fold_main_height"
+                android:text="اطلاعات مقصد"
+                android:id="@+id/title_maghsad"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical"
+                android:paddingRight="@dimen/margin_large"
+                android:background="@color/colorPrimaryDark"
+                />
+            <Button
+                android:id="@+id/destination_plus_btn"
+                android:layout_width="@dimen/act_rep_fold_btn_size"
+                android:layout_height="@dimen/act_rep_fold_btn_size"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/plus_box"
+                android:layout_marginLeft="@dimen/margin_large"
+                />
+        </FrameLayout>
+            ​
+        </com.ramotion.foldingcell.FoldingCell>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginLeft="@dimen/margin_normal"
+                app:cardElevation="@dimen/act_rep_card_elevation"
+                android:layout_below="@id/destination_head_container"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:layout_marginTop="@dimen/margin_small"
+                android:id="@+id/path_head_container"
+                >
+                <com.ramotion.foldingcell.FoldingCell
+                    android:id="@+id/folding_cell_path"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:ignore="ExtraText"
+
+                    >
+                    ​<RelativeLayout
+                    android:id="@+id/path_content_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:visibility="gone">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/act_rep_height_fold"
+                        android:id="@+id/masir_child"
+                        android:orientation="vertical">
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/act_rep_fold_title_height"
+                            app:cardBackgroundColor="@color/deep_yellow"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/mdtp_white"
+                                android:text="اطلاعات مسیر طی شده"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_margin="@dimen/margin_normal"
+                                />
+
+                        </android.support.v7.widget.CardView>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/path_rc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/path_minus_btn"
+                        android:layout_width="@dimen/act_rep_fold_btn_size"
+                        android:layout_height="@dimen/act_rep_fold_btn_size"
+                        android:layout_below="@id/masir_child"
+                        android:background="@drawable/minus_box"
+                        android:layout_marginLeft="@dimen/margin_large"
+                        android:layout_marginBottom="@dimen/margin_large"
+                        />
+                </RelativeLayout>
+                    ​<FrameLayout
+                    android:id="@+id/path_title_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/act_rep_fold_main_height"
+                        android:text="اطلاعات طی مسیر"
+                        android:id="@+id/title_path"
+                        android:textColor="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:paddingRight="@dimen/margin_large"
+                        android:background="@color/colorPrimaryDark"
+                        />
+                    <Button
+                        android:id="@+id/path_plus_btn"
+                        android:layout_width="@dimen/act_rep_fold_btn_size"
+                        android:layout_height="@dimen/act_rep_fold_btn_size"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/plus_box"
+                        android:layout_marginLeft="@dimen/act_rep_margin_larg"
+                        />
+                </FrameLayout>
+                    ​
+                </com.ramotion.foldingcell.FoldingCell>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/path_head_container"
+                android:layout_marginTop="@dimen/margin_normal"
+                app:cardElevation="@dimen/act_rep_card_elevation"
+                app:cardCornerRadius="@dimen/margin_large"
+                android:layout_marginRight="@dimen/margin_normal"
+                android:layout_marginLeft="@dimen/margin_normal"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
+                >
+                </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/path_head_container"
+                android:id="@+id/mobadele_container"
+                >
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    app:cardCornerRadius="@dimen/margin_verySmall"
+                    app:cardElevation="@dimen/margin_small"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/act_rep_mobadele_title"
+                        android:background="@color/colorPrimaryDark"
+                        android:id="@+id/mobadele_title"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:id="@+id/title_noghte_mobadele"
+                            android:text="ساعت ورود و خروج در نقطه مبادله"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/margin_large"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/mobadele_title"
+                            android:id="@+id/mobadele_outer_rc"
+                            >
+
+                        </android.support.v7.widget.RecyclerView>
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/margin_normal"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    app:cardElevation="@dimen/margin_small"
+                    app:cardCornerRadius="@dimen/margin_verySmall"
+                    android:layout_below="@id/mobadele_container"
+                    android:layout_marginTop="@dimen/margin_small"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/act_rep_fold_title_height"
+                        android:background="@color/colorPrimaryDark"
+                        android:id="@+id/stop_point_title_container">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="توقف در نقاط غیر مجاز"
+                            android:textColor="@android:color/white"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/margin_large"
+                            android:id="@+id/title_stop_point"
+                            />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stop_point_title_container"
+                        android:id="@+id/text_stop_point_container"
+                        >
+
+                    <com.ms.square.android.expandabletextview.ExpandableTextView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/expand_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        expandableTextView:maxCollapsedLines="2"
+                        expandableTextView:animDuration="200">
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_normal"
+                            android:layout_marginRight="@dimen/margin_normal"
+                            android:textSize="12sp"
+                            android:textColor="#666666"
+
+                            />
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_large"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"
+                            />
+
+
+                    </com.ms.square.android.expandabletextview.ExpandableTextView>
+                    </RelativeLayout>
+                    </RelativeLayout>
+
+
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

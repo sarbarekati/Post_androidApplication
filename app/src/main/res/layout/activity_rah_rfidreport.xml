@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/Filter_Activity_fab_accept_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/Report_fragment_fab_margin"
+        android:layout_marginLeft="@dimen/Report_fragment_fab_margin"
+        android:src="@drawable/check" />
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:id="@+id/rah_rfid_card_subtree_container"
+        app:cardElevation="4dp">
+        <ScrollView
+            android:id="@+id/Filter_Activity_filter_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/Filter_Activity_scroll_padding"
+            android:layout_above="@id/Filter_Activity_fab_accept_filter">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/User_Access"
+                    android:textColor="@color/colorAccent"
+                    android:layout_below="@id/Filter_Activity_linearLayout_line"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="8dp"
+                    android:id="@+id/Filter_Activity_txt_user_access"
+                    />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:id="@+id/Filter_Activity_spinner_index_1"
+                    android:layout_below="@id/Filter_Activity_txt_user_access"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:visibility="gone"
+                    android:id="@+id/Filter_Activity_spinner_index_2"
+                    android:layout_below="@id/Filter_Activity_spinner_index_1"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:visibility="gone"
+                    android:id="@+id/Filter_Activity_spinner_index_3"
+                    android:layout_below="@id/Filter_Activity_spinner_index_2"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:visibility="gone"
+                    android:id="@+id/Filter_Activity_spinner_index_4"
+                    android:layout_below="@id/Filter_Activity_spinner_index_3"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:visibility="gone"
+                    android:id="@+id/Filter_Activity_spinner_index_5"
+                    android:layout_below="@id/Filter_Activity_spinner_index_4"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="@color/colorAccent"
+                    android:layoutDirection="rtl"
+                    android:layout_margin="4dp"
+                    android:visibility="gone"
+                    android:id="@+id/Filter_Activity_spinner_driver"
+                    android:layout_below="@id/Filter_Activity_spinner_index_5"
+                    >
+
+                </android.support.v7.widget.AppCompatSpinner>
+            </RelativeLayout>
+
+
+
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        android:id="@+id/rah_rfid_card_filter_container"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_below="@id/rah_rfid_card_subtree_container"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="فیلتر گزارش گیری"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                android:id="@+id/rah_rfid_txt_filterTitle"
+                android:textColor="@color/colorAccent"
+                />
+            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/rah_rfid_txt_filterTitle"
+                android:layout_margin="8dp"
+                app:backgroundTint="@color/colorAccent"
+                android:layoutDirection="rtl"
+                android:id="@+id/rah_rfid_spinner_filter">
+
+            </android.support.v7.widget.AppCompatSpinner>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/rah_rfid_spinner_filter"
+                android:layout_margin="6dp"
+                android:padding="4dp"
+                android:layoutDirection="ltr"
+                android:visibility="gone"
+                android:id="@+id/rah_rfid_layout_speed_container"
+                >
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:hint="123"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray_light"
+                    android:maxLines="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_edt_speed_end"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/speed_max"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_txt_speed_max_title"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:hint="123"
+                    android:textColorHint="@color/gray_light"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_edt_speed_start"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/speed_min"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_txt_speed_min_title"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/rah_rfid_layout_speed_container"
+                android:layout_margin="6dp"
+                android:padding="4dp"
+                android:visibility="gone"
+                android:layoutDirection="ltr"
+                android:id="@+id/rah_rfid_layout_length_container"
+                >
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:hint="123"
+                    android:maxLines="1"
+                    android:textColorHint="@color/gray_light"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_edt_length_end"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/length_max"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_txt_length_max_title"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:hint="123"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray_light"
+                    android:maxLines="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_edt_length_start"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/length_min"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_txt_length_min_title"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/rah_rfid_layout_length_container"
+                android:layout_margin="6dp"
+                android:padding="4dp"
+                android:layoutDirection="ltr"
+                android:id="@+id/rah_rfid_layout_Time_container"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="23:00"
+                    android:inputType="time"
+                    android:textColorHint="@color/gray_light"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_txt_end_time"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/time_start"
+                    android:background="@drawable/dialog_btn_shape"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_btn_time_end"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="00:00"
+                    android:inputType="time"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray_light"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rah_rfid_txt_start_time"
+                    />
+                <Button
+                    android:background="@drawable/dialog_btn_shape"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/time_end"
+                    android:gravity="center"
+                    android:id="@+id/rah_rfid_btn_time_start"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+        android:layout_marginLeft="6dp"
+        android:padding="4dp"
+        app:cardElevation="4dp"
+        android:layout_below="@id/rah_rfid_card_filter_container"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="6dp"
+            android:padding="4dp"
+            android:layoutDirection="ltr"
+            android:id="@+id/rah_rfid_layout_date_container"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="1396/10/25"
+                android:inputType="time"
+                android:textColorHint="@color/gray_light"
+                android:gravity="center"
+                android:maxLines="1"
+                android:layout_height="match_parent"
+                android:id="@+id/rah_rfid_txt_end_date"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/dialog_btn_shape"
+                android:layout_weight="0.5"
+                android:text="@string/date_end"
+                android:gravity="center"
+                android:id="@+id/rah_rfid_btn_date_end"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="1396/10/25"
+                android:inputType="time"
+                android:gravity="center"
+                android:textColorHint="@color/gray_light"
+                android:layout_height="match_parent"
+                android:id="@+id/rah_rfid_txt_start_date"
+                />
+            <Button
+                android:background="@drawable/dialog_btn_shape"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="@string/date_start"
+                android:gravity="center"
+                android:id="@+id/rah_rfid_btn_date_start"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

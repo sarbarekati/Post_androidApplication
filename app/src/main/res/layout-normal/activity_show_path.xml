@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.anad.mobile.post.Activity.ShowPathActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="80dp"
+        android:id="@+id/appBar_below"
+        app:elevation="@dimen/act_rep_card_elevation">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:id="@+id/show_path_title"
+                android:text="گزارش مسیر های طی شده"
+                android:textColor="@android:color/white"
+                android:layout_marginRight="72dp"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_right_white_24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:rotation="180"
+                android:id="@+id/back_click"
+
+                />
+
+        </RelativeLayout>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.truizlop.fabreveallayout.FABRevealLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar_below"
+        android:id="@+id/fab_layout"
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            app:backgroundTint="@color/deep_dark_blue"
+            android:id="@+id/click_fab"
+            android:src="@drawable/ic_tune_white_24dp"
+            android:visibility="visible"
+            />
+
+        <RelativeLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appBar_below"
+            >
+            <!--<fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                />-->
+            <org.osmdroid.views.MapView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/osm_map"
+                />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_rep_fold_title_height"
+                app:cardCornerRadius="@dimen/margin_small"
+                android:layout_marginBottom="27dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardElevation="4dp"
+                android:id="@+id/show_date_container"
+                android:layout_alignParentBottom="true"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="لطفا تاریخ راانتخاب نمایید."
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/date_text"
+                        android:textSize="14sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/chevron_up"
+                        android:rotation="270"
+                        android:id="@+id/next_day"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/chevron_up"
+                        android:rotation="90"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/pre_day"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_pre_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/date_text"
+                        android:layout_alignBottom="@+id/date_text"
+                        android:layout_toStartOf="@+id/pre_day"
+                        android:text="روز قبل"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/next_day"
+                        android:text="روز بعد"
+                        android:id="@+id/txt_next_day"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:id="@+id/video_root_container"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="12dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="4dp"
+                android:visibility="gone"
+                android:background="@color/colorPrimary"
+                android:layout_above="@id/show_date_container"
+                >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:visibility="visible"
+                android:id="@+id/video_control_container"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_play_white_24dp"
+                    android:id="@+id/play_animation"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_skip_backward_white_24dp"
+                    android:id="@+id/back_to_start"
+                    android:layout_toStartOf="@id/play_animation"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/go_to_end"
+                    android:src="@drawable/ic_skip_forward_white_24dp"
+                    android:layout_toEndOf="@id/play_animation"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/close_control_container"
+                    android:src="@drawable/ic_close_white_24dp"
+                    android:layout_toEndOf="@id/go_to_end"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    />
+
+
+            </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/video"
+                app:fab_size="normal"
+                app:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/ic_play_white_24dp"
+                android:layout_above="@id/show_date_container"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:visibility="visible"
+
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/second_layout"
+            >
+            <include layout="@layout/second_layout_fab"/>
+
+        </RelativeLayout>
+
+    </com.truizlop.fabreveallayout.FABRevealLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

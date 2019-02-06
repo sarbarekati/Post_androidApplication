@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/forget_pass_btn_margin_bottom"
+    android:paddingRight="@dimen/dialog_padding_sides"
+    android:paddingLeft="@dimen/dialog_padding_sides"
+    android:background="@drawable/shape_with_border">
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layoutDirection="rtl"
+        android:id="@+id/forget_pass_rd_group">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:id="@+id/forget_pass_rd_username"
+            android:layout_marginTop="@dimen/forget_pass_rd_margin_top"
+            android:textColor="@android:color/white"
+            android:checked="true"
+            />
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mobile_number"
+            android:id="@+id/forget_pass_rd_mobile"
+            android:layout_marginRight="@dimen/forget_pass_rd_margin_right"
+            android:layout_marginTop="@dimen/forget_pass_rd_margin_top"
+            android:textColor="@android:color/white"
+            />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/forget_pass_edt_height"
+        android:layout_marginRight="@dimen/Register_edt_margin_right"
+        android:layout_marginLeft="@dimen/Register_edt_margin_left"
+        android:background="@drawable/login_edt_shape"
+        android:hint="@string/enter_your_user_name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/forget_pass_edt_margin_top"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/forget_pass_edt_user_name"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Register_btn_height"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="@string/restore_password"
+        android:id="@+id/forget_pass_send"
+        android:layout_below="@id/forget_pass_edt_user_name"
+        android:layout_marginTop="@dimen/forget_pass_edt_margin_top"
+        android:background="@drawable/dialog_btn_shape"
+
+        />
+
+</RelativeLayout>

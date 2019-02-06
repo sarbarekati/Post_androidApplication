@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:menu_backgroundColor="@color/gray_title"
+        app:menu_colorNormal="@color/colorPrimary"
+        app:menu_colorPressed="@color/colorPrimary"
+        app:menu_colorRipple="@color/colorPrimary"
+        app:menu_fab_size="normal"
+        app:menu_icon="@drawable/plus"
+        app:menu_labels_colorNormal="@color/mini_fab"
+        app:menu_labels_colorPressed="@color/mini_fab"
+        app:menu_labels_colorRipple="@color/mini_fab"
+        app:menu_labels_customFont="IRANSansMobile.ttf"
+        app:menu_labels_textColor="@color/colorPrimary"
+
+        >
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/Map_fab_sat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons_8_satellite_sending_signal"
+            android:visibility="gone"
+            app:fab_colorNormal="@color/mini_fab"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_label="نوع نقشه : ماهواره"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/Map_fab_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons_8_synchronize"
+            app:fab_colorNormal="@color/mini_fab"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_label="بروز رسانی نقشه"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/Map_fab_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icons_8_sorting_options"
+            app:fab_colorNormal="@color/mini_fab"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_label="فیلترهای نقشه"
+            app:fab_size="mini" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+</RelativeLayout>

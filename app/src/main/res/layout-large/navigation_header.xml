@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark"
+    android:padding="2dp"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/profile_icon"
+        android:id="@+id/profile_image"
+        app:civ_border_width="2dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="@dimen/margin_normal"
+        app:civ_border_color="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="الیاس محمدی"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_verySmall"
+        android:layout_marginBottom="@dimen/margin_normal"
+
+        android:id="@+id/profile_txt_name"
+        />
+
+    <TextView
+        android:id="@+id/profile_txt_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profile_txt_name"
+        android:textColor="@android:color/white"
+        android:layout_marginRight="@dimen/margin_verySmall"
+        android:text="برنامه نویس اندروید" />
+
+
+
+</RelativeLayout>

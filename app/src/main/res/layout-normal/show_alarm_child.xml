@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layoutDirection="ltr"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blue_child_alarm"
+    android:layout_marginTop="2dp"
+    android:id="@+id/child_container"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:id="@+id/alarm_child_desc"
+        tools:text="شرح متن هشدار"
+        android:layout_marginTop="4dp"
+        android:textColor="@android:color/white"
+        android:layout_marginRight="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alarm_child_desc"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        tools:text="کد خودرو"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="4dp"
+        android:id="@+id/alarm_child_code_car"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/alarm_child_code_car"
+        android:layout_below="@id/alarm_child_desc"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/circle_white"
+        android:id="@+id/c1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alarm_child_desc"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="تاریخ"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="4dp"
+        android:layout_toStartOf="@id/c1"
+        android:id="@+id/alarm_child_date"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/alarm_child_date"
+        android:layout_below="@id/alarm_child_desc"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/circle_white"
+        android:id="@+id/c2"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alarm_child_desc"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="ساعت"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="4dp"
+        android:layout_toStartOf="@id/c2"
+        android:id="@+id/alarm_child_time"
+        />
+
+</RelativeLayout>
