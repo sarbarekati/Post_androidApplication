@@ -1,4 +1,4 @@
-package com.anad.mobile.post.AccountManager;
+package com.anad.mobile.post.AccountManager.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -22,7 +22,7 @@ public class LoginResponse {
     private ReturnValue returnValue;
 
 
-    public boolean isSuccessfull() {
+    public boolean isSuccessful() {
         return isSuccessfull;
     }
 
@@ -50,7 +50,7 @@ public class LoginResponse {
         return returnValue;
     }
 
-    private class ReturnValue{
+    public class ReturnValue{
         @SerializedName("UserId")
         private long userId;
         @SerializedName("UserName")
@@ -65,5 +65,33 @@ public class LoginResponse {
         private long currentBusinessUnitId;
         @SerializedName("CurrentCultureId")
         private long currentCultureId;
+
+        public long getUserId() {
+            return userId;
+        }
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public String getPartyAssignCode() {
+            return partyAssignCode;
+        }
+
+        public String getPartyAssignTitle() {
+            return partyAssignTitle;
+        }
+
+        public long getPartyId() {
+            return partyId;
+        }
+
+        public long getCurrentBusinessUnitId() {
+            return currentBusinessUnitId;
+        }
+
+        public long getCurrentCultureId() {
+            return currentCultureId;
+        }
     }
 }

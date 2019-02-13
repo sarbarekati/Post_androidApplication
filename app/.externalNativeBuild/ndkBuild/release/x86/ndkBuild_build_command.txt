@@ -1,14 +1,14 @@
 Executable : F:\NDK\android-ndk-r17b\ndk-build.cmd
 arguments : 
 NDK_PROJECT_PATH=null
-APP_BUILD_SCRIPT=F:\Android_sources_git\Post_android_source\app\src\main\jni\Android.mk
-NDK_APPLICATION_MK=F:\Android_sources_git\Post_android_source\app\src\main\jni\Application.mk
+APP_BUILD_SCRIPT=F:\Exercise\Post_logistic_android_application\Post_androidApplication\app\src\main\jni\Android.mk
+NDK_APPLICATION_MK=F:\Exercise\Post_logistic_android_application\Post_androidApplication\app\src\main\jni\Application.mk
 APP_ABI=x86
 NDK_ALL_ABIS=x86
 NDK_DEBUG=0
 APP_PLATFORM=android-17
-NDK_OUT=F:/Android_sources_git/Post_android_source/app/build/intermediates/ndkBuild/release/obj
-NDK_LIBS_OUT=F:\Android_sources_git\Post_android_source\app\build\intermediates\ndkBuild\release\lib
+NDK_OUT=F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build/intermediates/ndkBuild/release/obj
+NDK_LIBS_OUT=F:\Exercise\Post_logistic_android_application\Post_androidApplication\app\build\intermediates\ndkBuild\release\lib
 APP_SHORT_COMMANDS=false
 LOCAL_SHORT_COMMANDS=false
 -B

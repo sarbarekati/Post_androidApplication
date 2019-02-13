@@ -66,6 +66,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RahRFIDFilter extends AppCompatActivity implements View.OnClickListener {
     public static final String RAHSEPARI_REPORT_RESPONSE = "RahsepariReportResponse";
+    private static final String TIME_START = "TIME_START";
+    private static final String TIME_END = "TIME_END";
+
     private AppCompatSpinner spinnerIndexOne, spinnerIndexTwo, spinnerIndexThree, spinnerIndexFour, spinnerIndexFive, spinnerIndexDriver, spinnerFilters;
     private TextView txtTitle, txtOrgName;
     private RelativeLayout containerOne, containerTwo, containerThree, containerFour, containerFive, containerDriver;
@@ -238,9 +241,9 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
             if (reportId == 0) {
-                txtTitle.setText("گزارش های رهسپاری");
+                txtTitle.setText(R.string.Rahsepari_Report);
             } else if (reportId == 1) {
-                txtTitle.setText("گزارش های پیمانکاری");
+                txtTitle.setText(R.string.ARP_Report);
             }
 
             Bundle bMap = getIntent().getExtras();
@@ -1404,154 +1407,79 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.time_from:
-                // DateTimePicker open to select a time for start filtering
-                TimePickerDialog timePickerStart = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-
-                        String Hour;
-                        String Minute;
-                        if (hourOfDay < 10) {
-                            Hour = "0" + hourOfDay;
-                        } else {
-                            Hour = hourOfDay + "";
-                        }
-                        if (minute < 10) {
-                            Minute = "0" + minute;
-                        } else {
-                            Minute = minute + "";
-                        }
-                        String timeStart = Hour + ":" + Minute;
-                        txtStartTime.setText(timeStart);
-                    }
-                }, HourStart, minuteStart, true);
-                timePickerStart.show(getFragmentManager(), "TIME_START");
-
-
+                chooseTime(txtStartTime, TIME_START,HourStart,minuteStart);
                 break;
             case R.id.time_to:
-                TimePickerDialog timePickerEnd = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-                        String Hour;
-                        String Minute;
-                        if (hourOfDay < 10) {
-                            Hour = "0" + hourOfDay;
-                        } else {
-                            Hour = hourOfDay + "";
-                        }
-                        if (minute < 10) {
-                            Minute = "0" + minute;
-                        } else {
-                            Minute = minute + "";
-                        }
-
-
-                        String timeEnd = Hour + ":" + Minute;
-
-                        txtEndTime.setText(timeEnd);
-                    }
-                }, HourEnd, minuteEnd, true);
-                timePickerEnd.show(getFragmentManager(), "TIME_END");
-
+                chooseTime(txtEndTime, TIME_END,HourStart,minuteStart);
                 break;
             case R.id.date_from:
-
-
-                initDate.setPersianDate(YEAR, MONTH, DAY);
-
-
-                PersianDatePickerDialog datePickerStart = new PersianDatePickerDialog(this)
-                        .setPositiveButtonString("تائید")
-                        .setNegativeButton("انصراف")
-                        .setTodayButton("امروز")
-                        .setTodayButtonVisible(true)
-                        .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
-                        .setMinYear(1300)
-                        .setInitDate(initDate)
-                        .setActionTextColor(Color.GRAY)
-                        .setListener(new Listener() {
-                            @Override
-                            public void onDateSelected(ir.hamsaa.persiandatepicker.util.PersianCalendar persianCalendar) {
-                                String Month;
-                                String Day;
-
-
-                                if ((persianCalendar.getPersianMonth()) < 10) {
-                                    Month = "0" + (persianCalendar.getPersianMonth());
-                                } else {
-                                    Month = (persianCalendar.getPersianMonth()) + "";
-                                }
-                                if ((persianCalendar.getPersianDay()) < 10) {
-                                    Day = "0" + (persianCalendar.getPersianDay());
-                                } else {
-                                    Day = (persianCalendar.getPersianDay()) + "";
-                                }
-
-                                String dataStart = persianCalendar.getPersianYear() + "/" + Month + "/" + Day;
-                                txtStartDate.setText(dataStart);
-                            }
-
-                            @Override
-                            public void onDismissed() {
-
-                            }
-                        });
-
-                datePickerStart.show();
-
-
+                chooseDate(txtStartDate);
                 break;
             case R.id.date_to:
-                ir.hamsaa.persiandatepicker.util.PersianCalendar initDateEnd = new ir.hamsaa.persiandatepicker.util.PersianCalendar();
-                initDateEnd.setPersianDate(YEAR, MONTH, DAY);
-
-
-                PersianDatePickerDialog datePickerEnd = new PersianDatePickerDialog(this)
-                        .setPositiveButtonString("تائید")
-                        .setNegativeButton("انصراف")
-                        .setTodayButton("امروز")
-                        .setTodayButtonVisible(true)
-                        .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
-                        .setMinYear(1300)
-                        .setInitDate(initDateEnd)
-                        .setActionTextColor(Color.GRAY)
-                        .setListener(new Listener() {
-                            @Override
-                            public void onDateSelected(ir.hamsaa.persiandatepicker.util.PersianCalendar persianCalendar) {
-                                String Month;
-                                String Day;
-
-
-                                if ((persianCalendar.getPersianMonth()) < 10) {
-                                    Month = "0" + (persianCalendar.getPersianMonth());
-                                } else {
-                                    Month = (persianCalendar.getPersianMonth()) + "";
-                                }
-                                if ((persianCalendar.getPersianDay()) < 10) {
-                                    Day = "0" + (persianCalendar.getPersianDay());
-                                } else {
-                                    Day = (persianCalendar.getPersianDay()) + "";
-                                }
-
-                                String dateEnd = persianCalendar.getPersianYear() + "/" + Month + "/" + Day;
-                                txtEndDate.setText(dateEnd);
-                            }
-
-                            @Override
-                            public void onDismissed() {
-
-                            }
-                        });
-
-                datePickerEnd.show();
+                chooseDate(txtEndDate);
                 break;
-
             case R.id.rah_rfid_imgView_back:
                 onBackPressed();
                 break;
         }
 
+    }
+
+    private void chooseTime(final TextView timeView, String tag,int hourStart,int minuteStart){
+
+        TimePickerDialog timePicker = TimePickerDialog.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+
+                String time = changeTimeFormat(hourOfDay,minute);
+                timeView.setText(time);
+            }
+        }, hourStart, minuteStart, true);
+        timePicker.show(getFragmentManager(), tag);
+    }
+
+
+    private String changeTimeFormat(int hourOfDay,int minute){
+        String Hour;
+        String Minute;
+        if (hourOfDay < 10) {
+            Hour = "0" + hourOfDay;
+        } else {
+            Hour = hourOfDay + "";
+        }
+        if (minute < 10) {
+            Minute = "0" + minute;
+        } else {
+            Minute = minute + "";
+        }
+        return Hour + ":" + Minute;
+    }
+
+    private void chooseDate(final TextView dateView) {
+
+        initDate.setPersianDate(YEAR, MONTH, DAY);
+        PersianDatePickerDialog datePickerStart = new PersianDatePickerDialog(this)
+                .setPositiveButtonString(getString(R.string.confirm))
+                .setNegativeButton(getString(R.string.cancel))
+                .setTodayButton(getString(R.string.today))
+                .setTodayButtonVisible(true)
+                .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
+                .setMinYear(1300)
+                .setInitDate(initDate)
+                .setActionTextColor(Color.GRAY)
+                .setListener(new Listener() {
+                    @Override
+                    public void onDateSelected(ir.hamsaa.persiandatepicker.util.PersianCalendar persianCalendar) {
+                        String startDate = changeDateFormat(persianCalendar);
+                        dateView.setText(startDate);
+                    }
+
+                    @Override
+                    public void onDismissed() {
+
+                    }
+                });
+        datePickerStart.show();
     }
 
 

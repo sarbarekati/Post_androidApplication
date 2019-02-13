@@ -34,6 +34,7 @@ public class Constants {
     public static final String URL_LABEL = "URL";
     public static final String WEBSERVICE_TYPE_LABEL = "WebServiceType";
     public static final java.lang.String PIE_CHART_CENTER_TEXT = "pie_chart_center_text";
+    public static final int MOBILE_USER_CODE = 40126;
 
 
     // ----------------------------------------- URLS -------------------------------- \\
@@ -113,5 +114,6 @@ public class Constants {
     //----- New Login EndPoint ----\\
     public static final String LOGIN_POST_FW = BuildConfig.BASE_URL + "visionauth/login?";
     public static final String RAHSEPARI_REPORT_URL = BuildConfig.BASE_URL + "Main/RahsepariReport/MobileApiGetAll";
+    public static final String GET_ROLE_URL = BuildConfig.BASE_URL + "main/partyAssign/getbypartyId?partyId=";
 
 }

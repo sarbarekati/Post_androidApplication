@@ -1,24 +1,24 @@
 {
   "buildFiles": [
-    "F:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Android.mk",
-    "F:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Application.mk"
+    "F:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Android.mk",
+    "F:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Application.mk"
   ],
   "cleanCommands": [
-    "F:\\NDK\\android-ndk-r17b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dF:/Android_sources_git/Post_android_source/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\Android_sources_git\\Post_android_source\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
+    "F:\\NDK\\android-ndk-r17b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dF:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
   ],
   "libraries": {
     "keys-release-armeabi-v7a": {
-      "buildCommand": "F:\\NDK\\android-ndk-r17b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dF:/Android_sources_git/Post_android_source/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\Android_sources_git\\Post_android_source\\app\\build\\intermediates\\ndkBuild\\release\\lib F:/Android_sources_git/Post_android_source/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libkeys.so",
+      "buildCommand": "F:\\NDK\\android-ndk-r17b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dF:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\build\\intermediates\\ndkBuild\\release\\lib F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libkeys.so",
       "toolchain": "toolchain-armeabi-v7a",
       "abi": "armeabi-v7a",
       "artifactName": "keys",
       "files": [
         {
-          "src": "F:\\Android_sources_git\\Post_android_source\\app\\src\\main\\jni\\keys.c",
-          "flags": "\"-gcc-toolchain\" \"F:/NDK/android-ndk-r17b/build//../toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-target\" \"armv7-none-linux-androideabi17\" \"-march\u003darmv7-a\" \"-mfloat-abi\u003dsoftfp\" \"-mfpu\u003dvfpv3-d16\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/Android_sources_git/Post_android_source/app/src/main/jni\" \"-DANDROID\" \"-D__ANDROID_API__\u003d17\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"--sysroot\" \"F:/NDK/android-ndk-r17b/build//../sysroot\" \"-isystem\" \"F:/NDK/android-ndk-r17b/build//../sysroot/usr/include/arm-linux-androideabi\""
+          "src": "F:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\src\\main\\jni\\keys.c",
+          "flags": "\"-gcc-toolchain\" \"F:/NDK/android-ndk-r17b/build//../toolchains/arm-linux-androideabi-4.9/prebuilt/windows-x86_64\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-target\" \"armv7-none-linux-androideabi17\" \"-march\u003darmv7-a\" \"-mfloat-abi\u003dsoftfp\" \"-mfpu\u003dvfpv3-d16\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/jni\" \"-DANDROID\" \"-D__ANDROID_API__\u003d17\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"--sysroot\" \"F:/NDK/android-ndk-r17b/build//../sysroot\" \"-isystem\" \"F:/NDK/android-ndk-r17b/build//../sysroot/usr/include/arm-linux-androideabi\""
         }
       ],
-      "output": "F:\\Android_sources_git\\Post_android_source\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a\\libkeys.so"
+      "output": "F:\\Exercise\\Post_logistic_android_application\\Post_androidApplication\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a\\libkeys.so"
     }
   },
   "toolchains": {

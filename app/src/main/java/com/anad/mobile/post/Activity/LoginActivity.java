@@ -2,11 +2,12 @@ package com.anad.mobile.post.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.VoiceInteractor;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatRadioButton;
@@ -24,17 +25,28 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anad.mobile.post.API.ApiCaller;
 import com.anad.mobile.post.API.WebApi;
-import com.anad.mobile.post.AccountManager.LoginApi;
-import com.anad.mobile.post.AccountManager.LoginResponse;
-import com.anad.mobile.post.AccountManager.OnLoginResponse;
-import com.anad.mobile.post.PushNotification.MyFirebaseInstanceIDService;
+import com.anad.mobile.post.AccountManager.api.LoginApi;
+import com.anad.mobile.post.AccountManager.model.LoginResponse;
+import com.anad.mobile.post.AccountManager.model.OnLoginResponse;
+import com.anad.mobile.post.AccountManager.model.PartyAssign;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
-import com.anad.mobile.post.Utils.SingletonApi;
 import com.anad.mobile.post.Utils.Util;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements OnLoginResponse {
@@ -60,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
     String userPassBase64;
     private boolean isLoginSuccessFull;
     private boolean isRememberMe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         postSharedPreferences = new PostSharedPreferences(this);
 
         userPassBase64 = postSharedPreferences.getEncode();
-        api = LoginApi.getInstance(this);
+        api = LoginApi.getInstance(this,postSharedPreferences);
         api.setOnLoginResponse(this);
         setUpInput();
 
@@ -113,7 +126,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
                         rotateLoading.start();
                         final String userName = edtUserName.getText().toString();
                         final String passWord = edtPassword.getText().toString();
-                        api.login(userName, passWord);
+                        api.callWithRetrofit(userName, passWord);
 
 
 //                        api.checkLoginWithState(userName, passWord,REGISTER_CODE, new SingletonApi.CheckState() {
@@ -171,15 +184,6 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         chRememberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    isRememberMe = true;
-//                    saveUserAuthenticateInfo(isRememberMe);
-//
-//                } else {
-//                    isRememberMe = false;
-//                    postSharedPreferences.setRememberMe(isRememberMe);
-//                }
-
                 isRememberMe = isChecked;
                 saveUserAuthenticateInfo(isRememberMe);
             }
@@ -351,28 +355,26 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         startActivity(new Intent(LoginActivity.this, EnterActivity.class));
         finish();
     }
-
-
     @Override
-    public void setCookie(String cookie) {
-        if (isLoginSuccessFull)
-            postSharedPreferences.setCookie(cookie);
-    }
-
-    @Override
-    public void onSuccess(LoginResponse loginResponse) {
-        isLoginSuccessFull = loginResponse.isSuccessfull();
+    public void onSuccess(LoginResponse loginResponse,String cookie) {
+        isLoginSuccessFull = loginResponse.isSuccessful();
         if (!isLoginSuccessFull) {
             Toast.makeText(this, loginResponse.getMessage(), Toast.LENGTH_LONG).show();
             rotateLoading.stop();
             return;
+        } else {
+            postSharedPreferences.setCookie(cookie);
+            long partyId = loginResponse.getReturnValue().getPartyId();
+
+
+            api.callRoleApi((int)partyId);
+
+
         }
-        saveUserAuthenticateInfo(isRememberMe);
-        Util.gotoActivity(this,MainActivity.class,null,true);
     }
 
 
-    private void saveUserAuthenticateInfo(boolean isRememberMeChecked){
+    private void saveUserAuthenticateInfo(boolean isRememberMeChecked) {
 
         postSharedPreferences.setRememberMe(isRememberMeChecked);
         postSharedPreferences.setPrefUserName(edtUserName.getText().toString());
@@ -383,6 +385,46 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
 
     }
 
+
+    private class OnRoleApiResponse implements Response.Listener<JSONArray> {
+        @Override
+        public void onResponse(JSONArray response) {
+
+            if (isMobileUser(response)) {
+                saveUserAuthenticateInfo(isRememberMe);
+                Util.gotoActivity(LoginActivity.this, MainActivity.class, null, true);
+            }else{
+                Toast.makeText(LoginActivity.this, R.string.Your_not_mobile_user, Toast.LENGTH_LONG).show();
+                rotateLoading.stop();
+            }
+
+        }
+    }
+
+
+    private class OnRoleApiError implements Response.ErrorListener {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Log.d(TAG, "onErrorResponse: "+error);
+        }
+    }
+
+    private boolean isMobileUser(JSONArray response) {
+        List<PartyAssign> partyAssigns = parsResponse(response);
+        for (PartyAssign partyAssign : partyAssigns) {
+            if (partyAssign.getPartyTypeId() == Constants.MOBILE_USER_CODE)
+                return true;
+        }
+        return false;
+    }
+
+
+    private List<PartyAssign> parsResponse(JSONArray response) {
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<PartyAssign>>() {
+        }.getType();
+        return gson.fromJson(response.toString(), type);
+    }
 
 
 }

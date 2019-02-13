@@ -148,6 +148,11 @@
     <string name="managar_dashboard">داشبورد مدیریتی</string>
     <string name="open_door_in_wrong_location">دفعات بازگشایی در نقاط غیر مجاز</string>
     <string name="Error_To_Receive_Data">خطا در دریافت اطلاعات</string>
+    <string name="confirm">تائید</string>
+    <string name="today">امروز</string>
+    <string name="Rahsepari_Report">گزارش های رهسپاری</string>
+    <string name="ARP_Report">گزارش های پیمانکاری</string>
+    <string name="Your_not_mobile_user">نقش شما کاربر موبایل نمی باشد.</string>
 
 
     <string-array name="Report_filters">
