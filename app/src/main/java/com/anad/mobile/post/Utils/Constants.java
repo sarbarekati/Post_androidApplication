@@ -113,7 +113,7 @@ public class Constants {
 
     //----- New Login EndPoint ----\\
     public static final String LOGIN_POST_FW = BuildConfig.BASE_URL + "visionauth/login?";
-    public static final String RAHSEPARI_REPORT_URL = BuildConfig.BASE_URL + "Main/RahsepariReport/MobileApiGetAll";
+        public static final String RAHSEPARI_REPORT_URL = BuildConfig.BASE_URL + "Main/RahsepariReport/MobileApiGetAll";
     public static final String GET_ROLE_URL = BuildConfig.BASE_URL + "main/partyAssign/getbypartyId?partyId=";
 
 }

@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.anad.mobile.post.Activity.EnterActivity;
 import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
-import com.anad.mobile.post.ReportManager.model.SearchReportItem;
+import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;

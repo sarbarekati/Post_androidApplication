@@ -19,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
     private static final String BASE_URL = BuildConfig.BASE_URL;
+    private static final String TEST_BASE_URL = "https://38d4e216.ngrok.io";
     private static Retrofit retrofit = null;
     private static PostSharedPreferences preferences;
 
@@ -52,7 +53,7 @@ public class ApiClient {
             OkHttpClient client = builder.build();
             Gson gson = new GsonBuilder().setLenient().create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(TEST_BASE_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();

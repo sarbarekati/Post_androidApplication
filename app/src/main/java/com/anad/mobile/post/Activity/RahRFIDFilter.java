@@ -38,7 +38,7 @@ import com.anad.mobile.post.Models.SubTree;
 import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.ReportManager.api.ReportApiCaller;
-import com.anad.mobile.post.ReportManager.model.SearchReportItem;
+import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
 import com.anad.mobile.post.Utils.JalaliCalendar;
@@ -327,6 +327,10 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
             acceptFilter.setOnClickListener(new AcceptClickListener());
+
+
+
+
 
             acceptFilter.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1845,12 +1849,6 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
         }
     }
     private void CallReportApi(){
-        ReportApiCaller.getInstance(this)
-                .withUrl(Constants.RAHSEPARI_REPORT_URL)
-                .withMethod(Request.Method.POST)
-                .withCookies(preferences.getCookies())
-                .withBody(Util.convertObjectToString(setSearchItemReport()))
-                .CallJsonObject(new ReportResponseListener(),new ReportErrorListener());
     }
     private class ReportResponseListener implements Response.Listener<JSONObject> {
         @Override

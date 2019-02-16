@@ -34,7 +34,6 @@ public class ReportFragment extends Fragment {
         rc = view.findViewById(R.id.report_fragment_rc);
         rc.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         rc.setAdapter(adapter);
-
     }
 
 
