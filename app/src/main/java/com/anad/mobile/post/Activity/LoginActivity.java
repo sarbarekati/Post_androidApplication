@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         postSharedPreferences = new PostSharedPreferences(this);
 
         userPassBase64 = postSharedPreferences.getEncode();
-        api = LoginApi.getInstance(this,postSharedPreferences);
+        api = LoginApi.getInstance(this, postSharedPreferences);
         api.setOnLoginResponse(this);
         setUpInput();
 
@@ -344,7 +344,6 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         util.setTypeFace(txtForgetPassword, this);
         util.setTypeFace(txtTitle, this);
         util.setTypeFaceCheckBox(chRememberMe, this);
-
         edtUserName.setFilters(new InputFilter[]{util.getInputFilter()});
 
     }
@@ -355,8 +354,9 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
         startActivity(new Intent(LoginActivity.this, EnterActivity.class));
         finish();
     }
+
     @Override
-    public void onSuccess(LoginResponse loginResponse,String cookie) {
+    public void onSuccess(LoginResponse loginResponse, String cookie) {
         isLoginSuccessFull = loginResponse.isSuccessful();
         if (!isLoginSuccessFull) {
             Toast.makeText(this, loginResponse.getMessage(), Toast.LENGTH_LONG).show();
@@ -364,12 +364,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
             return;
         } else {
             postSharedPreferences.setCookie(cookie);
-            long partyId = loginResponse.getReturnValue().getPartyId();
-
-
-            api.callRoleApi((int)partyId);
-
-
+            api.callRoleApi((int) loginResponse.getReturnValue().getPartyId());
         }
     }
 
@@ -385,46 +380,31 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
 
     }
 
-
-    private class OnRoleApiResponse implements Response.Listener<JSONArray> {
-        @Override
-        public void onResponse(JSONArray response) {
-
-            if (isMobileUser(response)) {
-                saveUserAuthenticateInfo(isRememberMe);
-                Util.gotoActivity(LoginActivity.this, MainActivity.class, null, true);
-            }else{
-                Toast.makeText(LoginActivity.this, R.string.Your_not_mobile_user, Toast.LENGTH_LONG).show();
-                rotateLoading.stop();
-            }
-
+    @Override
+    public void onRoleApiCallSuccess(List<PartyAssign> response) {
+        if (isMobileUser(response)) {
+            rotateLoading.stop();
+            saveUserAuthenticateInfo(isRememberMe);
+            Util.gotoActivity(LoginActivity.this, MainActivity.class, null, true);
+        } else {
+            Toast.makeText(LoginActivity.this, R.string.Your_not_mobile_user, Toast.LENGTH_LONG).show();
+            rotateLoading.stop();
         }
     }
 
-
-    private class OnRoleApiError implements Response.ErrorListener {
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            Log.d(TAG, "onErrorResponse: "+error);
-        }
+    @Override
+    public void onFailed(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    private boolean isMobileUser(JSONArray response) {
-        List<PartyAssign> partyAssigns = parsResponse(response);
-        for (PartyAssign partyAssign : partyAssigns) {
+    private boolean isMobileUser(List<PartyAssign> response) {
+        for (PartyAssign partyAssign : response) {
             if (partyAssign.getPartyTypeId() == Constants.MOBILE_USER_CODE)
                 return true;
         }
         return false;
     }
 
-
-    private List<PartyAssign> parsResponse(JSONArray response) {
-        Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<PartyAssign>>() {
-        }.getType();
-        return gson.fromJson(response.toString(), type);
-    }
 
 
 }

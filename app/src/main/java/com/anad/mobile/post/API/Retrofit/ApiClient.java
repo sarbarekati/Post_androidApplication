@@ -4,15 +4,12 @@ import android.content.Context;
 
 import com.anad.mobile.post.BuildConfig;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
+import com.anad.mobile.post.Utils.NetworkUtils.NetworkUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -28,13 +25,9 @@ public class ApiClient {
     public static Retrofit getInstance(final Context context) {
 
 
-
-
         if (retrofit == null) {
 
             preferences = new PostSharedPreferences(context);
-
-
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.addInterceptor(new Interceptor() {
                 @Override
@@ -48,7 +41,7 @@ public class ApiClient {
                             cookies.add(header);
                         }
 
-                        preferences.setCookie(buildCookie(cookies));
+                        preferences.setCookie(NetworkUtil.buildCookie(cookies));
                     }
                     return originalResponse;
                 }
@@ -56,14 +49,8 @@ public class ApiClient {
 
             builder.readTimeout(40, TimeUnit.SECONDS);
             builder.connectTimeout(40, TimeUnit.SECONDS);
-
             OkHttpClient client = builder.build();
-
-
             Gson gson = new GsonBuilder().setLenient().create();
-
-
-
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(client)
@@ -73,19 +60,5 @@ public class ApiClient {
         }
         return retrofit;
     }
-
-
-    private static String buildCookie(HashSet<String> cookies) {
-        StringBuilder builder = new StringBuilder();
-        for (String cookie : cookies) {
-            builder.append(cookie);
-            builder.append(";");
-        }
-        return builder.toString() + ";";
-    }
-
-
-
-
 
 }

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public static List<Integer> car_Id;
     private PostDataBase postDataBase;
     private TextView appTitle;
-    private AHBottomNavigation ahBottomNavigation;
+
     AHBottomNavigationItem itemMap, itemReport, itemMore, itemProfile, itemAlarms;
     public static Context mainActivityContext;
     private PostSharedPreferences preferences;
@@ -64,10 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-
         preferences = new PostSharedPreferences(this);
         if (Util.authenticateUser(preferences)) {
 
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             setUpToolBar();
             util = Util.getInstance();
 
-            singletonApi = SingletonApi.getInstance(this);
+          /*  singletonApi = SingletonApi.getInstance(this);
 
 
             singletonApi.getRoutesName(new SingletonApi.OnRouteNameBack() {
@@ -97,13 +94,10 @@ public class MainActivity extends AppCompatActivity {
                         LastPositionsList = allLastPositions;
                     }
                 }
-            }, 0);
+            }, 0);*/
 
 
             bottomNavigationView = findViewById(R.id.bottom_navigation);
-            ahBottomNavigation = findViewById(R.id.ah_bottom_navigation);
-
-
             bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -183,47 +177,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setUpBottomNavigation() {
-        Typeface font = Typeface.createFromAsset(this.getAssets(), "IRANSansMobile_Bold.ttf");
-        itemMap = new AHBottomNavigationItem(getString(R.string.bottom_nav_map),
-                ResourcesCompat.getDrawable(this.getResources(), R.drawable.map, null)
-                , ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-        itemMore = new AHBottomNavigationItem(getString(R.string.bottom_nav_more),
-                ResourcesCompat.getDrawable(this.getResources(), R.drawable.more, null)
-                , ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-        itemReport = new AHBottomNavigationItem(getString(R.string.bottom_nav_reports),
-                ResourcesCompat.getDrawable(this.getResources(), R.drawable.report, null)
-                , ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-        itemAlarms = new AHBottomNavigationItem(getString(R.string.bottom_nav_alarms),
-                ResourcesCompat.getDrawable(this.getResources(), R.drawable.alert, null)
-                , ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-        itemProfile = new AHBottomNavigationItem(getString(R.string.bottom_nav_profile),
-                ResourcesCompat.getDrawable(this.getResources(), R.drawable.profile, null)
-                , ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-
-        ahBottomNavigation.setItemDisableColor(Color.parseColor("#616161"));
-        ahBottomNavigation.setAccentColor(ResourcesCompat.getColor(this.getResources(), R.color.colorAccent, null));
-
-        ahBottomNavigation.addItem(itemReport);
-        ahBottomNavigation.addItem(itemMap);
-        ahBottomNavigation.addItem(itemAlarms);
-        ahBottomNavigation.addItem(itemProfile);
-        //  ahBottomNavigation.addItem(itemMore);
-
-        ahBottomNavigation.setCurrentItem(1);
-        ahBottomNavigation.setDefaultBackgroundColor(ResourcesCompat.getColor(this.getResources(), R.color.colorPrimary, null));
-        ahBottomNavigation.setForceTint(true);
-        ahBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        ahBottomNavigation.setTitleTypeface(font);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        }
-    }
-
     private void setUpToolBar() {
         mainToolbar = findViewById(R.id.MainActivity_toolbar_main);
         mainDrawer = findViewById(R.id.Main_drawer_layout);
-
     }
 
 
