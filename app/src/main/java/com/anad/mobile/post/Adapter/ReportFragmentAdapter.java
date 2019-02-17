@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.anad.mobile.post.Activity.RahRFIDFilter;
+import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter;
 import com.anad.mobile.post.Activity.ShowPathActivity;
 import com.anad.mobile.post.Models.ReportMenu;
 import com.anad.mobile.post.R;

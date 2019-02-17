@@ -13,6 +13,8 @@ import com.anad.mobile.post.BuildConfig;
 public class Constants {
 
 
+    public static final int RAHSEPARI_REPORT = 0;
+    public static final int ARP_REPORT = 1;
 
     static {
         System.loadLibrary("keys");

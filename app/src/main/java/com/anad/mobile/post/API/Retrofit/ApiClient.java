@@ -15,11 +15,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ApiClient {
 
     private static final String BASE_URL = BuildConfig.BASE_URL;
-    private static final String TEST_BASE_URL = "https://38d4e216.ngrok.io";
+    private static final String TEST_BASE_URL = "http://540dffd2.ngrok.io";
     private static Retrofit retrofit = null;
     private static PostSharedPreferences preferences;
 

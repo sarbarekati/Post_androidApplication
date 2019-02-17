@@ -5,20 +5,19 @@ import com.anad.mobile.post.ReportManager.model.Base.Report;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RahsepariReport  {
+public class RahsepariReport extends Report{
 
-    private Report report;
 
 
     @SerializedName("RahsepariReportId")
     @Expose
     public Integer rahsepariReportId;
 
-    public int getRahsepariReportId() {
+    public Integer getRahsepariReportId() {
         return rahsepariReportId;
     }
 
-    public void setRahsepariReportId(int rahsepariReportId) {
+    public void setRahsepariReportId(Integer rahsepariReportId) {
         this.rahsepariReportId = rahsepariReportId;
     }
 }

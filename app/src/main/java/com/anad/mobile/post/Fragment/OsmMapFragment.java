@@ -19,8 +19,7 @@ import android.widget.Toast;
 
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
-import com.anad.mobile.post.Activity.RahRFIDFilter;
-import com.anad.mobile.post.CustomWMSTileSource;
+import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter;
 import com.anad.mobile.post.Models.LastPosition;
 import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
@@ -30,23 +29,15 @@ import com.anad.mobile.post.Utils.CustomOsmWindowInfo;
 import com.anad.mobile.post.Utils.PersianCal;
 import com.anad.mobile.post.Utils.Util;
 import com.github.clans.fab.FloatingActionMenu;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.constants.OpenStreetMapTileProviderConstants;
-import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.OverlayItem;
-import org.osmdroid.views.overlay.infowindow.InfoWindow;
 import org.osmdroid.wms.WMSEndpoint;
-import org.osmdroid.wms.WMSLayer;
-import org.osmdroid.wms.WMSParser;
 import org.osmdroid.wms.WMSTileSource;
 
 import java.io.IOException;

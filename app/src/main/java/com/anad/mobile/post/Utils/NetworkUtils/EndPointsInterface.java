@@ -2,12 +2,17 @@ package com.anad.mobile.post.Utils.NetworkUtils;
 
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
+import com.anad.mobile.post.Models.Line;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
+import com.anad.mobile.post.ReportManager.model.Base.Report;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -24,10 +29,12 @@ public interface EndPointsInterface {
     Call<LoginResponse> login(@Query("username") String username,@Query("password") String password);
 
     @POST("Main/RahsepariReport/MobileGetAll")
-    Call<List<RahsepariReport>> getRahsepariReports(@Header("Cookie") String userCookie,@Body SearchReportItem searchItem);
+    Call<List<RahsepariReport>> getRahsepariReports(@Header("Cookie") String userCookie, @Body SearchReportItem searchItem);
 
     @POST("Main/ARPReport/MobileARPGetAll")
     Call<List<ARPReport>> getARPReports(@Header("Cookie") String userCookie,@Body SearchReportItem searchItem);
 
+    @GET("Main/Line/MobileGetAllLine")
+    Call<List<Line>> getAllLines(@Header("Cookie") String userCookie);
 
 }

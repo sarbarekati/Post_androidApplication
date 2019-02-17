@@ -139,6 +139,10 @@ public class Util {
         txt.setTypeface(font);
     }
 
+
+
+
+
     public void setTypeFaceNumberEditText(AppCompatEditText txt, Context context) {
 
         Typeface font = Typeface.createFromAsset(context.getAssets(), "IRANSansMobile(FaNum).ttf");
