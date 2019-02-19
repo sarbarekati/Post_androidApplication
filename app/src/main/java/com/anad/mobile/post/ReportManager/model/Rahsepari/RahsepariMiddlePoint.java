@@ -6,23 +6,23 @@ import com.google.gson.annotations.SerializedName;
 public class RahsepariMiddlePoint extends MiddlePoint {
 
     @SerializedName("RahsepariMiddlePointId")
-    private int RahsepariMiddlePointId;
+    private Long RahsepariMiddlePointId;
     @SerializedName("RahsepariReportId")
-    private int RahsepariReportId;
+    private Long RahsepariReportId;
 
-    public int getRahsepariMiddlePointId() {
+    public Long getRahsepariMiddlePointId() {
         return RahsepariMiddlePointId;
     }
 
-    public void setRahsepariMiddlePointId(int rahsepariMiddlePointId) {
+    public void setRahsepariMiddlePointId(Long rahsepariMiddlePointId) {
         RahsepariMiddlePointId = rahsepariMiddlePointId;
     }
 
-    public int getRahsepariReportId() {
+    public Long getRahsepariReportId() {
         return RahsepariReportId;
     }
 
-    public void setRahsepariReportId(int rahsepariReportId) {
+    public void setRahsepariReportId(Long rahsepariReportId) {
         RahsepariReportId = rahsepariReportId;
     }
 }

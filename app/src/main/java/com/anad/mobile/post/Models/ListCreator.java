@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.v4.content.res.ResourcesCompat;
 
 import com.anad.mobile.post.R;
+import com.anad.mobile.post.ReportManager.model.Base.Report;
 import com.anad.mobile.post.Utils.Util;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.BarData;
@@ -26,23 +27,23 @@ public class ListCreator {
 
     }
 
-    public ListCreator(ReportCreator reports) {
+    private ListCreator(ReportCreator reports) {
         this.reports = reports;
     }
 
 
-    public static List<ReportRow> getRows(Context context, ReportCreator reports) {
+    public static List<ReportRow> getRows(Context context, Report reports) {
         List<ReportRow> rows = new ArrayList<>();
-        ReportRow r1 = new ReportRow(context.getString(R.string.bargiri_date), reports.getBargiriDate());
+//        ReportRow r1 = new ReportRow(context.getString(R.string.bargiri_date), reports.getMabdaDate());
         ReportRow r2 = new ReportRow(context.getString(R.string.bargiri_time), reports.getModateBargiriMabda());
-        ReportRow r3 = new ReportRow(context.getString(R.string.harkat_date), reports.getMabDate());
+        ReportRow r3 = new ReportRow(context.getString(R.string.harkat_date), reports.getMabdaDate());
         ReportRow r4 = new ReportRow(context.getString(R.string.mogharar_time), reports.getMabdaMogharar());
         ReportRow r5 = new ReportRow(context.getString(R.string.harkat_time), reports.getMabdaKhoroj());
         ReportRow r6 = new ReportRow(context.getString(R.string.late), reports.getMabdaTakhir());
         ReportRow r7 = new ReportRow(context.getString(R.string.soon), reports.getMabdaTajil());
 
 
-        rows.add(r1);
+//        rows.add(r1);
         rows.add(r2);
         rows.add(r3);
         rows.add(r4);
@@ -52,16 +53,16 @@ public class ListCreator {
         return rows;
     }
 
-    public static List<ReportRow> getRowsDestination(Context context, ReportCreator reports) {
+    public static List<ReportRow> getRowsDestination(Context context, Report reports) {
         List<ReportRow> rows = new ArrayList<>();
-        ReportRow r1 = new ReportRow(context.getString(R.string.destination_date), reports.getMagDate());
-        ReportRow r2 = new ReportRow(context.getString(R.string.mogharar_time), reports.getMagsadMogharar());
-        ReportRow r3 = new ReportRow(context.getString(R.string.destination_time), reports.getMagsadVorod());
-        ReportRow r5 = new ReportRow(context.getString(R.string.late), reports.getMagsadTakhir());
-        ReportRow r6 = new ReportRow(context.getString(R.string.soon), reports.getMagsadTajil());
-        ReportRow r4 = new ReportRow(context.getString(R.string.bazgoshayi_date), reports.getBazgoshaiDate());
-        ReportRow r7 = new ReportRow(context.getString(R.string.bazrgoshayi_time), reports.getSaatBazgoshyMagsad());
-        ReportRow r8 = new ReportRow(context.getString(R.string.tahvil_marsolat_time), reports.getMagsadMobadele());
+        ReportRow r1 = new ReportRow(context.getString(R.string.destination_date), reports.getMaghsadDate());
+        ReportRow r2 = new ReportRow(context.getString(R.string.mogharar_time), reports.getMaghsadMogharar());
+        ReportRow r3 = new ReportRow(context.getString(R.string.destination_time), reports.getMaghsadVorood());
+        ReportRow r5 = new ReportRow(context.getString(R.string.late), reports.getMaghsadTakhir());
+        ReportRow r6 = new ReportRow(context.getString(R.string.soon), reports.getMaghsadTajil());
+        ReportRow r4 = new ReportRow(context.getString(R.string.bazgoshayi_date), reports.getMaghsadBazgoshai());
+//        ReportRow r7 = new ReportRow(context.getString(R.string.bazrgoshayi_time), reports.getMaghsaB());
+//        ReportRow r8 = new ReportRow(context.getString(R.string.tahvil_marsolat_time), reports.getMaghsad());
 
         rows.add(r1);
         rows.add(r2);
@@ -69,20 +70,20 @@ public class ListCreator {
         rows.add(r4);
         rows.add(r5);
         rows.add(r6);
-        rows.add(r7);
-        rows.add(r8);
+//        rows.add(r7);
+//        rows.add(r8);
         return rows;
     }
 
-    public static List<ReportRow> getRowsPath(Context context, ReportCreator reports) {
+    public static List<ReportRow> getRowsPath(Context context, Report reports) {
         List<ReportRow> rows = new ArrayList<>();
-        ReportRow r1 = new ReportRow(context.getString(R.string.tey_moghrar_time), reports.getZamaneMoghararTey());
-        ReportRow r2 = new ReportRow(context.getString(R.string.tey_masir_realy), reports.getZamaneTey());
+        ReportRow r1 = new ReportRow(context.getString(R.string.tey_moghrar_time), reports.getZamanMoghararTey());
+        ReportRow r2 = new ReportRow(context.getString(R.string.tey_masir_realy), reports.getZamanTey());
         ReportRow r3 = new ReportRow(context.getString(R.string.late), reports.getTeyTakhir());
         ReportRow r5 = new ReportRow(context.getString(R.string.soon), reports.getTeyTajil());
-        ReportRow r6 = new ReportRow(context.getString(R.string.tey_length), reports.getLen() + "");
-        ReportRow r4 = new ReportRow(context.getString(R.string.avg_speed), reports.getSpd_Avg() + "");
-        ReportRow r7 = new ReportRow(context.getString(R.string.max_speed), reports.getSpd_Max() + "");
+        ReportRow r6 = new ReportRow(context.getString(R.string.tey_length), reports.getLength() + "");
+        ReportRow r4 = new ReportRow(context.getString(R.string.avg_speed), reports.getAvrageSpeed() + "");
+        ReportRow r7 = new ReportRow(context.getString(R.string.max_speed), reports.getMaxSpeed() + "");
 
         rows.add(r1);
         rows.add(r2);
@@ -131,290 +132,63 @@ public class ListCreator {
     }
 
 
-    public static List<ReportRow> getRowsMobadeleTitle(Context context, ReportCreator reports) {
+    public static List<ReportRow> getRowsMobadeleTitle(Context context, List<? extends com.anad.mobile.post.ReportManager.model.Base.MiddlePoint> middlePoint) {
         List<ReportRow> rows = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
+        for (com.anad.mobile.post.ReportManager.model.Base.MiddlePoint point : middlePoint) {
             ReportRow row = new ReportRow();
-            switch (i) {
-                case 1:
-                    if (!reports.getNoghteMobadele1().equals("") && reports.getNoghteMobadele1() != null) {
-                        row.setMobadeleName(context.getString(R.string.mobadele_name));
-                        row.setMobadeleNameContent(reports.getNoghteMobadele1());
-                        row.setMobadeleDate(context.getString(R.string.mobadele_date));
-                        row.setMobadeleDateContent(reports.getMobadeleDate1());
-                        row.setMobadeleTime(context.getString(R.string.mobadele_time));
-                        row.setMobadeleTimeContent(reports.getModateMobadele1());
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod1());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod1());
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoKhorojContent(reports.getSaatMoghararKhoroj1());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj1());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod1());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod1());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj1());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj1());
-                        rows.add(row);
-                    }
-
-                    break;
-                case 2:
-                    if (!reports.getNoghteMobadele2().equals("") && reports.getNoghteMobadele2() != null) {
-                        row.setMobadeleName(context.getString(R.string.mobadele_name));
-                        row.setMobadeleNameContent(reports.getNoghteMobadele2());
-                        row.setMobadeleDate(context.getString(R.string.mobadele_date));
-                        row.setMobadeleDateContent(reports.getMobadeleDate2());
-                        row.setMobadeleTime(context.getString(R.string.mobadele_time));
-                        row.setMobadeleTimeContent(reports.getModateMobadele2());
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod2());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod2());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoKhorojContent(reports.getSaatMoghararKhoroj2());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj2());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod2());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod2());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj2());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj2());
-                        rows.add(row);
-
-                    }
-                    break;
-                case 3:
-                    if (!reports.getNoghteMobadele3().equals("") && reports.getNoghteMobadele3() != null) {
-                        row.setMobadeleName(context.getString(R.string.mobadele_name));
-                        row.setMobadeleNameContent(reports.getNoghteMobadele3());
-                        row.setMobadeleDate(context.getString(R.string.mobadele_date));
-                        row.setMobadeleDateContent(reports.getMobadeleDate3());
-                        row.setMobadeleTime(context.getString(R.string.mobadele_time));
-                        row.setMobadeleTimeContent(reports.getModateMobadele3());
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod3());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod3());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoKhorojContent(reports.getSaatMoghararKhoroj3());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj3());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod3());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod3());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj3());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj3());
-                        rows.add(row);
-
-                    }
-                    break;
-                case 4:
-                    if (!reports.getNoghteMobadele4().equals("") && reports.getNoghteMobadele4() != null) {
-                        row.setMobadeleName(context.getString(R.string.mobadele_name));
-                        row.setMobadeleNameContent(reports.getNoghteMobadele4());
-                        row.setMobadeleDate(context.getString(R.string.mobadele_date));
-                        row.setMobadeleDateContent(reports.getMobadeleDate4());
-                        row.setMobadeleTime(context.getString(R.string.mobadele_time));
-                        row.setMobadeleTimeContent(reports.getModateMobadele4());
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod4());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod4());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoKhorojContent(reports.getSaatMoghararKhoroj4());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj4());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod4());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod4());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj4());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj4());
-                        rows.add(row);
-
-                    }
-                    break;
-                case 5:
-                    if (!reports.getNoghteMobadele5().equals("") && reports.getNoghteMobadele5() != null) {
-                        row.setMobadeleName(context.getString(R.string.mobadele_name));
-                        row.setMobadeleNameContent(reports.getNoghteMobadele5());
-                        row.setMobadeleDate(context.getString(R.string.mobadele_date));
-                        row.setMobadeleDateContent(reports.getMobadeleDate5());
-                        row.setMobadeleTime(context.getString(R.string.mobadele_time));
-                        row.setMobadeleTimeContent(reports.getModateMobadele5());
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod5());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod5());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoKhorojContent(reports.getSaatMoghararKhoroj5());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj5());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod5());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod5());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj5());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj5());
-                        rows.add(row);
-
-                    }
-                    break;
-            }
-
-
+            row.setMobadeleName(context.getString(R.string.mobadele_name));
+            row.setMobadeleNameContent(point.getMiddlePointTitle());
+            row.setMobadeleDate(context.getString(R.string.mobadele_date));
+            row.setMobadeleDateContent(point.getMobadeleDate());
+            row.setMobadeleTime(context.getString(R.string.mobadele_time));
+            row.setMobadeleTimeContent(point.getModateBargiriMobadele());
+            row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
+            row.setMoVorodContent(point.getMobadeleMoghararVorood());
+            row.setVorod(context.getString(R.string.mobadele_vorod));
+            row.setVorodContent(point.getMobadeleVorood());
+            row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
+            row.setMoKhorojContent(point.getMobadeleMoghararKhoroj());
+            row.setKhoroj(context.getString(R.string.mobadele_khoroj));
+            row.setKhorojContent(point.getMobadeleKhoroj());
+            row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
+            row.setVorodLateContent(point.getMobadeleTakhirVorood());
+            row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
+            row.setVorodSoonCotent(point.getMobadeleTjilVorood());
+            row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
+            row.setKhorojLateContent(point.getMobadeleTakhirKhoroj());
+            row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
+            row.setKhorojSoonContent(point.getMobadeleTajilKhoroj());
+            rows.add(row);
         }
-
-        // hRows.add(h);
-
-
         return rows;
     }
 
 
-    public static List<ReportRow> getRowsMobadeleInner(Context context, ReportCreator reports) {
+    public static List<ReportRow> getRowsMobadeleInner(Context context, List<com.anad.mobile.post.ReportManager.model.Base.MiddlePoint> middlePoint) {
         List<ReportRow> rows = new ArrayList<>();
 
-        for (int i = 1; i <= 5; i++) {
+
+        for (com.anad.mobile.post.ReportManager.model.Base.MiddlePoint point : middlePoint) {
             ReportRow row = new ReportRow();
-            switch (i) {
-                case 1:
-                    if (!reports.getNoghteMobadele1().equals("") && reports.getNoghteMobadele1() != null) {
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod1());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod1());
+            row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
+            row.setMoVorodContent(point.getMobadeleMoghararVorood());
+            row.setVorod(context.getString(R.string.mobadele_vorod));
+            row.setVorodContent(point.getMobadeleVorood());
 
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoVorodContent(reports.getSaatMoghararKhoroj1());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj1());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod1());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod1());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj1());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj1());
+            row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
+            row.setMoVorodContent(point.getMobadeleMoghararKhoroj());
+            row.setKhoroj(context.getString(R.string.mobadele_khoroj));
+            row.setKhorojContent(point.getMobadeleKhoroj());
+            row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
+            row.setVorodLateContent(point.getMobadeleTakhirVorood());
+            row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
+            row.setVorodSoonCotent(point.getMobadeleTjilVorood());
+            row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
+            row.setKhorojLateContent(point.getMobadeleTakhirKhoroj());
+            row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
+            row.setKhorojSoonContent(point.getMobadeleTajilKhoroj());
 
-                        rows.add(row);
-                    }
-                    break;
-                case 2:
-                    if (!reports.getNoghteMobadele2().equals("") && reports.getNoghteMobadele2() != null) {
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod2());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod2());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoVorodContent(reports.getSaatMoghararKhoroj2());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj2());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod2());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod2());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj2());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj2());
-
-                        rows.add(row);
-                    }
-                    break;
-                case 3:
-                    if (!reports.getNoghteMobadele3().equals("") && reports.getNoghteMobadele3() != null) {
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod3());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod3());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoVorodContent(reports.getSaatMoghararKhoroj3());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj3());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod3());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod3());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj3());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj3());
-
-                        rows.add(row);
-                    }
-                    break;
-                case 4:
-                    if (!reports.getNoghteMobadele4().equals("") && reports.getNoghteMobadele4() != null) {
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod4());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod4());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoVorodContent(reports.getSaatMoghararKhoroj4());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj4());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod4());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod4());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj4());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj4());
-
-                        rows.add(row);
-                    }
-                    break;
-                case 5:
-                    if (!reports.getNoghteMobadele5().equals("") && reports.getNoghteMobadele5() != null) {
-                        row.setMoVorod(context.getString(R.string.mobadele_moghrar_vorod));
-                        row.setMoVorodContent(reports.getSaatMoghararVorod5());
-                        row.setVorod(context.getString(R.string.mobadele_vorod));
-                        row.setVorodContent(reports.getSaatVorod5());
-
-                        row.setMoKhoroj(context.getString(R.string.mobadele_moghrar_khoroj));
-                        row.setMoVorodContent(reports.getSaatMoghararKhoroj5());
-                        row.setKhoroj(context.getString(R.string.mobadele_khoroj));
-                        row.setKhorojContent(reports.getSaatKhoroj5());
-                        row.setVorodLate(context.getString(R.string.mobadele_vorod_late));
-                        row.setVorodLateContent(reports.getTakhirVorod5());
-                        row.setVorodSoon(context.getString(R.string.mobadele_vorod_soon));
-                        row.setVorodSoonCotent(reports.getTajilvorod5());
-                        row.setKhorojLate(context.getString(R.string.mobadele_khoroj_late));
-                        row.setKhorojLateContent(reports.getTakhireKhoroj5());
-                        row.setKhorojSoon(context.getString(R.string.mobadele_khoroj_soon));
-                        row.setKhorojSoonContent(reports.getTajilKhoroj5());
-
-                        rows.add(row);
-                    }
-                    break;
-
-            }
+            rows.add(row);
 
         }
 

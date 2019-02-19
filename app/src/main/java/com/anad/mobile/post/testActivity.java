@@ -40,7 +40,7 @@ public class testActivity extends AppCompatActivity implements IReportResponse,O
 
         LoginApi loginApi = LoginApi.getInstance(this,preferences);
         loginApi.setOnLoginResponse(this);
-        loginApi.callWithRetrofit("admin","908070");
+        loginApi.callLoginApi("admin","908070");
 
 
     }

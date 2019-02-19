@@ -2,8 +2,6 @@ package com.anad.mobile.post.Activity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.app.VoiceInteractor;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -25,7 +23,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anad.mobile.post.API.ApiCaller;
 import com.anad.mobile.post.API.WebApi;
 import com.anad.mobile.post.AccountManager.api.LoginApi;
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
@@ -35,19 +32,8 @@ import com.anad.mobile.post.R;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
 import com.anad.mobile.post.Utils.Util;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements OnLoginResponse {
     private static final String TAG = "LoginActivity";
@@ -126,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
                         rotateLoading.start();
                         final String userName = edtUserName.getText().toString();
                         final String passWord = edtPassword.getText().toString();
-                        api.callWithRetrofit(userName, passWord);
+                        api.callLoginApi(userName, passWord);
 
 
 //                        api.checkLoginWithState(userName, passWord,REGISTER_CODE, new SingletonApi.CheckState() {

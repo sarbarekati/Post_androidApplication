@@ -3,8 +3,10 @@ package com.anad.mobile.post.Utils.NetworkUtils;
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
 import com.anad.mobile.post.Models.Line;
+import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Base.Report;
+import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 
@@ -36,5 +38,11 @@ public interface EndPointsInterface {
 
     @GET("Main/Line/MobileGetAllLine")
     Call<List<Line>> getAllLines(@Header("Cookie") String userCookie);
+
+    @GET("Main/RahsepariMiddlePoint/MobileGetByRahsepariReportId")
+    Call<List<RahsepariMiddlePoint>> getRahsepariMiddlePoint(@Header("Cookie") String userCookie,@Query("id") Long rahsepariReportId);
+
+    @GET("Main/ARPMiddlePoint/MobileGetByARPReportId")
+    Call<List<ARPMiddlePoint>> getARPMiddlePoint(@Header("Cookie") String userCookie,@Query("id") Long arpReportId);
 
 }

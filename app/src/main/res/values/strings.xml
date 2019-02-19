@@ -156,6 +156,7 @@
 
 
     <string-array name="Report_filters">
+        <item> همه موارد</item>
         <item>تاخیر در خروج از مبدا </item>
         <item>تاخیر در ورود به مقصد </item>
         <item>تعجیل در ورود به مقصد </item>

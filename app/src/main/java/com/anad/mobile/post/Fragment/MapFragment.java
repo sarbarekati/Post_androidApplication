@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
-import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter;
+import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
 import com.anad.mobile.post.Adapter.CustomInfoWindowAdapter;
 import com.anad.mobile.post.Models.HandleSubTree;
 import com.anad.mobile.post.Models.LastPosition;
@@ -168,7 +168,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
             case R.id.Map_fab_filter:
                 fab_menu.close(true);
-                Intent i = new Intent(getActivity(), RahRFIDFilter.class);
+                Intent i = new Intent(getActivity(), RahRFIDFilterActivity.class);
                 i.putExtra("MAP_FILTER", "from Map");
                 startActivity(i);
                 break;

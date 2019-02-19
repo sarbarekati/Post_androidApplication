@@ -2,6 +2,7 @@ package com.anad.mobile.post.ReportManager.model.Base;
 
 import com.anad.mobile.post.Models.Line;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
+import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 
 import java.util.List;

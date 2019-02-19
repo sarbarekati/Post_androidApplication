@@ -6,10 +6,13 @@ import android.util.Log;
 
 import com.anad.mobile.post.API.Retrofit.ApiClient;
 import com.anad.mobile.post.Models.Line;
+import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
+import com.anad.mobile.post.ReportManager.model.Base.IMiddlePointResponse;
 import com.anad.mobile.post.ReportManager.model.Base.IReportResponse;
 import com.anad.mobile.post.ReportManager.model.Base.Report;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
+import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.NetworkUtils.EndPointsInterface;
@@ -31,6 +34,7 @@ public class ReportApiCaller {
     private Context context;
     private static ReportApiCaller reportApiCaller = null;
     private IReportResponse reportResponseListener;
+    private IMiddlePointResponse iMiddlePointResponse;
 
     private static final String TAG = "ReportApiCaller";
 
@@ -45,6 +49,9 @@ public class ReportApiCaller {
         return reportApiCaller;
     }
 
+    public void setMiddlePointResponseListener(IMiddlePointResponse middlePointResponseListener){
+        this.iMiddlePointResponse = middlePointResponseListener;
+    }
 
     public void setReportResponseListener(IReportResponse reportResponseListener) {
         this.reportResponseListener = reportResponseListener;
@@ -57,7 +64,7 @@ public class ReportApiCaller {
                 .create(EndPointsInterface.class)
                 .getRahsepariReports(cookies, search);
 
-       call.enqueue(new Callback<List<RahsepariReport>>() {
+        call.enqueue(new Callback<List<RahsepariReport>>() {
             @Override
             public void onResponse(Call<List<RahsepariReport>> call, Response<List<RahsepariReport>> response) {
                 reportResponseListener.onSuccessRahsepari(response.body());
@@ -90,7 +97,7 @@ public class ReportApiCaller {
 
     }
 
-    public void callAllLineApi(String cookie){
+    public void callAllLineApi(String cookie) {
         Call<List<Line>> call = ApiClient.getInstance(context).create(EndPointsInterface.class).getAllLines(cookie);
         call.enqueue(new Callback<List<Line>>() {
             @Override
@@ -100,6 +107,43 @@ public class ReportApiCaller {
 
             @Override
             public void onFailure(Call<List<Line>> call, Throwable t) {
+                reportResponseListener.onFailed(t.toString());
+            }
+        });
+    }
+
+
+    public void callRahsepariMiddleApi(String cookie,long id) {
+        Call<List<RahsepariMiddlePoint>> call = ApiClient.getInstance(context)
+                .create(EndPointsInterface.class)
+                .getRahsepariMiddlePoint(cookie, id);
+
+        call.enqueue(new Callback<List<RahsepariMiddlePoint>>() {
+            @Override
+            public void onResponse(Call<List<RahsepariMiddlePoint>> call, Response<List<RahsepariMiddlePoint>> response) {
+                iMiddlePointResponse.onSuccessRahsepariMiddlePoint(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<RahsepariMiddlePoint>> call, Throwable t) {
+                reportResponseListener.onFailed(t.toString());
+            }
+        });
+    }
+
+    public void callARPMiddleApi(String cookie,long id) {
+        Call<List<ARPMiddlePoint>> call = ApiClient.getInstance(context)
+                .create(EndPointsInterface.class)
+                .getARPMiddlePoint(cookie, id);
+
+        call.enqueue(new Callback<List<ARPMiddlePoint>>() {
+            @Override
+            public void onResponse(Call<List<ARPMiddlePoint>> call, Response<List<ARPMiddlePoint>> response) {
+                iMiddlePointResponse.onSuccessARPMiddlePoint(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ARPMiddlePoint>> call, Throwable t) {
                 reportResponseListener.onFailed(t.toString());
             }
         });

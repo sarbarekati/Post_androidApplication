@@ -40,7 +40,7 @@ public class LoginApi {
         loginResponse = onLoginResponse;
     }
 
-    public void callWithRetrofit(String username, String password) {
+    public void callLoginApi(String username, String password) {
         Call<LoginResponse> call = ApiClient.getInstance(context)
                 .create(EndPointsInterface.class)
                 .login(username, password);

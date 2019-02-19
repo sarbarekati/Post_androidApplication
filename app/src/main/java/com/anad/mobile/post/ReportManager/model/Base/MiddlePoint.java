@@ -8,7 +8,7 @@ public abstract class MiddlePoint {
     @SerializedName("MiddlePointTitle")
     private String MiddlePointTitle;
     @SerializedName("MiddlePointId")
-    private int MiddlePointId;
+    private Long MiddlePointId;
     @SerializedName("ModateBargiriMobadele")
     private String ModateBargiriMobadele;
     @SerializedName("MobadeleKhoroj")
@@ -38,11 +38,11 @@ public abstract class MiddlePoint {
         MiddlePointTitle = middlePointTitle;
     }
 
-    public int getMiddlePointId() {
+    public Long getMiddlePointId() {
         return MiddlePointId;
     }
 
-    public void setMiddlePointId(int middlePointId) {
+    public void setMiddlePointId(Long middlePointId) {
         MiddlePointId = middlePointId;
     }
 

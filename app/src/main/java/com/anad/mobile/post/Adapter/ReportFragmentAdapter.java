@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter;
+import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
 import com.anad.mobile.post.Activity.ShowPathActivity;
 import com.anad.mobile.post.Models.ReportMenu;
 import com.anad.mobile.post.R;
@@ -50,7 +50,7 @@ public class ReportFragmentAdapter extends RecyclerView.Adapter<ReportFragmentAd
 
                 }
                 else{
-                    i = new Intent(context, RahRFIDFilter.class);
+                    i = new Intent(context, RahRFIDFilterActivity.class);
                 }
 
                 i.putExtra("REPORT_ID",rp.getID());

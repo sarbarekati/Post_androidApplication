@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
-import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter;
+import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
 import com.anad.mobile.post.Models.LastPosition;
 import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
@@ -131,7 +131,7 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         switch (v.getId()) {
             case R.id.Map_fab_filter:
                 fab_menu.close(true);
-                Intent i = new Intent(getActivity(), RahRFIDFilter.class);
+                Intent i = new Intent(getActivity(), RahRFIDFilterActivity.class);
                 i.putExtra("MAP_FILTER", "from Map");
                 startActivity(i);
                 break;

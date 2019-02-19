@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatEditText;
@@ -25,7 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
@@ -35,11 +33,9 @@ import com.anad.mobile.post.Models.DriverModel;
 import com.anad.mobile.post.Models.GeneralReport;
 import com.anad.mobile.post.Models.HandleSubTree;
 import com.anad.mobile.post.Models.LastPosition;
-import com.anad.mobile.post.Models.Line;
 import com.anad.mobile.post.Models.Org;
 import com.anad.mobile.post.Models.OrgInfoModel;
 import com.anad.mobile.post.Models.SubTree;
-import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.ReportManager.ReportManager;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
@@ -57,15 +53,13 @@ import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class RahRFIDFilter extends AppCompatActivity implements View.OnClickListener, IRahRFIDFilter {
+public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnClickListener, IRahRFIDReport {
     public static final String RAHSEPARI_REPORT_RESPONSE = "RahsepariReportResponse";
     private static final String TIME_START = "TIME_START";
     private static final String TIME_END = "TIME_END";
@@ -78,7 +72,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
     private int lastIndexSpinnerOne, lastIndexSpinnerTwo, lastIndexSpinnerThree, lastIndexSpinnerFour, lastIndexSpinnerFive, lastIndexSpinnerDriver;
     private Button acceptFilter;
     private HandleSubTree handleSubTree;
-    private static final String TAG = "RahRFIDFilter";
+    private static final String TAG = "RahRFIDFilterActivity";
     private List<String> userAccessOrgName;
 
     private List<SubTree> subTreeListSpinnerOne, subTreeListSpinnerTwo, subTreeListSpinnerThree, subTreeListSpinnerFour, subTreeListSpinnerFive;
@@ -187,13 +181,14 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
     private ReportManager reportManager;
+    private List<String> linesNames;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = new PostSharedPreferences(this);
-        reportManager = new ReportManager(this, preferences);
+        reportManager = new ReportManager(this, preferences, this);
         if (Util.authenticateUser(preferences)) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -260,12 +255,11 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
             }
 
-            fillPath();
+
+//            handleSubTree = HandleSubTree.getInstance(this);
 
 
-            handleSubTree = HandleSubTree.getInstance(this);
-
-
+/*
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -282,7 +276,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                 }
 
 
-                                ArrayAdapter sAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, userAccessOrgName);
+                                ArrayAdapter sAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
                                 spinnerIndexOne.setAdapter(sAdapter);
 
                                 OrgInfoModel allOrg = new OrgInfoModel();
@@ -300,6 +294,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                 }
             }, 1000);
+*/
 
 
             chSpinners.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -336,7 +331,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
             acceptFilter.setOnClickListener(new AcceptClickListener());
 
 
-            acceptFilter.setOnClickListener(new View.OnClickListener() {
+            /*acceptFilter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -497,7 +492,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                 final int Id = Integer.parseInt(edtCarCode.getText().toString());
 
                                 String URL_CARS = Constants.URL_GET_ALL_DRIVER + preferences.getPrefUserName() + "/" + Id;
-                                final FilterApi f = FilterApi.getInstance(RahRFIDFilter.this);
+                                final FilterApi f = FilterApi.getInstance(RahRFIDFilterActivity.this);
 
 
                                 f.getDriver(new FilterApi.OnGetUserSubTreeObject() {
@@ -517,9 +512,9 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                                         int diff = Math.abs(Integer.parseInt(lastPosition.getLTime().split(":")[0]) - Integer.parseInt(hour));
                                                         if (lastPosition.getLDate().equals(Date) && diff <= 2) {
-                                                        /*carIds.add(lastPosition.getID());
+                                                        *//*carIds.add(lastPosition.getID());
 
-                                                        positionToShow = getPositionWithId(carIds);*/
+                                                        positionToShow = getPositionWithId(carIds);*//*
                                                             positionToShow = new ArrayList<>();
                                                             positionToShow.add(lastPosition);
                                                             isEnterCode = true;
@@ -533,18 +528,18 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                             }
                                                             Gson gson = new Gson();
                                                             String sendUserAccess = gson.toJson(userAccesses);
-                                                            Intent i = new Intent(RahRFIDFilter.this, MainActivity.class);
+                                                            Intent i = new Intent(RahRFIDFilterActivity.this, MainActivity.class);
                                                             i.putExtra("MAP_FILTER", sendUserAccess);
                                                             i.putExtra("IS_ONLINE", isOnlineCheck);
                                                             i.putExtra("CAR_ID", Id + "");
                                                             startActivity(i);
                                                             finish();
                                                         } else {
-                                                            Toast.makeText(RahRFIDFilter.this, "خودرو انتخاب شده در حالت آنلاین نمی باشد.", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(RahRFIDFilterActivity.this, "خودرو انتخاب شده در حالت آنلاین نمی باشد.", Toast.LENGTH_SHORT).show();
                                                         }
                                                     } else {
-                                                    /*carIds.add(lastPosition.getID());
-                                                    positionToShow = getPositionWithId(carIds);*/
+                                                    *//*carIds.add(lastPosition.getID());
+                                                    positionToShow = getPositionWithId(carIds);*//*
                                                         positionToShow = new ArrayList<>();
                                                         positionToShow.add(lastPosition);
                                                         isEnterCode = true;
@@ -558,7 +553,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                         }
                                                         Gson gson = new Gson();
                                                         String sendUserAccess = gson.toJson(userAccesses);
-                                                        Intent i = new Intent(RahRFIDFilter.this, MainActivity.class);
+                                                        Intent i = new Intent(RahRFIDFilterActivity.this, MainActivity.class);
                                                         i.putExtra("MAP_FILTER", sendUserAccess);
                                                         i.putExtra("IS_ONLINE", isOnlineCheck);
                                                         i.putExtra("CAR_ID", Id + "");
@@ -571,7 +566,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
                                         } else {
-                                            Toast.makeText(RahRFIDFilter.this, "کاربر به این کد ماشین دسترسی ندارد.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RahRFIDFilterActivity.this, "کاربر به این کد ماشین دسترسی ندارد.", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }, URL_CARS);
@@ -632,7 +627,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                         Gson gson = new Gson();
                                         String sendUserAccess = gson.toJson(userAccesses);
-                                        Intent intent = new Intent(RahRFIDFilter.this, MainActivity.class);
+                                        Intent intent = new Intent(RahRFIDFilterActivity.this, MainActivity.class);
                                         intent.putExtra("CAR_ID", ORG_OR_CAR_ID);
                                         intent.putExtra("IS_ONLINE", isOnlineCheck);
                                         intent.putExtra("MAP_FILTER", sendUserAccess);
@@ -641,7 +636,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                         isSelectAll = false;
 
                                     } else {
-                                        Toast.makeText(RahRFIDFilter.this, "متحرک مورد نظر دارای اطلاعات نمی باشد.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RahRFIDFilterActivity.this, "متحرک مورد نظر دارای اطلاعات نمی باشد.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }, Constants.URL_GET_LAST_POS_WITH_ID + ORG_OR_CAR_ID);
@@ -650,9 +645,9 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
                         if (txtStartDate.getText().toString().equals("")) {
-                            Toast.makeText(RahRFIDFilter.this, R.string.please_enter_start_date, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RahRFIDFilterActivity.this, R.string.please_enter_start_date, Toast.LENGTH_SHORT).show();
                         } else if (txtEndDate.getText().toString().equals("")) {
-                            Toast.makeText(RahRFIDFilter.this, R.string.please_enter_end_date, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RahRFIDFilterActivity.this, R.string.please_enter_end_date, Toast.LENGTH_SHORT).show();
                         }
 
 
@@ -661,7 +656,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                 int Id = Integer.parseInt(edtCarCode.getText().toString());
                                 String URL = Constants.URL_GET_ALL_DRIVER + preferences.getPrefUserName() + "/" + Id;
-                                FilterApi f = FilterApi.getInstance(RahRFIDFilter.this);
+                                FilterApi f = FilterApi.getInstance(RahRFIDFilterActivity.this);
                                 f.getDriver(new FilterApi.OnGetUserSubTreeObject() {
                                     @Override
                                     public void onResponseUserSubTree(List<Cars> cars) {
@@ -675,7 +670,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                             lastOrgId = cars.get(0).getOrg_ID();
                                             getReportAndStartActivity(lastOrgId);
                                         } else {
-                                            Toast.makeText(RahRFIDFilter.this, "کاربر به این کد ماشین دسترسی ندارد.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RahRFIDFilterActivity.this, "کاربر به این کد ماشین دسترسی ندارد.", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }, URL);
@@ -688,7 +683,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                     }
                 }
-            });
+            });*/
 
 
             btnStartTime.setOnClickListener(this);
@@ -758,7 +753,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                 spinnerIndexDriver.setVisibility(View.GONE);
                                 containerDriver.setVisibility(View.GONE);
-                                ArrayAdapter sAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, userAccessOrgName);
+                                ArrayAdapter sAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
                                 spinnerIndexTwo.setAdapter(sAdapter);
 
                                 OrgInfoModel allOrg = new OrgInfoModel();
@@ -797,7 +792,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                 name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
                                             }
 
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, name);
+                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
                                             spinnerIndexDriver.setAdapter(seAdapter);
                                             oSubTreeListSpinnerDriver.addAll(driverModels);
                                             lastOrgId = orgId;
@@ -877,7 +872,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                 containerDriver.setVisibility(View.GONE);
                                 spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, userAccessOrgName);
+                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
                                 spinnerIndexThree.setAdapter(seAdapter);
                                 OrgInfoModel allOrg = new OrgInfoModel();
                                 allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
@@ -912,7 +907,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                 name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
 
                                             }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, name);
+                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
                                             spinnerIndexDriver.setAdapter(seAdapter);
 
                                             oSubTreeListSpinnerDriver.addAll(driverModels);
@@ -980,7 +975,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                 containerDriver.setVisibility(View.GONE);
                                 spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, userAccessOrgName);
+                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
                                 spinnerIndexFour.setAdapter(seAdapter);
                                 OrgInfoModel allOrg = new OrgInfoModel();
                                 allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
@@ -1011,7 +1006,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                 name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
 
                                             }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, name);
+                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
                                             spinnerIndexDriver.setAdapter(seAdapter);
 
                                             oSubTreeListSpinnerDriver.addAll(driverModels);
@@ -1069,7 +1064,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
                                 containerDriver.setVisibility(View.GONE);
                                 spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, userAccessOrgName);
+                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
                                 spinnerIndexFive.setAdapter(seAdapter);
                                 OrgInfoModel allOrg = new OrgInfoModel();
                                 allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
@@ -1099,7 +1094,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                 name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
 
                                             }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, name);
+                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
                                             spinnerIndexDriver.setAdapter(seAdapter);
 
                                             oSubTreeListSpinnerDriver.addAll(driverModels);
@@ -1172,7 +1167,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                                                 name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
 
                                             }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item, name);
+                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
                                             spinnerIndexDriver.setAdapter(seAdapter);
 
                                             oSubTreeListSpinnerDriver.addAll(driverModels);
@@ -1303,6 +1298,13 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
         spinnerFilters.setOnItemSelectedListener(new FilterFieldReport());
         pathSpinner.setOnItemSelectedListener(new PathFieldOnItemListener());
+        pathSpinner.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                reportManager.callGetLineApi();
+                return false;
+            }
+        });
 
     }
 
@@ -1312,15 +1314,9 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
                 txtStartTime, txtEndTime, edtSpeedEnd, edtSpeedStart, edtLengthEnd, edtLengthStart);
     }
 
-    private void setUpSpinnerPath(){
+    private void setUpSpinnerPath() {
         pathSpinner = findViewById(R.id.path_spinner);
-        pathSpinner.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                reportManager.callGetLineApi();
-                return false;
-            }
-        });
+
     }
 
 
@@ -1419,11 +1415,6 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
     }
 
 
-    private void fillPath() {
-
-    }
-
-
     private List<LastPosition> getPositionWithId(final List<Integer> Id) {
 
 
@@ -1486,11 +1477,11 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
     private void getReportAndStartActivity(int id) {
 
-        final String[] Filters = RahRFIDFilter.this.getResources().getStringArray(R.array.Report_filters);
+        final String[] Filters = RahRFIDFilterActivity.this.getResources().getStringArray(R.array.Report_filters);
 
         final List<DriverModel> d = new ArrayList<>();
 
-        final Intent intent = new Intent(RahRFIDFilter.this, RahRFIDReportList.class);
+        final Intent intent = new Intent(RahRFIDFilterActivity.this, RahRFIDReportList.class);
 
 
         getAllDrivers(new OnGetAllDrivers() {
@@ -1615,6 +1606,17 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
     private SearchReportItem setSearchItemReport() {
 
+
+        if (REPORT_TYPE == ReportTypeConst.All) {
+            DURATION_FROM = "00:00";
+            DURATION_TO = "00:00";
+            LENGTH_FROM = 0;
+            LENGTH_TO = 0;
+        }
+        START_DATE = "2018-01-01";
+        END_DATE = "2020-01-01";
+
+
         return SearchReportItem.createReportFilter(driverIds,
                 lineIds, START_DATE, END_DATE,
                 null, REPORT_TYPE, DURATION_FROM,
@@ -1705,7 +1707,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
         @Override
         public void onClick(View v) {
 
-            determineReportFilter();
+            //  determineReportFilter();
             reportManager.callReportApi(reportId, setSearchItemReport());
 
         }
@@ -1716,21 +1718,29 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             switch (position) {
-                case 0://تاخیر در خروج از میدا
+
+                case 0://همه موارد
+                    REPORT_TYPE = ReportTypeConst.All;
+                    SpeedContainer.setVisibility(View.GONE);
+                    LengthContainer.setVisibility(View.GONE);
+                    TimeContainer.setVisibility(View.GONE);
+                    break;
+
+                case 1://تاخیر در خروج از میدا
                     REPORT_TYPE = ReportTypeConst.TakhirMabada;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.VISIBLE);
 
                     break;
-                case 1://تاخیر در ورود به مقصد
+                case 2://تاخیر در ورود به مقصد
                     REPORT_TYPE = ReportTypeConst.TakhirMaghsad;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.VISIBLE);
 
                     break;
-                case 2://تعجیل در ورود به مقصد
+                case 3://تعجیل در ورود به مقصد
                     REPORT_TYPE = ReportTypeConst.TajilMaghsad;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
@@ -1738,7 +1748,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
                     break;
-                case 3://براساس مدت بارگیری
+                case 4://براساس مدت بارگیری
                     REPORT_TYPE = ReportTypeConst.ModatBargiri;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
@@ -1746,7 +1756,7 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
                     break;
-                case 4://براساس زمان مقرر خروج از مبدا
+                case 5://براساس زمان مقرر خروج از مبدا
                     REPORT_TYPE = ReportTypeConst.ZamanMoghararMabdaKhorooj;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
@@ -1754,34 +1764,34 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
 
 
                     break;
-                case 5://براساس زمان مقرر ورود به مقصد
+                case 6://براساس زمان مقرر ورود به مقصد
                     REPORT_TYPE = ReportTypeConst.ZamanMoghararMaghsadVorood;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.VISIBLE);
 
                     break;
-                case 6://براساس زمان طی مسیر
+                case 7://براساس زمان طی مسیر
                     REPORT_TYPE = ReportTypeConst.ZamanTeyMasir;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.VISIBLE);
                     break;
-                case 7://براساس سرعت میانگین
+                case 8://براساس سرعت میانگین
                     REPORT_TYPE = ReportTypeConst.AverageSpeed;
                     SpeedContainer.setVisibility(View.VISIBLE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.GONE);
 
                     break;
-                case 8://براساس تخلف سرعت
+                case 9://براساس تخلف سرعت
                     REPORT_TYPE = ReportTypeConst.MaxSpeed;
                     SpeedContainer.setVisibility(View.VISIBLE);
                     LengthContainer.setVisibility(View.GONE);
                     TimeContainer.setVisibility(View.GONE);
 
                     break;
-                case 9://براساس مسافت طی شده
+                case 10://براساس مسافت طی شده
                     REPORT_TYPE = ReportTypeConst.Length;
                     SpeedContainer.setVisibility(View.GONE);
                     LengthContainer.setVisibility(View.VISIBLE);
@@ -1797,12 +1807,11 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void fillLineData(Map<String,Long> lines) {
+    public void fillLineData(List<String> lines) {
 
-        //TODO Fill line Spinner
-
+        this.linesNames = lines;
         if (lines != null && lines.size() > 0) {
-            ArrayAdapter a = new ArrayAdapter(RahRFIDFilter.this, R.layout.spinner_item,path);
+            ArrayAdapter a = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, lines);
             pathSpinner.setAdapter(a);
         }
 
@@ -1813,6 +1822,15 @@ public class RahRFIDFilter extends AppCompatActivity implements View.OnClickList
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+
+            Log.d(TAG, "row Id: " + id);
+            Log.d(TAG, "position: " + position);
+
+
+            if (position != 0) {
+                String name = linesNames.get(position);
+                reportManager.setLineIdWithName(name);
+            }
         }
 
         @Override
