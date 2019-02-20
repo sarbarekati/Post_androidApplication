@@ -37,7 +37,7 @@ import com.anad.mobile.post.Models.Org;
 import com.anad.mobile.post.Models.OrgInfoModel;
 import com.anad.mobile.post.Models.SubTree;
 import com.anad.mobile.post.R;
-import com.anad.mobile.post.ReportManager.ReportManager;
+import com.anad.mobile.post.ReportManager.Managers.ReportManager;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
@@ -1372,6 +1372,8 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
     private void chooseDate(final TextView dateView) {
 
+
+
         initDate.setPersianDate(YEAR, MONTH, DAY);
         PersianDatePickerDialog datePickerStart = new PersianDatePickerDialog(this)
                 .setPositiveButtonString(getString(R.string.confirm))
@@ -1386,7 +1388,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onDateSelected(ir.hamsaa.persiandatepicker.util.PersianCalendar persianCalendar) {
                         String startDate = DateTimeUtils.changeDateFormat(persianCalendar);
-                        dateView.setText(startDate);
+                     dateView.setText(startDate);
                     }
 
                     @Override
@@ -1613,9 +1615,10 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             LENGTH_FROM = 0;
             LENGTH_TO = 0;
         }
-        START_DATE = "2018-01-01";
-        END_DATE = "2020-01-01";
 
+
+        START_DATE = DateTimeUtils.convertToGerGorian(txtStartDate.getText().toString());
+        END_DATE = DateTimeUtils.convertToGerGorian(txtEndDate.getText().toString());
 
         return SearchReportItem.createReportFilter(driverIds,
                 lineIds, START_DATE, END_DATE,
@@ -1707,7 +1710,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
         @Override
         public void onClick(View v) {
 
-            //  determineReportFilter();
+            determineReportFilter();
             reportManager.callReportApi(reportId, setSearchItemReport());
 
         }

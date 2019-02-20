@@ -7,10 +7,10 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class JalaliCalendar extends Calendar {
-    public static int gregorianDaysInMonth[] = { 31, 28, 31, 30, 31, 30, 31,
-            31, 30, 31, 30, 31 };
-    public static int jalaliDaysInMonth[] = { 31, 31, 31, 31, 31, 31, 30, 30,
-            30, 30, 30, 29 };
+    public static int gregorianDaysInMonth[] = {31, 28, 31, 30, 31, 30, 31,
+            31, 30, 31, 30, 31};
+    public static int jalaliDaysInMonth[] = {31, 31, 31, 31, 31, 31, 30, 30,
+            30, 30, 30, 29};
 
     public final static int FARVARDIN = 0;
     public final static int ORDIBEHESHT = 1;
@@ -37,15 +37,15 @@ public class JalaliCalendar extends Calendar {
     public static final int AD = 1;
     private GregorianCalendar cal;
 
-    static final int MIN_VALUES[] = { BCE, 1, FARVARDIN, 1, 0, 1, 1, SATURDAY,
-            1, AM, 0, 0, 0, 0, 0, -13 * ONE_HOUR, 0 };
+    static final int MIN_VALUES[] = {BCE, 1, FARVARDIN, 1, 0, 1, 1, SATURDAY,
+            1, AM, 0, 0, 0, 0, 0, -13 * ONE_HOUR, 0};
 
-    static final int LEAST_MAX_VALUES[] = { CE, 292269054, ESFAND, 52, 4, 28,
+    static final int LEAST_MAX_VALUES[] = {CE, 292269054, ESFAND, 52, 4, 28,
             365, FRIDAY, 4, PM, 11, 23, 59, 59, 999, 14 * ONE_HOUR,
-            20 * ONE_MINUTE };
+            20 * ONE_MINUTE};
 
-    static final int MAX_VALUES[] = { CE, 292278994, ESFAND, 53, 6, 31, 366,
-            FRIDAY, 6, PM, 11, 23, 59, 59, 999, 14 * ONE_HOUR, 2 * ONE_HOUR };
+    static final int MAX_VALUES[] = {CE, 292278994, ESFAND, 53, 6, 31, 366,
+            FRIDAY, 6, PM, 11, 23, 59, 59, 999, 14 * ONE_HOUR, 2 * ONE_HOUR};
 
     public JalaliCalendar() {
         this(TimeZone.getDefault(), Locale.getDefault());
@@ -90,6 +90,19 @@ public class JalaliCalendar extends Calendar {
 
         return dt;
     }
+
+    public String getGregorian(String persianDate) {
+        String[] arr = persianDate.split("/");
+
+        YearMonthDate jalali = new YearMonthDate(Integer.parseInt(arr[0]),
+                Integer.parseInt(arr[1]) - 1, Integer.parseInt(arr[2]));
+
+        YearMonthDate gDate = jalaliToGregorian(jalali);
+
+        return gDate.getYear() + "-" + gDate.getMonth() + "-" + gDate.getDate();
+
+    }
+
 
     public String getJalaliDate(Date gDate) {
 
@@ -260,7 +273,7 @@ public class JalaliCalendar extends Calendar {
         gregorianDayNo = gregorianDayNo % 146097;
 
         leap = 1;
-        if (gregorianDayNo >= 36525) /* 36525 = 365*100 + 100/4 */{
+        if (gregorianDayNo >= 36525) /* 36525 = 365*100 + 100/4 */ {
             gregorianDayNo--;
             gregorianYear += 100 * (int) Math.floor(gregorianDayNo / 36524); /*
                                                                              * 36524

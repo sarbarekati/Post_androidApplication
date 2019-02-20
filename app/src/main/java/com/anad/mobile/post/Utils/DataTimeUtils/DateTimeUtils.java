@@ -1,5 +1,6 @@
 package com.anad.mobile.post.Utils.DataTimeUtils;
 
+import com.anad.mobile.post.Utils.JalaliCalendar;
 import com.anad.mobile.post.Utils.PersianCal;
 
 import java.util.Calendar;
@@ -81,6 +82,12 @@ public class DateTimeUtils {
             Minute = minute + "";
         }
         return Hour + ":" + Minute;
+    }
+
+    public static String convertToGerGorian(String persianDate){
+        JalaliCalendar jalaliCalendar = new JalaliCalendar();
+        return jalaliCalendar.getGregorian(persianDate);
+
     }
 
 }

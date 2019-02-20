@@ -3,6 +3,7 @@ package com.anad.mobile.post.Utils.NetworkUtils;
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
 import com.anad.mobile.post.Models.Line;
+import com.anad.mobile.post.Models.TreeItem;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Base.Report;
@@ -44,5 +45,8 @@ public interface EndPointsInterface {
 
     @GET("Main/ARPMiddlePoint/MobileGetByARPReportId")
     Call<List<ARPMiddlePoint>> getARPMiddlePoint(@Header("Cookie") String userCookie,@Query("id") Long arpReportId);
+
+    @GET("Main/RegionAssignment/MobileGetTreeItem")
+    Call<List<TreeItem>> getTreeItem(@Header("Cookie") String userCookie, @Query("stateId") Integer stateId);
 
 }
