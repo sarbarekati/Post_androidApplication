@@ -29,6 +29,7 @@ public class PostSharedPreferences {
     private static final String KEY ="key" ;
     private static final String CATCH_MAP ="catch_map";
     private static final String COOKIES = "cookies";
+    private static final String PARTY_INFO = "partyInfo";
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor editor;
@@ -181,4 +182,13 @@ public class PostSharedPreferences {
 
     }
 
+    public String getPartyInfo(){
+        return mSharedPreferences.getString(PARTY_INFO,"");
+    }
+
+
+    public void setPartyInfo(String partyInfo) {
+        editor.putString(PARTY_INFO,partyInfo);
+        editor.apply();
+    }
 }

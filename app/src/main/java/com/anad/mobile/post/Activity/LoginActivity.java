@@ -32,6 +32,7 @@ import com.anad.mobile.post.R;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
 import com.anad.mobile.post.Utils.Util;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -384,9 +385,13 @@ public class LoginActivity extends AppCompatActivity implements OnLoginResponse 
     }
 
     private boolean isMobileUser(List<PartyAssign> response) {
+        Gson gson = new Gson();
         for (PartyAssign partyAssign : response) {
-            if (partyAssign.getPartyTypeId() == Constants.MOBILE_USER_CODE)
+            if (partyAssign.getPartyTypeId() == Constants.MOBILE_USER_CODE){
+                String partyInfo = gson.toJson(partyAssign);
+                postSharedPreferences.setPartyInfo(partyInfo);
                 return true;
+            }
         }
         return false;
     }

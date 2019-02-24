@@ -24,31 +24,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="920cacf2-d30d-4288-a099-dc72c570f2c9" name="Default" comment="139709281041_bulk changes:chart,logo,register...">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/API/TreeItemApi/ITreeItemResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Adapter/SpinnerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/FilterModel/TreeItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Utils/AdapterUtils/SpinnerItems.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/TreeItem.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/API/TreeItemApi/TreeItemApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/API/TreeItemApi/TreeItemApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/IRahRFIDReport.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/IRahRFIDReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/Managers/ReportManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/Managers/ReportManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/SearchReportItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/SearchReportItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/testActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/testActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-normal/spinner_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-normal/spinner_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -152,65 +132,118 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RahRFIDFilterActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setUpSpinners#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#35341:41499" expanded="false" />
-                <element signature="class#41558:47379" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#41558:47379" expanded="false" />
-                <element signature="class#47438:52672" expanded="false" />
-                <element signature="method#onItemSelected#0;class#47438:52672" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#47438:52672" expanded="false" />
-                <element signature="class#52730:57749" expanded="false" />
-                <element signature="method#onItemSelected#0;class#52730:57749" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#52730:57749" expanded="false" />
-                <element signature="class#57807:61709" expanded="false" />
-                <element signature="method#onItemSelected#0;class#57807:61709" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#57807:61709" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#61763:62293" expanded="false" />
-                <element signature="method#setFontForNumberFields#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#setUpSpinnerPath#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#setUpSpinnerFilters#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#chooseTime#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#attachBaseContext#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#determineReportFilter#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#startActivity#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="class#AcceptClickListener#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="class#FilterFieldReport#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#fillLineData#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#fillTreeItem#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="method#fillCarTreeItem#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="class#PathFieldOnItemListener#0;class#RahRFIDFilterActivity#0" expanded="false" />
-                <element signature="class#AcceptForMapClickListener#0;class#RahRFIDFilterActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="40" column="59" lean-forward="true" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+            <state relative-caret-position="527">
+              <caret line="53" column="23" lean-forward="false" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpinnerAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Adapter/SpinnerAdapter.java">
+      <file leaf-file-name="fragment_profile.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="86">
+              <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
+                <element signature="e#1492#1519#0" expanded="true" />
+                <element signature="e#1912#1932#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="156" column="19" lean-forward="false" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/Manager/LoginManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/LoginResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/api/LoginApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+              <folding>
+                <element signature="method#LoginApi#0;class#LoginApi#0" expanded="false" />
+                <element signature="method#getInstance#0;class#LoginApi#0" expanded="false" />
+                <element signature="method#setOnLoginResponse#0;class#LoginApi#0" expanded="false" />
+                <element signature="class#2518:2986" expanded="false" />
+                <element signature="method#onResponse#0;class#2518:2986" expanded="false" />
+                <element signature="method#onFailure#0;class#2518:2986" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="391" column="45" lean-forward="false" selection-start-line="391" selection-start-column="45" selection-end-line="391" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostSharedPreferences.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="185" column="59" lean-forward="false" selection-start-line="185" selection-start-column="59" selection-end-line="185" selection-end-column="59" />
+              <folding>
+                <element signature="e#5275#5276#0" expanded="true" />
+                <element signature="e#5341#5342#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnLoginResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/OnLoginResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartyAssign.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/PartyAssign.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2011,9 +2044,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Report.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/ARP/ARPReport.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariReport.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/Report.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/Manager.java" />
@@ -2024,10 +2054,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/Line.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/api/LoginApi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/Manager/LoginManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariMiddlePoint.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/MiddlePoint.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilter.java" />
@@ -2062,6 +2089,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/FilterModel/TreeItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/Manager/LoginManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
       </list>
     </option>
   </component>
@@ -2459,6 +2492,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Post_androidApplication" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="post" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Post_androidApplication" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="post" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Post_androidApplication" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="post" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AccountManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -2468,7 +2579,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="android.sdk.path" value="F:/SDK" />
-    <property name="SearchEverywhereHistoryKey" value="profile&#9;PSI&#9;JAVA://com.anad.mobile.post.Fragment.ProfileFragment&#10;CarTre&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java&#10;RahRFI&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;ApiCli&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Car&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java&#10;Sear&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/SearchReportItem.java&#10;TreeItem&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/TreeItem.java&#10;TreeITe&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.TreeItem&#10;Tre&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/TreeItemApi/TreeItemApi.java&#10;ApiClie&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Report&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/Managers/ReportManager.java&#10;Tree&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/TreeItem.java&#10;Rah&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;RahRF&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;End&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java&#10;Uti&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/DataTimeUtils/DateTimeUtils.java&#10;ApiCl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Raf&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;Gene&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Adapter/GeneralReportAdapter.java&#10;Middl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/MiddlePointApiManager.java&#10;en&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java&#10;Frag&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Adapter/ReportFragmentAdapter.java&#10;Show&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport/ShowReport.java&#10;ListCreat&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.ListCreator&#10;ISho&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport/IShowReport.java&#10;RahR&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java&#10;ReportMana&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;show&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport.java&#10;ReporMan&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;ShowRepo&#9;PSI&#9;JAVA://com.anad.mobile.post.Activity.ShowReport&#10;accept&#9;PSI&#9;JAVA://com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter.AcceptClickListener&#10;RahRf&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java&#10;ReporMa&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;RFID&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/RFID.java&#10;Gen&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/GeneralReport.java&#10;RahsepariMiddl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariMiddlePoint.java&#10;Api&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Login&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java&#10;mani&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/AndroidManifest.xml&#10;ReportA&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/api/ReportApiCaller.java&#10;const&#9;PSI&#9;JAVA://com.anad.mobile.post.Utils.ReportTypeConst&#10;Const&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;con&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;build.gra&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build.gradle&#10;AppCli&#9;PSI&#9;JAVA://sun.applet.AppletAudioClip&#10;cons&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;ReportRe&#9;PSI&#9;JAVA://com.anad.mobile.post.API.ReportAPI.OnReportResponseBack&#10;Rahse&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariReport.java&#10;RahseRepor&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/RahsepariReportModel.java&#10;Midd&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.MiddlePoint" />
+    <property name="SearchEverywhereHistoryKey" value="Login&#9;PSI&#9;JAVA://com.anad.mobile.post.AccountManager.Manager.LoginManager&#10;profile&#9;PSI&#9;JAVA://com.anad.mobile.post.Fragment.ProfileFragment&#10;CarTre&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java&#10;RahRFI&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;ApiCli&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Car&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/CarTreeItem.java&#10;Sear&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/SearchReportItem.java&#10;TreeItem&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/FilterModel/TreeItem.java&#10;TreeITe&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.TreeItem&#10;Tre&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/TreeItemApi/TreeItemApi.java&#10;ApiClie&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Report&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/Managers/ReportManager.java&#10;Tree&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/TreeItem.java&#10;Rah&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;RahRF&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;End&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java&#10;Uti&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/DataTimeUtils/DateTimeUtils.java&#10;ApiCl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;Raf&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDFilter/RahRFIDFilterActivity.java&#10;Gene&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Adapter/GeneralReportAdapter.java&#10;Middl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/MiddlePointApiManager.java&#10;en&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/NetworkUtils/EndPointsInterface.java&#10;Frag&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Adapter/ReportFragmentAdapter.java&#10;Show&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport/ShowReport.java&#10;ListCreat&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.ListCreator&#10;ISho&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport/IShowReport.java&#10;RahR&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java&#10;ReportMana&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;show&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/ShowReport.java&#10;ReporMan&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;ShowRepo&#9;PSI&#9;JAVA://com.anad.mobile.post.Activity.ShowReport&#10;accept&#9;PSI&#9;JAVA://com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilter.AcceptClickListener&#10;RahRf&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Activity/RahRFIDReportList.java&#10;ReporMa&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/ReportManager.java&#10;RFID&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/RFID.java&#10;Gen&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Models/GeneralReport.java&#10;RahsepariMiddl&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariMiddlePoint.java&#10;Api&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/API/Retrofit/ApiClient.java&#10;mani&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/AndroidManifest.xml&#10;ReportA&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/api/ReportApiCaller.java&#10;const&#9;PSI&#9;JAVA://com.anad.mobile.post.Utils.ReportTypeConst&#10;Const&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;con&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;build.gra&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/build.gradle&#10;AppCli&#9;PSI&#9;JAVA://sun.applet.AppletAudioClip&#10;cons&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/Utils/Constants.java&#10;ReportRe&#9;PSI&#9;JAVA://com.anad.mobile.post.API.ReportAPI.OnReportResponseBack&#10;Rahse&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/Rahsepari/RahsepariReport.java&#10;RahseRepor&#9;FILE&#9;file://F:/Exercise/Post_logistic_android_application/Post_androidApplication/app/src/main/java/com/anad/mobile/post/ReportManager/model/RahsepariReportModel.java&#10;Midd&#9;PSI&#9;JAVA://com.anad.mobile.post.Models.MiddlePoint" />
     <property name="device.picker.selection" value="52003c6ec0e4b49d" />
     <property name="android.profiler.active" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/anad/mobile/post" />
@@ -2583,7 +2694,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897044" />
       </method>
     </configuration>
     <configuration default="false" name="setRetryPolicy_Cre...() (1)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
@@ -2631,7 +2742,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897044" />
       </method>
     </configuration>
     <configuration default="false" name="setRetryPolicy_Cre...() (2)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
@@ -2679,7 +2790,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897044" />
       </method>
     </configuration>
     <configuration default="false" name="setUrl_defaultMethod()" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
@@ -2727,7 +2838,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897044" />
       </method>
     </configuration>
     <configuration default="false" name="UtilTest.convertToJsonObject" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
@@ -2826,7 +2937,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897045" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2874,7 +2985,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250959" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897045" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3070,7 +3181,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550989250960" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1550990897048" />
       </method>
     </configuration>
     <configuration default="false" name="Post [signingReport]" type="GradleRunConfiguration" factoryName="Gradle">
@@ -3398,12 +3509,13 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32647815" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52150536" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4422043" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.44771242" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37903225" sideWeight="0.5167095" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32197943" sideWeight="0.30407524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32197943" sideWeight="0.30407524" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38956127" sideWeight="0.49346405" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886535" sideWeight="0.6781046" order="7" side_tool="true" content_ui="tabs" />
@@ -3416,7 +3528,6 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32647815" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36827958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
@@ -3668,7 +3779,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java</url>
-          <line>172</line>
+          <line>173</line>
           <properties />
           <option name="timeStamp" value="1212" />
         </line-breakpoint>
@@ -3836,63 +3947,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/SDK/sources/android-27/android/content/Intent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="7459" column="28" lean-forward="false" selection-start-line="7459" selection-start-column="28" selection-end-line="7459" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Base/IReportView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/IReportResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/IMiddlePointResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/ShowReport/IShowReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/ReportRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/ReportManager/model/Base/MiddlePoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="112" column="18" lean-forward="false" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.0.2/76f4751bc97ce7fa2362dc5a38b39089066a2c99/recyclerview-v7-27.0.2-sources.jar!/android/support/v7/widget/RecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -4152,7 +4206,7 @@
         <state relative-caret-position="102">
           <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4192,7 +4246,7 @@
         <state relative-caret-position="486">
           <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4205,27 +4259,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/api/LoginApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="method#LoginApi#0;class#LoginApi#0" expanded="false" />
-            <element signature="method#getInstance#0;class#LoginApi#0" expanded="false" />
-            <element signature="method#setOnLoginResponse#0;class#LoginApi#0" expanded="false" />
-            <element signature="class#2518:2986" expanded="false" />
-            <element signature="method#onResponse#0;class#2518:2986" expanded="false" />
-            <element signature="method#onFailure#0;class#2518:2986" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Models/FilterModel/TreeItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4235,10 +4274,10 @@
         <state relative-caret-position="527">
           <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding>
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#784#785#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="false" />
+            <element signature="e#390#391#0" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+            <element signature="e#812#813#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4283,6 +4322,21 @@
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/api/LoginApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding>
+            <element signature="method#LoginApi#0;class#LoginApi#0" expanded="false" />
+            <element signature="method#getInstance#0;class#LoginApi#0" expanded="false" />
+            <element signature="method#setOnLoginResponse#0;class#LoginApi#0" expanded="false" />
+            <element signature="class#2518:2986" expanded="false" />
+            <element signature="method#onResponse#0;class#2518:2986" expanded="false" />
+            <element signature="method#onFailure#0;class#2518:2986" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4336,12 +4390,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/Manager/LoginManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="40" column="59" lean-forward="true" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/LoginResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/OnLoginResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/AccountManager/model/PartyAssign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Activity/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="391" column="45" lean-forward="false" selection-start-line="391" selection-start-column="45" selection-end-line="391" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Storage/PostSharedPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="185" column="59" lean-forward="false" selection-start-line="185" selection-start-column="59" selection-end-line="185" selection-end-column="59" />
+          <folding>
+            <element signature="e#5275#5276#0" expanded="true" />
+            <element signature="e#5341#5342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="156" column="19" lean-forward="false" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/anad/mobile/post/Fragment/ProfileFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="53" column="23" lean-forward="false" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="e#1492#1519#0" expanded="true" />
+            <element signature="e#1912#1932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

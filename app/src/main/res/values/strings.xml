@@ -153,6 +153,9 @@
     <string name="Rahsepari_Report">گزارش های رهسپاری</string>
     <string name="ARP_Report">گزارش های پیمانکاری</string>
     <string name="Your_not_mobile_user">نقش شما کاربر موبایل نمی باشد.</string>
+    <string name="businessUnitTitle">واحد سازمانی</string>
+    <string name="ownerTitle">نام کاربر</string>
+    <string name="party_type">نقش کاریر</string>
 
 
     <string-array name="Report_filters">

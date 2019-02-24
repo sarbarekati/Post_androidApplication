@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg_main">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -25,7 +26,7 @@
         android:layout_marginTop="16dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:text=" نام و نام خانوادگی کاربر"
+        android:text="@string/ownerTitle"
         android:id="@+id/txt_profile_name"
         android:layout_below="@id/img_profile_icon"
         />
@@ -36,8 +37,20 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/gray_title"
-        android:text="سمت"
+        tools:text="@string/businessUnitTitle"
         android:id="@+id/txt_profile_job"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_profile_job"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/gray_title"
+        tools:text="@string/party_type"
+        android:id="@+id/txt_profile_type"
         android:textSize="14sp"
         />
 
