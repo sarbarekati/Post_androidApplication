@@ -10,7 +10,6 @@ import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
 import com.anad.mobile.post.Adapter.GeneralReportAdapter;
 import com.anad.mobile.post.Models.RFID;
 import com.anad.mobile.post.R;
-import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
@@ -35,7 +34,6 @@ public class RahRFIDReportList extends AppCompatActivity {
     private GeneralReportAdapter reportAdapter;
 
     private RecyclerView rc;
-
 
     public static final String RESULT_REPORTS = "result_reports";
     public static final String REPORT_TYPE = "report_type";
@@ -71,62 +69,8 @@ public class RahRFIDReportList extends AppCompatActivity {
                     }.getType();
                     arpReports = gson.fromJson(result, t);
                 }
-
             }
             initRecyclerView();
-
-           /* ReportAPI api = ReportAPI.getInstance(this);
-
-
-            if (reportId == 0) {
-                api.getReport(new ReportAPI.OnReportResponseBack() {
-                    @Override
-                    public void OnResponseBack(List<ReportCreator> reportCreatorList) {
-
-                        if (reportCreatorList.size() > 0) {
-
-                            rc.setVisibility(View.VISIBLE);
-                            txtNoReport.setVisibility(View.GONE);
-                            GeneralReportAdapter adapter = new GeneralReportAdapter(RahRFIDReportList.this
-                                    , reportCreatorList, rfidList, hasPermission);
-
-                            rc.setAdapter(adapter);
-                        } else {
-                            rc.setVisibility(View.GONE);
-                            txtNoReport.setVisibility(View.VISIBLE);
-                        }
-
-                    }
-                }, Constants.URL_GET_RAH_REPORT, report);
-            }*/
-
-
-           /* if (reportId == 1) {
-                api.getReportRFID(new ReportAPI.OnRFIDResponseBack() {
-                    @Override
-                    public void OnResponseBack(List<RFID> reportCreatorList) {
-                        if (reportCreatorList.size() > 0) {
-
-                            rc.setVisibility(View.VISIBLE);
-                            txtNoReport.setVisibility(View.GONE);
-                            List<ReportCreator> list = new ArrayList<>();
-                            for (int i = 0; i < reportCreatorList.size(); i++) {
-
-                                list.add(reportCreatorList.get(i).getRfid());
-                            }
-                            GeneralReportAdapter adapter = new GeneralReportAdapter(RahRFIDReportList.this
-                                    , list,
-                                    reportCreatorList, hasPermission);
-
-                            rc.setAdapter(adapter);
-
-                        } else {
-                            rc.setVisibility(View.GONE);
-                            txtNoReport.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }, Constants.URL_GET_RFID_REPORT, report);
-            }*/
         } else {
             Util.backToLoginActivity(this);
         }

@@ -2,17 +2,19 @@ package com.anad.mobile.post.ReportManager.model.Base;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class SearchReportItem {
     @SerializedName("driverId")
-    private long[] driverId;
+    private List<Integer> driverId;
     @SerializedName("lineId")
-    private long[] lineId ;
+    private List<Integer> lineId ;
     @SerializedName("startDate")
     private String startDate;
     @SerializedName("endDate")
     private String endDate;
     @SerializedName("carId")
-    private long[] carId ;
+    private List<Integer> carId ;
     @SerializedName("reportTypeId")
     private long reportTypeId;
     @SerializedName("durationFrom")
@@ -27,9 +29,13 @@ public class SearchReportItem {
     private int lengthFrom;
     @SerializedName("lengthTo")
     private int lengthTo;
+    @SerializedName("deviceId")
+    private List<Integer> deviceCode;
 
 
-    private SearchReportItem(long[] driverId, long[] lineId, String startDate, String endDate, long[] carId, long reportTypeId, String durationFrom, String durationTo, int speedFrom, int speedTo, int lengthFrom, int lengthTo){
+
+    private SearchReportItem(List<Integer> driverId, List<Integer> lineId, String startDate, String endDate, List<Integer> carId,
+                             long reportTypeId, String durationFrom, String durationTo, int speedFrom, int speedTo, int lengthFrom, int lengthTo,List<Integer> deviceCode){
         this.driverId = driverId;
         this.lineId = lineId;
         this.startDate = startDate;
@@ -42,24 +48,27 @@ public class SearchReportItem {
         this.speedTo = speedTo;
         this.lengthFrom = lengthFrom;
         this.lengthTo = lengthTo;
+        this.deviceCode = deviceCode;
     }
 
 
-    public static SearchReportItem createReportFilter(long[] driverId, long[] lineId, String startDate, String endDate, long[] carId, long reportTypeId, String durationFrom, String durationTo, int speedFrom, int speedTo, int lengthFrom, int lengthTo) {
+
+    public static SearchReportItem createReportFilter(List<Integer> driverId, List<Integer> lineId, String startDate, String endDate, List<Integer> carId, long reportTypeId,
+                                                      String durationFrom, String durationTo, int speedFrom, int speedTo, int lengthFrom, int lengthTo,List<Integer> deviceCode) {
         return new SearchReportItem(driverId,lineId,startDate,endDate,carId,
                 reportTypeId,durationFrom,durationTo,speedFrom,
-                speedTo,lengthFrom,lengthTo);
+                speedTo,lengthFrom,lengthTo,deviceCode);
     }
 
-    public long[] getDriverId() {
+    public List<Integer> getDriverId() {
         return driverId;
     }
 
-    public long[] getLineId() {
+    public List<Integer> getLineId() {
         return lineId;
     }
 
-    public long[] getCarId() {
+    public List<Integer> getCarId() {
         return carId;
     }
 

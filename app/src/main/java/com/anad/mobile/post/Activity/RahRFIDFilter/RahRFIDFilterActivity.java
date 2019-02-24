@@ -9,7 +9,6 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -28,14 +27,16 @@ import android.widget.TextView;
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
 import com.anad.mobile.post.Activity.RahRFIDReportList;
+import com.anad.mobile.post.Adapter.SpinnerAdapter;
 import com.anad.mobile.post.Models.Cars;
 import com.anad.mobile.post.Models.DriverModel;
-import com.anad.mobile.post.Models.GeneralReport;
+import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.HandleSubTree;
 import com.anad.mobile.post.Models.LastPosition;
 import com.anad.mobile.post.Models.Org;
 import com.anad.mobile.post.Models.OrgInfoModel;
 import com.anad.mobile.post.Models.SubTree;
+import com.anad.mobile.post.Models.FilterModel.TreeItem;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.ReportManager.Managers.ReportManager;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
@@ -46,7 +47,6 @@ import com.anad.mobile.post.Utils.FontUtils.FontUtil;
 import com.anad.mobile.post.Utils.JalaliCalendar;
 import com.anad.mobile.post.Utils.ReportTypeConst;
 import com.anad.mobile.post.Utils.Util;
-import com.google.gson.Gson;
 import com.mohamadamin.persianmaterialdatetimepicker.time.RadialPickerLayout;
 import com.mohamadamin.persianmaterialdatetimepicker.time.TimePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
@@ -164,8 +164,9 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     /**
      * Field For Create SearchReportItem
      */
-    private long[] driverIds;
-    private long[] lineIds;
+    private List<Integer> driverIds;
+    private List<Integer> deviceCodes;
+    private List<Integer> lineIds;
     private List<Integer> carIds;
     private int LENGTH_TO;
     private int LENGTH_FROM;
@@ -182,7 +183,8 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
     private ReportManager reportManager;
     private List<String> linesNames;
-
+    private SpinnerAdapter<TreeItem> adapterLevelOne;
+    private SpinnerAdapter<CarTreeItem> adapterLevelTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,6 +216,9 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             if (b != null) {
                 reportId = b.getInt(REPORT_ID);
             }
+
+
+            carIds = new ArrayList<>();
 
 
             userAccessOrgName = new ArrayList<>();
@@ -254,6 +259,9 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                 setFilterForShowCar();
 
             }
+
+
+            reportManager.callGetTreeItem(-1);
 
 
 //            handleSubTree = HandleSubTree.getInstance(this);
@@ -327,8 +335,10 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                 }
             });
 
-
-            acceptFilter.setOnClickListener(new AcceptClickListener());
+            if(isFromMap)
+                acceptFilter.setOnClickListener(new AcceptForMapClickListener());
+            else
+                acceptFilter.setOnClickListener(new AcceptClickListener());
 
 
             /*acceptFilter.setOnClickListener(new View.OnClickListener() {
@@ -1306,6 +1316,33 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             }
         });
 
+        spinnerIndexOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Integer stateId = adapterLevelOne.getTreeItemId(position);
+                reportManager.callGetTreeItem(stateId);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        spinnerIndexTwo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                driverIds = new ArrayList<>();
+                driverIds.add(adapterLevelTwo.getTreeItemId(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 
@@ -1333,8 +1370,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
 
         int HourStart = 0;
-        int HourEnd = 23;
-        int minuteEnd = 59;
         int minuteStart = 0;
 
         switch (v.getId()) {
@@ -1373,7 +1408,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     private void chooseDate(final TextView dateView) {
 
 
-
         initDate.setPersianDate(YEAR, MONTH, DAY);
         PersianDatePickerDialog datePickerStart = new PersianDatePickerDialog(this)
                 .setPositiveButtonString(getString(R.string.confirm))
@@ -1388,7 +1422,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onDateSelected(ir.hamsaa.persiandatepicker.util.PersianCalendar persianCalendar) {
                         String startDate = DateTimeUtils.changeDateFormat(persianCalendar);
-                     dateView.setText(startDate);
+                        dateView.setText(startDate);
                     }
 
                     @Override
@@ -1416,190 +1450,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-
-    private List<LastPosition> getPositionWithId(final List<Integer> Id) {
-
-
-        List<LastPosition> list = new ArrayList<>();
-        for (Integer i : Id) {
-            for (LastPosition l : MainActivity.LastPositionsList
-                    ) {
-                if (l.getID() == i) {
-                    list.add(l);
-                }
-            }
-
-        }
-
-        return list;
-
-    }
-
-    private List<LastPosition> getPositionWithOrg(final List<Integer> Id) {
-
-        List<LastPosition> list = new ArrayList<>();
-        for (Integer i : Id) {
-            for (LastPosition l : MainActivity.LastPositionsList
-                    ) {
-                if (l.getOrg_ID() == i) {
-                    list.add(l);
-                }
-            }
-
-        }
-
-        return list;
-
-    }
-
-
-    private List<Integer> getAllCarId(List<OrgInfoModel> list) {
-        List<Integer> ids = new ArrayList<>();
-        List<Org> orgs = list.get(1).getOrgModel();
-
-        for (int i = 0; i < orgs.size(); i++) {
-            ids.add(orgs.get(i).getOrg_Id());
-
-        }
-
-        return ids;
-    }
-
-
-    private void getAllDrivers(final OnGetAllDrivers onGetAllDrivers, int orgId) {
-        FilterApi api = FilterApi.getInstance(this);
-        api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-            @Override
-            public void OnResponse(List<DriverModel> driverModels) {
-                onGetAllDrivers.OnDriverBack(driverModels);
-            }
-        }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-    }
-
-
-    private void getReportAndStartActivity(int id) {
-
-        final String[] Filters = RahRFIDFilterActivity.this.getResources().getStringArray(R.array.Report_filters);
-
-        final List<DriverModel> d = new ArrayList<>();
-
-        final Intent intent = new Intent(RahRFIDFilterActivity.this, RahRFIDReportList.class);
-
-
-        getAllDrivers(new OnGetAllDrivers() {
-            @Override
-            public void OnDriverBack(List<DriverModel> drivers) {
-
-                if (carIds.size() > 0) {
-                    for (DriverModel dItem : drivers
-                            ) {
-                        for (Integer idItem : carIds
-                                ) {
-                            if (dItem.getDrv_ID() == idItem) {
-                                d.add(dItem);
-                            }
-                        }
-                    }
-                    for (DriverModel item : d
-                            ) {
-
-                        sb.append(item.getOrgId());
-                        sb.append(SEPARATOR);
-
-
-                    }
-                } else {
-                    for (Integer item : carOrgIds
-                            ) {
-
-                        sb.append(item);
-                        sb.append(SEPARATOR);
-
-
-                    }
-                }
-
-
-                String sOrgId = sb.toString();
-                GeneralReport report = new GeneralReport();
-                if (sOrgId.length() > 0) {
-                    sOrgId = sOrgId.substring(0, sOrgId.length() - SEPARATOR.length());
-                }
-                if (isSelectCar)
-                    report.driverId = carIds.get(0).toString();
-
-                if (isEnterCode) {
-                    sOrgId = String.valueOf(lastOrgId);
-                    report.driverId = carIds.get(0).toString();
-                }
-
-                if (isPathSelected)
-                    report.RoutName = routeName;
-
-
-                if (ids.size() > 0) {
-
-                    report.orgIdsList = ids;
-                    report.OrgId = "0";
-                } else {
-                    report.orgIdsList = new ArrayList<>();
-                    report.OrgId = sOrgId;
-                }
-                report.orgIdsList.add(lastOrgId);
-                report.startDate = txtStartDate.getText().toString();
-                report.endDate = txtEndDate.getText().toString();
-                report.minAvgSpeed = minAvgSpeed;
-                report.maxAvgSpeed = maxAvgSpeed;
-                report.minSpeed = minSpeed;
-                report.maxSpeed = maxSpeed;
-                report.minLength = minLength;
-                report.maxLength = maxLength;
-                report.MaghsadtakhirStart = MaghsadtakhirStart;
-                report.MaghsadtakhirEnd = MaghsadtakhirEnd;
-                report.MaghsadTajilStart = MaghsadTajilStart;
-                report.MaghsadTajilEnd = MaghsadTajilEnd;
-                report.MabdatakhirStart = MabdatakhirStart;
-                report.MabdatakhirEnd = MabdatakhirEnd;
-                report.ModatBargiriStart = ModatBargiriStart;
-                report.ModatBargiriEnd = ModatBargiriEnd;
-                report.MabdaMoghararStart = MabdaMoghararStart;
-                report.MabdaMoghararEnd = MabdaMoghararEnd;
-                report.MaghsadMoghararStart = MaghsadMoghararStart;
-                report.MaghsadMoghararEnd = MaghsadMoghararEnd;
-                report.ZamanMoghararTeyStart = ZamanMoghararTeyStart;
-                report.ZamanMoghararTeyEnd = ZamanMoghararTeyEnd;
-                report.TAG_REPORT = Filters[spinnerFilters.getSelectedItemPosition()];
-
-                SP_ONE = -1;
-                SP_TWO = -1;
-                SP_THREE = -1;
-                SP_FOUR = -1;
-                SP_FIVE = -1;
-                isSelectCar = false;
-                isPathSelected = false;
-                isEnterCode = false;
-                REPORT_TYPE = -1;
-
-
-                Gson gson = new Gson();
-                String sendAsJson = gson.toJson(report);
-                intent.putExtra(REPORT_INFO, sendAsJson);
-                intent.putExtra(REPORT_ID, reportId);
-                sOrgId = "";
-                startActivity(intent);
-                finish();
-
-            }
-        }, id);
-
-    }
-
-
-    private interface OnGetAllDrivers {
-        void OnDriverBack(List<DriverModel> drivers);
-    }
-
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -1616,6 +1466,12 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             LENGTH_TO = 0;
         }
 
+        if (isCarCode) {
+            driverIds = null;
+            deviceCodes = new ArrayList<>();
+            deviceCodes.add(Integer.parseInt(edtCarCode.getText().toString()));
+            isCarCode = false;
+        }
 
         START_DATE = DateTimeUtils.convertToGerGorian(txtStartDate.getText().toString());
         END_DATE = DateTimeUtils.convertToGerGorian(txtEndDate.getText().toString());
@@ -1624,7 +1480,9 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                 lineIds, START_DATE, END_DATE,
                 null, REPORT_TYPE, DURATION_FROM,
                 DURATION_TO, SPEED_FROM,
-                SPEED_TO, LENGTH_FROM, LENGTH_TO);
+                SPEED_TO, LENGTH_FROM, LENGTH_TO, deviceCodes);
+
+
     }
 
     private void determineReportFilter() {
@@ -1820,24 +1678,49 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
     }
 
+    @Override
+    public void fillTreeItem(List<TreeItem> treeItems) {
+        if (!treeItems.isEmpty()) {
+            adapterLevelOne = new SpinnerAdapter<>(RahRFIDFilterActivity.this, treeItems);
+            spinnerIndexOne.setAdapter(adapterLevelOne);
+        }
+    }
+
+    @Override
+    public void fillCarTreeItem(List<CarTreeItem> carTreeItems) {
+
+        if (!carTreeItems.isEmpty()) {
+            containerTwo.setVisibility(View.VISIBLE);
+            adapterLevelTwo = new SpinnerAdapter<>(RahRFIDFilterActivity.this, carTreeItems);
+            spinnerIndexTwo.setAdapter(adapterLevelTwo);
+        }
+
+
+    }
+
 
     private class PathFieldOnItemListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-            Log.d(TAG, "row Id: " + id);
-            Log.d(TAG, "position: " + position);
-
-
+            lineIds = new ArrayList<>();
             if (position != 0) {
                 String name = linesNames.get(position);
-                reportManager.setLineIdWithName(name);
+                lineIds.add((int) reportManager.setLineIdWithName(name));
             }
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    }
+
+    private class AcceptForMapClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+
+
+
 
         }
     }

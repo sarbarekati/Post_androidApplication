@@ -72,32 +72,6 @@ public class testActivity extends AppCompatActivity implements IReportResponse,O
 
         if(loginResponse.isSuccessful()){
 
-
-        api.callRahsepariReportApi(preferences.getCookies(), SearchReportItem.createReportFilter(null,
-                null,
-                "2018/01/01",
-                "2020/01/01",
-                null,
-                0,
-                "00:00",
-                "00:00",
-                0,
-                0,
-                0,
-                0));
-
-        api.callARPReportApi(preferences.getCookies(), SearchReportItem.createReportFilter(null,
-                null,
-                "2018/01/01",
-                "2020/01/01",
-                null,
-                0,
-                "00:00",
-                "00:00",
-                0,
-                0,
-                0,
-                0));
         }
     }
 

@@ -4,13 +4,17 @@ package com.anad.mobile.post.ReportManager.Managers;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.anad.mobile.post.API.TreeItemApi.ITreeItemResponse;
+import com.anad.mobile.post.API.TreeItemApi.TreeItemApi;
 import com.anad.mobile.post.AccountManager.api.LoginApi;
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.OnLoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
 import com.anad.mobile.post.Activity.RahRFIDFilter.IRahRFIDReport;
 import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
+import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.Line;
+import com.anad.mobile.post.Models.FilterModel.TreeItem;
 import com.anad.mobile.post.ReportManager.api.ReportApiCaller;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Base.IReportResponse;
@@ -27,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ReportManager implements IReportResponse, OnLoginResponse {
+public class ReportManager implements IReportResponse, OnLoginResponse, ITreeItemResponse {
 
 
     private IRahRFIDReport view;
@@ -37,16 +41,15 @@ public class ReportManager implements IReportResponse, OnLoginResponse {
     private int reportId;
     private Map<String, Long> linesInfo;
     private Context context;
+    private TreeItemApi treeItemApi;
 
     public ReportManager(IRahRFIDReport view, PostSharedPreferences preferences, Context context) {
         this.view = view;
         this.preferences = preferences;
         gson = new Gson();
         reportCaller = ReportApiCaller.getInstance(context);
+        treeItemApi = TreeItemApi.getInstance(context);
     }
-
-
-
 
     public void callReportApi(int Mode, SearchReportItem searchReportItem) {
 
@@ -67,7 +70,6 @@ public class ReportManager implements IReportResponse, OnLoginResponse {
 
     }
 
-
     public void callGetLineApi() {
 
         LoginApi api = LoginApi.getInstance(context, preferences);
@@ -78,7 +80,14 @@ public class ReportManager implements IReportResponse, OnLoginResponse {
     }
 
 
-
+    public void callGetTreeItem(Integer stateId) {
+        treeItemApi.setTreeItemResponse(this);
+        if (stateId == -1) {
+            treeItemApi.callTreeItemApi(getCookies(), stateId);
+        }else{
+            treeItemApi.callCarItemApi(getCookies(),stateId);
+        }
+    }
 
 
     private String getCookies() {
@@ -142,17 +151,30 @@ public class ReportManager implements IReportResponse, OnLoginResponse {
     }
 
     @Override
+    public void onSuccessTreeItem(List<TreeItem> treeItems) {
+        if (treeItems != null && !treeItems.isEmpty()) {
+            view.fillTreeItem(treeItems);
+        }
+    }
+
+    @Override
+    public void onSuccessCarTreeItem(List<CarTreeItem> treeItems) {
+        if (treeItems != null && !treeItems.isEmpty()) {
+            view.fillCarTreeItem(treeItems);
+        }
+    }
+
+    @Override
     public void onFailed(String message) {
 
     }
 
 
-
-    public Long setLineIdWithName(String name) {
+    public long setLineIdWithName(String name) {
 
         if (!name.equals("")) {
             return linesInfo.get(name);
         }
-        return null;
+        return -1;
     }
 }

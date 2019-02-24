@@ -2,20 +2,17 @@ package com.anad.mobile.post.Utils.NetworkUtils;
 
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
+import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.Line;
-import com.anad.mobile.post.Models.TreeItem;
+import com.anad.mobile.post.Models.FilterModel.TreeItem;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
-import com.anad.mobile.post.ReportManager.model.Base.Report;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 
 import java.util.List;
 
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -48,5 +45,8 @@ public interface EndPointsInterface {
 
     @GET("Main/RegionAssignment/MobileGetTreeItem")
     Call<List<TreeItem>> getTreeItem(@Header("Cookie") String userCookie, @Query("stateId") Integer stateId);
+
+    @GET("Main/RegionAssignment/MobileGetTreeItem")
+    Call<List<CarTreeItem>> getCarItem(@Header("Cookie") String userCookie, @Query("stateId") Integer stateId);
 
 }

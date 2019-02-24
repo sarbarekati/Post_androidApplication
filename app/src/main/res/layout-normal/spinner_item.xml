@@ -10,4 +10,5 @@
     android:paddingBottom="6dp"
     android:paddingRight="16dp"
     android:background="@color/deep_dark_blue"
+    android:id="@+id/textSpinner"
     tools:text="jhbs" />
