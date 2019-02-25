@@ -2,6 +2,8 @@ package com.anad.mobile.post.Utils.NetworkUtils;
 
 import com.anad.mobile.post.AccountManager.model.LoginResponse;
 import com.anad.mobile.post.AccountManager.model.PartyAssign;
+import com.anad.mobile.post.MapManager.Model.LastPosition;
+import com.anad.mobile.post.MapManager.Model.SearchLastPositionItem;
 import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.Line;
 import com.anad.mobile.post.Models.FilterModel.TreeItem;
@@ -49,4 +51,6 @@ public interface EndPointsInterface {
     @GET("Main/RegionAssignment/MobileGetTreeItem")
     Call<List<CarTreeItem>> getCarItem(@Header("Cookie") String userCookie, @Query("stateId") Integer stateId);
 
+    @POST("Main/LastPosition/MobileGetLastPosition")
+    Call<List<LastPosition>> getLastPosition(@Header("Cookie") String userCookie, @Body SearchLastPositionItem search);
 }

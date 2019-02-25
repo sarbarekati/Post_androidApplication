@@ -152,8 +152,14 @@ public class ReportManager implements IReportResponse, OnLoginResponse, ITreeIte
 
     @Override
     public void onSuccessTreeItem(List<TreeItem> treeItems) {
+        List<TreeItem> treeItemList = new ArrayList<>();
+        TreeItem all = new TreeItem();
+        all.setText("همه موارد");
+        all.setId(-1);
+        treeItemList.add(all);
         if (treeItems != null && !treeItems.isEmpty()) {
-            view.fillTreeItem(treeItems);
+            treeItemList.addAll(1,treeItems);
+            view.fillTreeItem(treeItemList);
         }
     }
 

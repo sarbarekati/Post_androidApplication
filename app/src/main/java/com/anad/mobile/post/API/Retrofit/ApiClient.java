@@ -20,7 +20,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ApiClient {
 
     private static final String BASE_URL = BuildConfig.BASE_URL;
-    private static final String TEST_BASE_URL = "http://6e36ce63.ngrok.io";
+    private static final String TEST_BASE_URL = "http://9231caa2.ngrok.io";
     private static Retrofit retrofit = null;
     private static PostSharedPreferences preferences;
 

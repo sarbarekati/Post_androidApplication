@@ -37,6 +37,6 @@ public class CarTreeItem extends TreeItem {
 
     @Override
     public Integer getId() {
-        return carId;
+        return this.carId;
     }
 }

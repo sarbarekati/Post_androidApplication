@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,16 @@ import android.widget.Toast;
 import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
 import com.anad.mobile.post.Activity.RahRFIDFilter.RahRFIDFilterActivity;
+import com.anad.mobile.post.MapManager.Manager.MapManager;
+import com.anad.mobile.post.MapManager.Model.IMapView;
+import com.anad.mobile.post.MapManager.Model.SearchLastPositionItem;
 import com.anad.mobile.post.Models.LastPosition;
 import com.anad.mobile.post.Models.UserAccess;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
 import com.anad.mobile.post.Utils.Constants;
 import com.anad.mobile.post.Utils.CustomOsmWindowInfo;
-import com.anad.mobile.post.Utils.PersianCal;
+import com.anad.mobile.post.Utils.DataTimeUtils.DateTimeUtils;
 import com.anad.mobile.post.Utils.Util;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.maps.model.LatLng;
@@ -40,16 +42,12 @@ import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.wms.WMSEndpoint;
 import org.osmdroid.wms.WMSTileSource;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,18 +55,22 @@ import java.util.List;
  */
 
 public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMenuToggleListener
-        , View.OnClickListener, android.location.LocationListener {
+        , View.OnClickListener, android.location.LocationListener, IMapView {
 
+    public static final String POSITIONS = "POSITION";
+    public static final String FILTER = "filter";
+    public static final String IS_ONLINE = "IS_ONLINE";
+    public static final String SEARCH_FILTER = "search_filter";
     private MapView mapView;
-    private static final String TAG = "OsmMapFragment";
     private WMSEndpoint wmsEndpoint;
     private com.github.clans.fab.FloatingActionButton filterFab, updateFab, satFab;
     private FloatingActionMenu fab_menu;
     private View view;
-    List<UserAccess> u;
-    Context ctx;
+    private Context ctx;
     private Util util;
     private PostSharedPreferences preferences;
+    List<com.anad.mobile.post.MapManager.Model.LastPosition> positions;
+    private MapManager mapManager;
 
     @Nullable
     @Override
@@ -77,13 +79,16 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         ctx = getActivity().getApplicationContext();
         preferences = new PostSharedPreferences(ctx);
 
+
+        mapManager = new MapManager(ctx, this);
+
+
         view = inflater.inflate(R.layout.fragment_osm_map, container, false);
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
 
 
         util = Util.getInstance();
         mapView = view.findViewById(R.id.mapView);
-
         mapView.getController().setZoom(15.0);
 
 
@@ -106,11 +111,23 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         Gson gson = new Gson();
         String position = gson.toJson(userAccess);
         Bundle args = new Bundle();
-        args.putBoolean("filter", true);
+        args.putBoolean(FILTER, true);
         args.putString("POSITION", position);
         args.putString("CAR_ID", id);
-        args.putBoolean("IS_ONLINE", isOnline);
+        args.putBoolean(IS_ONLINE, isOnline);
 
+        OsmMapFragment fragment = new OsmMapFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static OsmMapFragment newInstance(List<com.anad.mobile.post.MapManager.Model.LastPosition> lastPositions, boolean isOnline,SearchLastPositionItem searchLastPositionItem) {
+
+        Bundle args = new Bundle();
+        args.putString(POSITIONS, new Gson().toJson(lastPositions));
+        args.putBoolean(FILTER, true);
+        args.putBoolean(IS_ONLINE,isOnline);
+        args.putString(SEARCH_FILTER,new Gson().toJson(searchLastPositionItem));
         OsmMapFragment fragment = new OsmMapFragment();
         fragment.setArguments(args);
         return fragment;
@@ -132,7 +149,7 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
             case R.id.Map_fab_filter:
                 fab_menu.close(true);
                 Intent i = new Intent(getActivity(), RahRFIDFilterActivity.class);
-                i.putExtra("MAP_FILTER", "from Map");
+                i.putExtra(MainActivity.MAP_FILTER, true);
                 startActivity(i);
                 break;
 
@@ -140,10 +157,10 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
                 mapView.getOverlays().clear();
                 if (mapView != null) {
                     if (getArguments() != null) {
-                        getLastPositionForUpdate(getArguments().getString("CAR_ID"), getArguments().getBoolean("IS_ONLINE"));
+                        updateMap(new Gson().fromJson(getArguments().getString(SEARCH_FILTER),SearchLastPositionItem.class));
                         fab_menu.close(true);
                     } else {
-                        Toast.makeText(getActivity().getApplicationContext(), "ابتدا فیلتر های موردنظر را انتخاب نمایید.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ctx, R.string.please_select_your_filter_first, Toast.LENGTH_SHORT).show();
                         fab_menu.close(true);
                     }
                 }
@@ -163,19 +180,21 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         if (location != null && mapView != null) {
 
             if (getArguments() != null) {
-                Gson gson = new Gson();
-                Type t = new TypeToken<ArrayList<UserAccess>>() {
-                }.getType();
-                u = gson.fromJson(getArguments().getString("POSITION"), t);
+
+
+                positions = getLastPositions(getArguments().getString(POSITIONS));
+
                 List<Double> latList = new ArrayList<>();
                 List<Double> lngList = new ArrayList<>();
 
-                if (u != null && u.size() > 0) {
-                    for (UserAccess item : u
-                            ) {
-                        LatLng lt = util.createLatLng(item.getLastPosition().getN(), item.getLastPosition().getE());
+
+                if (positions != null && !positions.isEmpty()) {
+
+                    for (com.anad.mobile.post.MapManager.Model.LastPosition lastPosition : positions) {
+                        LatLng lt = util.createLatLng(lastPosition.getN(), lastPosition.getE());
                         latList.add(lt.latitude);
                         lngList.add(lt.longitude);
+
                         LatLng latlng1;
                         double lat = lt.latitude;
                         double lng = lt.longitude;
@@ -184,14 +203,17 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
 
                         Marker marker = new Marker(mapView);
                         marker.setPosition(new GeoPoint(latlng1.latitude, latlng1.longitude));
-                        if(item.getLastPosition().isRFID()){
+
+                        /*if(item.getLastPosition().isRFID()){
                             marker.setIcon(ContextCompat.getDrawable(ctx,R.drawable.map_marker_red));
                         }else {
                             marker.setIcon(ContextCompat.getDrawable(ctx, R.drawable.car));
-                        }
+                        }*/
+
+                        marker.setIcon(ContextCompat.getDrawable(ctx, R.drawable.car));
                         marker.setInfoWindow(new CustomOsmWindowInfo(ctx, R.layout.map_info_layout, mapView, util));
 
-                        final String info = item.getLastPosition().getID() + "--" + item.getLastPosition().getSpeed() + "--" + item.getLastPosition().getLTime() + "--" + item.getLastPosition().getLDate();
+                        final String info = lastPosition.getDeviceCode() + "--" + lastPosition.getSpeed() + "--" + lastPosition.getLastTime() + "--" + lastPosition.getLastDate();
                         marker.setSnippet(info);
 
 
@@ -199,15 +221,14 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
                         mapView.getController().animateTo(new GeoPoint(35.68, 51.38));
                         mapView.getController().setZoom(5.0);
 
-
                     }
+
                     double minLat = Collections.min(latList);
                     double maxLat = Collections.max(latList);
                     double minLng = Collections.min(lngList);
                     double maxLng = Collections.max(lngList);
 
                 }
-
             } else {
                 latLng = new LatLng(location.getLatitude(), location.getLongitude());
                 mapView.getController().animateTo(new GeoPoint(latLng.latitude, latLng.longitude));
@@ -218,6 +239,14 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         }
 
 
+    }
+
+    private List<com.anad.mobile.post.MapManager.Model.LastPosition> getLastPositions(String str) {
+
+        Gson gson = new Gson();
+        Type t = new TypeToken<ArrayList<com.anad.mobile.post.MapManager.Model.LastPosition>>() {
+        }.getType();
+        return gson.fromJson(str, t);
     }
 
     @Override
@@ -235,9 +264,10 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
 
     }
 
+
     class MapAsyncTask extends AsyncTask<Void, Void, Void> {
 
-       // CustomWMSTileSource source;
+        // CustomWMSTileSource source;
         WMSTileSource source;
 
         @Override
@@ -265,17 +295,11 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
                 }
                 if (wmsEndpoint != null) {
 //                  source = WMSTileSource.createFrom(wmsEndpoint, wmsEndpoint.getLayers().get(1));
-                  source = WMSTileSource.createFrom(wmsEndpoint, wmsEndpoint.getLayers().get(0));
+                    source = WMSTileSource.createFrom(wmsEndpoint, wmsEndpoint.getLayers().get(0));
 //                    source = CustomWMSTileSource.createFrom(wmsEndpoint, wmsEndpoint.getLayers().get(0));
                     //for post application
                 }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Log.e(TAG, "doInBackground: " + e.toString());
             } catch (Exception e) {
-                Log.e(TAG, "doInBackground: " + e.toString());
                 e.printStackTrace();
             }
             return null;
@@ -287,7 +311,7 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
             if (source != null) {
                 mapView.setTileSource(source);
                 mapStyleInitializer();
-                if (getArguments() != null && getArguments().getBoolean("filter")) {
+                if (getArguments() != null && getArguments().getBoolean(FILTER)) {
                     onLocationChanged(new Location(LocationManager.NETWORK_PROVIDER));
 
                 }
@@ -308,89 +332,59 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
         mapView.getController().setZoom(5.0);
     }
 
-    private void getLastPositionForUpdate(String id, final boolean isOnline) {
-        final List<Double> latList = new ArrayList<>();
-        final List<Double> lngList = new ArrayList<>();
-        FilterApi api = FilterApi.getInstance(MainActivity.mainActivityContext);
-        api.getLastPosWithId(new FilterApi.OnAllDriversBack() {
-            @Override
-            public void OnResponse(List<LastPosition> lastPositions) {
-                if (isOnline) {
-                    String Date = getCurrentTime()[1];
-                    String hour = getCurrentTime()[0];
-                    int diff;
-                    LatLng carLatLng;
-                    for (int i = 0; i < lastPositions.size(); i++) {
 
-                        diff = Math.abs(Integer.parseInt(lastPositions.get(i).getLTime().split(":")[0]) - Integer.parseInt(hour));
-                        if (lastPositions.get(i).getLDate().equals(Date) && diff <= 2) {
-                            String lat = lastPositions.get(i).getN();
-                            String lng = lastPositions.get(i).getE();
-                            carLatLng = util.createLatLng(lat, lng);
-                            latList.add(carLatLng.latitude);
-                            lngList.add(carLatLng.longitude);
-
-                            Marker marker = new Marker(mapView);
-                            marker.setPosition(new GeoPoint(carLatLng.latitude, carLatLng.longitude));
-                            marker.setIcon(ContextCompat.getDrawable(ctx, R.drawable.car));
-                            mapView.getOverlays().add(marker);
-                        }
-
-                    }
-                } else {
-                    LatLng carLatLng;
-                    for (LastPosition lastpos : lastPositions
-                            ) {
-                        String lat = lastpos.getN();
-                        String lng = lastpos.getE();
-                        carLatLng = util.createLatLng(lat, lng);
-                        latList.add(carLatLng.latitude);
-                        lngList.add(carLatLng.longitude);
-
-                        Marker marker = new Marker(mapView);
-                        marker.setPosition(new GeoPoint(carLatLng.latitude, carLatLng.longitude));
-                        marker.setIcon(ContextCompat.getDrawable(ctx, R.drawable.car));
-                        mapView.getOverlays().add(marker);
-
-                    }
-                }
-
-                double minLat;
-                double maxLat;
-                double minLng;
-                double maxLng;
-/*
-                if(latList.size()>0 && lngList.size()>0){
-
-
-                    minLat = Collections.min(latList);
-                    maxLat = Collections.max(latList);
-                    minLng = Collections.min(lngList);
-                    maxLng = Collections.max(lngList);
-
-                    moveCamera(mMap, minLat, maxLat, minLng, maxLng);
-
-                }else
-                {
-                    moveCamera(new LatLng(32.4274, 53.6880), 4f);
-                }*/
-
-
-            }
-        }, Constants.URL_GET_LAST_POS_WITH_ID + id);
+    private void updateMap(SearchLastPositionItem search) {
+        mapManager.callLastPosition(search);
     }
 
-    private String[] getCurrentTime() {
+    @Override
+    public void fillLastPosition(List<com.anad.mobile.post.MapManager.Model.LastPosition> lastPositions) {
+        boolean isOnline = getArguments().getBoolean(IS_ONLINE);
+        List<com.anad.mobile.post.MapManager.Model.LastPosition> positions;
+        if (lastPositions != null && !lastPositions.isEmpty()) {
+            positions = lastPositions;
 
-        Date c = Calendar.getInstance().getTime();
-        Calendar c2 = Calendar.getInstance();
-        PersianCal persian = new PersianCal(c2);
-        String date = persian.getYear() + "/" + persian.getMonth() + "/" + persian.getDay();
+            if (isOnline) {
+                positions = findOnlinePosition(lastPositions);
+            }
+            addMarkerToMap(positions);
 
-        int hour = c.getHours();
-        String dateTime = String.valueOf(hour) + "--" + date;
-        return dateTime.split("--");
+        }
+    }
 
+
+    private void addMarkerToMap(List<com.anad.mobile.post.MapManager.Model.LastPosition> lastPositions) {
+        LatLng carLatLng;
+        for (com.anad.mobile.post.MapManager.Model.LastPosition position : lastPositions
+                ) {
+            String lat = position.getN();
+            String lng = position.getE();
+            carLatLng = util.createLatLng(lat, lng);
+            Marker marker = new Marker(mapView);
+            marker.setPosition(new GeoPoint(carLatLng.latitude, carLatLng.longitude));
+            marker.setIcon(ContextCompat.getDrawable(ctx, R.drawable.car));
+            mapView.getOverlays().add(marker);
+
+        }
+    }
+
+
+    private List<com.anad.mobile.post.MapManager.Model.LastPosition> findOnlinePosition(List<com.anad.mobile.post.MapManager.Model.LastPosition> positions) {
+
+        List<com.anad.mobile.post.MapManager.Model.LastPosition> lastPositions = new ArrayList<>();
+        String Date = DateTimeUtils.getCurrentDate();
+        String hour = DateTimeUtils.getCurrentHour();
+        int diff;
+
+        for (com.anad.mobile.post.MapManager.Model.LastPosition position : positions) {
+
+            diff = Math.abs(Integer.parseInt(position.getLastTime().split(":")[0]) - Integer.parseInt(hour));
+            if (position.getLastDate().equals(Date) && diff <= 2) {
+                lastPositions.add(position);
+            }
+        }
+
+        return lastPositions;
 
     }
 

@@ -156,6 +156,8 @@
     <string name="businessUnitTitle">واحد سازمانی</string>
     <string name="ownerTitle">نام کاربر</string>
     <string name="party_type">نقش کاریر</string>
+    <string name="please_enter_back_again">برای خروج بار دیگر دکمه بازگشت را فشار دهید.</string>
+    <string name="please_select_your_filter_first">ابتدا فیلتر های موردنظر را انتخاب نمایید.</string>
 
 
     <string-array name="Report_filters">

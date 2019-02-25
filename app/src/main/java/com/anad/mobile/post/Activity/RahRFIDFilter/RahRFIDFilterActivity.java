@@ -28,6 +28,7 @@ import com.anad.mobile.post.API.FilterApi;
 import com.anad.mobile.post.Activity.MainActivity;
 import com.anad.mobile.post.Activity.RahRFIDReportList;
 import com.anad.mobile.post.Adapter.SpinnerAdapter;
+import com.anad.mobile.post.MapManager.Model.SearchLastPositionItem;
 import com.anad.mobile.post.Models.Cars;
 import com.anad.mobile.post.Models.DriverModel;
 import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
@@ -47,6 +48,7 @@ import com.anad.mobile.post.Utils.FontUtils.FontUtil;
 import com.anad.mobile.post.Utils.JalaliCalendar;
 import com.anad.mobile.post.Utils.ReportTypeConst;
 import com.anad.mobile.post.Utils.Util;
+import com.google.gson.Gson;
 import com.mohamadamin.persianmaterialdatetimepicker.time.RadialPickerLayout;
 import com.mohamadamin.persianmaterialdatetimepicker.time.TimePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
@@ -255,7 +257,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
             Bundle bMap = getIntent().getExtras();
 
-            if (bMap != null && bMap.containsKey("MAP_FILTER")) {
+            if (bMap != null && bMap.getBoolean(MainActivity.MAP_FILTER)) {
                 setFilterForShowCar();
 
             }
@@ -335,7 +337,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                 }
             });
 
-            if(isFromMap)
+            if (isFromMap)
                 acceptFilter.setOnClickListener(new AcceptForMapClickListener());
             else
                 acceptFilter.setOnClickListener(new AcceptClickListener());
@@ -1320,7 +1322,11 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Integer stateId = adapterLevelOne.getTreeItemId(position);
-                reportManager.callGetTreeItem(stateId);
+                if (stateId != -1) {
+                    reportManager.callGetTreeItem(stateId);
+                }else{
+                    containerTwo.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -1559,6 +1565,11 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    private SearchLastPositionItem getSearchLastPositionItem() {
+        return SearchLastPositionItem.createSearchLastPositionItem(driverIds, isOnlineCheck);
+    }
+
+
     @Override
     public void startActivity(Bundle bundle) {
         Util.gotoActivity(this, RahRFIDReportList.class, bundle, false);
@@ -1680,6 +1691,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void fillTreeItem(List<TreeItem> treeItems) {
+
         if (!treeItems.isEmpty()) {
             adapterLevelOne = new SpinnerAdapter<>(RahRFIDFilterActivity.this, treeItems);
             spinnerIndexOne.setAdapter(adapterLevelOne);
@@ -1718,10 +1730,14 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     private class AcceptForMapClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-
-
-
-
+            Bundle bundle = new Bundle();
+            bundle.putString(MainActivity.MAP_FILTER, parseSearchLastPositionItem(getSearchLastPositionItem()));
+            Util.gotoActivity(RahRFIDFilterActivity.this, MainActivity.class, bundle, false);
         }
+    }
+
+
+    private String parseSearchLastPositionItem(SearchLastPositionItem search) {
+        return new Gson().toJson(search);
     }
 }
