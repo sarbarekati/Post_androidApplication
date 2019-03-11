@@ -62,6 +62,8 @@ import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnClickListener, IRahRFIDReport {
+
+    //region Fields
     public static final String RAHSEPARI_REPORT_RESPONSE = "RahsepariReportResponse";
     private static final String TIME_START = "TIME_START";
     private static final String TIME_END = "TIME_END";
@@ -73,8 +75,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     private RelativeLayout containerOne, containerTwo, containerThree, containerFour, containerFive, containerDriver;
     private int lastIndexSpinnerOne, lastIndexSpinnerTwo, lastIndexSpinnerThree, lastIndexSpinnerFour, lastIndexSpinnerFive, lastIndexSpinnerDriver;
     private Button acceptFilter;
-    private HandleSubTree handleSubTree;
-    private static final String TAG = "RahRFIDFilterActivity";
     private List<String> userAccessOrgName;
 
     private List<SubTree> subTreeListSpinnerOne, subTreeListSpinnerTwo, subTreeListSpinnerThree, subTreeListSpinnerFour, subTreeListSpinnerFive;
@@ -82,8 +82,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
 
     private List<Cars> subTreeListSpinnerDriver;
     private List<DriverModel> oSubTreeListSpinnerDriver;
-
-    private static int lastOrgId;
 
 
     private Util util;
@@ -123,28 +121,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     private boolean isPathSelected;
     private String routeName = "";
     private boolean isEnterCode;
-
-
-    public String minAvgSpeed = "0";
-    public String maxAvgSpeed = "0";
-    public String minSpeed = "0";
-    public String maxSpeed = "0";
-    public String minLength = "0";
-    public String maxLength = "0";
-    public String MaghsadtakhirStart = "00:00";
-    public String MaghsadtakhirEnd = "23:59";
-    public String MaghsadTajilStart = "00:00";
-    public String MaghsadTajilEnd = "23:59";
-    public String MabdatakhirStart = "00:00";
-    public String MabdatakhirEnd = "23:59";
-    public String ModatBargiriStart = "00:00";
-    public String ModatBargiriEnd = "23:59";
-    public String MabdaMoghararStart = "00:00";
-    public String MabdaMoghararEnd = "23:59";
-    public String MaghsadMoghararStart = "00:00";
-    public String MaghsadMoghararEnd = "23:59";
-    public String ZamanMoghararTeyStart = "00:00";
-    public String ZamanMoghararTeyEnd = "23:59";
 
 
     private LinearLayout spinnerContainer;
@@ -188,6 +164,9 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
     private SpinnerAdapter<TreeItem> adapterLevelOne;
     private SpinnerAdapter<CarTreeItem> adapterLevelTwo;
 
+    //endregion
+
+    //region Activity LifeCycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -706,526 +685,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             Util.backToLoginActivity(this);
         }
     }
-
-
-    private void setUpSpinners() {
-        spinnerIndexOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
-                SP_ONE = position;
-
-
-                if (position == 0) {
-                    if (oSubTreeListSpinnerOne.get(0) != null) {
-                        String car_count = oSubTreeListSpinnerOne.get(0).getAllCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                } else {
-                    if (oSubTreeListSpinnerOne.get(1).getOrgModel() != null) {
-                        String car_count = oSubTreeListSpinnerOne.get(1).getOrgModel().get(position - 1).getCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-
-                userAccessOrgName = new ArrayList<>();
-                userAccessOrgName.add(0, getString(R.string.all_item));
-
-
-                final int orgId;
-                if (position != 0) {
-                    isSelectAll = false;
-
-                    ids = new ArrayList<>();
-                    orgId = oSubTreeListSpinnerOne.get(1).getOrgModel().get(position - 1).getOrg_Id();
-
-                    handleSubTree.getUserAccessByUserNameOrParentIdHandler(Constants.URL_GET_SUB_TREE + "?orgId=" + orgId + "&level=2", new HandleSubTree.OnGetOrgInfoHandler() {
-                        @Override
-                        public void onGetOrg(OrgInfoModel orgInfoModel) {
-                            if (orgInfoModel.getOrgModel() != null && orgInfoModel.getOrgModel().size() > 0) {
-                                for (int i = 0; i < orgInfoModel.getOrgModel().size(); i++) {
-
-                                    userAccessOrgName.add(i + 1, orgInfoModel.getOrgModel().get(i).getOrg_name());
-                                }
-
-                                containerTwo.setVisibility(View.VISIBLE);
-                                spinnerIndexTwo.setVisibility(View.VISIBLE);
-
-
-                                containerThree.setVisibility(View.GONE);
-                                spinnerIndexThree.setVisibility(View.GONE);
-
-                                containerFour.setVisibility(View.GONE);
-                                spinnerIndexFour.setVisibility(View.GONE);
-
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-
-
-                                spinnerIndexDriver.setVisibility(View.GONE);
-                                containerDriver.setVisibility(View.GONE);
-                                ArrayAdapter sAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
-                                spinnerIndexTwo.setAdapter(sAdapter);
-
-                                OrgInfoModel allOrg = new OrgInfoModel();
-                                allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
-                                oSubTreeListSpinnerTwo.add(0, allOrg);
-                                oSubTreeListSpinnerTwo.add(1, orgInfoModel);
-
-                                lastOrgId = orgId;
-
-                            } else {
-                                containerTwo.setVisibility(View.GONE);
-                                spinnerIndexTwo.setVisibility(View.GONE);
-                                containerThree.setVisibility(View.GONE);
-                                spinnerIndexThree.setVisibility(View.GONE);
-
-                                containerFour.setVisibility(View.GONE);
-                                spinnerIndexFour.setVisibility(View.GONE);
-
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-                                containerDriver.setVisibility(View.VISIBLE);
-                                spinnerIndexDriver.setVisibility(View.VISIBLE);
-
-                                api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-                                    @Override
-                                    public void OnResponse(List<DriverModel> driverModels) {
-                                        if (driverModels != null && driverModels.size() > 0) {
-                                            List<String> name = new ArrayList<>();
-                                            name.add(0, "همه موارد");
-                                            for (int i = 0; i < driverModels.size(); i++) {
-
-                                                if (driverModels.get(i).getLName() == null)
-                                                    driverModels.get(i).setLName(" ");
-                                                if (driverModels.get(i).getFName() == null)
-                                                    driverModels.get(i).setFName(" ");
-                                                name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
-                                            }
-
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
-                                            spinnerIndexDriver.setAdapter(seAdapter);
-                                            oSubTreeListSpinnerDriver.addAll(driverModels);
-                                            lastOrgId = orgId;
-                                        }
-                                    }
-                                }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-
-
-                            }
-                        }
-                    });
-                } else {
-
-
-                    for (int i = 0; i < oSubTreeListSpinnerOne.get(1).getOrgModel().size(); i++) {
-                        ids.add(oSubTreeListSpinnerOne.get(1).getOrgModel().get(i).getOrg_Id());
-
-                    }
-                    isSelectAll = true;
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-        spinnerIndexTwo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int position, final long id) {
-                SP_TWO = position;
-
-
-                if (position == 0) {
-                    if (oSubTreeListSpinnerTwo.get(0) != null) {
-                        String car_count = oSubTreeListSpinnerTwo.get(0).getAllCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-                if (position != 0) {
-                    if (oSubTreeListSpinnerTwo.get(1).getOrgModel() != null) {
-                        String car_count = oSubTreeListSpinnerTwo.get(1).getOrgModel().get(position - 1).getCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-
-                userAccessOrgName = new ArrayList<>();
-                userAccessOrgName.add(0, getString(R.string.all_item));
-
-
-                final int orgId;
-                if (position != 0) {
-                    ids = new ArrayList<>();
-                    orgId = oSubTreeListSpinnerTwo.get(1).getOrgModel().get(position - 1).getOrg_Id();
-                    handleSubTree.getUserAccessByUserNameOrParentIdHandler(Constants.URL_GET_SUB_TREE + "?orgId=" + orgId + "&level=2", new HandleSubTree.OnGetOrgInfoHandler() {
-                        @Override
-                        public void onGetOrg(OrgInfoModel orgInfoModel) {
-                            if (orgInfoModel.getOrgModel() != null && orgInfoModel.getOrgModel().size() > 0) {
-                                for (int i = 0; i < orgInfoModel.getOrgModel().size(); i++) {
-                                    userAccessOrgName.add(i + 1, orgInfoModel.getOrgModel().get(i).getOrg_name());
-                                }
-                                containerThree.setVisibility(View.VISIBLE);
-                                spinnerIndexThree.setVisibility(View.VISIBLE);
-
-
-                                containerFour.setVisibility(View.GONE);
-                                spinnerIndexFour.setVisibility(View.GONE);
-
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-
-
-                                containerDriver.setVisibility(View.GONE);
-                                spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
-                                spinnerIndexThree.setAdapter(seAdapter);
-                                OrgInfoModel allOrg = new OrgInfoModel();
-                                allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
-                                oSubTreeListSpinnerThree.add(0, allOrg);
-                                oSubTreeListSpinnerThree.add(1, orgInfoModel);
-
-                                lastOrgId = orgId;
-                            } else {
-                                containerThree.setVisibility(View.GONE);
-                                spinnerIndexThree.setVisibility(View.GONE);
-
-                                containerFour.setVisibility(View.GONE);
-                                spinnerIndexFour.setVisibility(View.GONE);
-
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-
-                                containerDriver.setVisibility(View.VISIBLE);
-                                spinnerIndexDriver.setVisibility(View.VISIBLE);
-
-                                api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-                                    @Override
-                                    public void OnResponse(List<DriverModel> driverModels) {
-                                        if (driverModels != null && driverModels.size() > 0) {
-                                            List<String> name = new ArrayList<>();
-                                            name.add(0, "همه موارد");
-                                            for (int i = 0; i < driverModels.size(); i++) {
-                                                if (driverModels.get(i).getLName() == null)
-                                                    driverModels.get(i).setLName(" ");
-                                                if (driverModels.get(i).getFName() == null)
-                                                    driverModels.get(i).setFName(" ");
-                                                name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
-
-                                            }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
-                                            spinnerIndexDriver.setAdapter(seAdapter);
-
-                                            oSubTreeListSpinnerDriver.addAll(driverModels);
-                                            lastOrgId = orgId;
-                                        }
-                                    }
-                                }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-                            }
-                        }
-                    });
-
-                } else {
-                    for (int i = 0; i < oSubTreeListSpinnerTwo.get(1).getOrgModel().size(); i++) {
-                        ids.add(oSubTreeListSpinnerTwo.get(1).getOrgModel().get(i).getOrg_Id());
-                    }
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        spinnerIndexThree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int position, final long id) {
-                SP_THREE = position;
-
-
-                if (position == 0) {
-                    if (oSubTreeListSpinnerThree.get(0) != null) {
-                        String car_count = oSubTreeListSpinnerThree.get(0).getAllCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                } else {
-                    if (oSubTreeListSpinnerThree.get(1).getOrgModel() != null) {
-                        String car_count = oSubTreeListSpinnerThree.get(1).getOrgModel().get(position - 1).getCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-
-                userAccessOrgName = new ArrayList<>();
-                userAccessOrgName.add(0, getString(R.string.all_item));
-
-
-                final int orgId;
-                if (position != 0) {
-                    orgId = oSubTreeListSpinnerThree.get(1).getOrgModel().get(position - 1).getOrg_Id();
-                    handleSubTree.getUserAccessByUserNameOrParentIdHandler(Constants.URL_GET_SUB_TREE + "?orgId=" + orgId + "&level=2", new HandleSubTree.OnGetOrgInfoHandler() {
-                        @Override
-                        public void onGetOrg(OrgInfoModel orgInfoModel) {
-                            if (orgInfoModel.getOrgModel() != null && orgInfoModel.getOrgModel().size() > 0) {
-                                for (int i = 0; i < orgInfoModel.getOrgModel().size(); i++) {
-                                    userAccessOrgName.add(i + 1, orgInfoModel.getOrgModel().get(i).getOrg_name());
-                                }
-
-                                containerFour.setVisibility(View.VISIBLE);
-                                spinnerIndexFour.setVisibility(View.VISIBLE);
-
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-
-                                containerDriver.setVisibility(View.GONE);
-                                spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
-                                spinnerIndexFour.setAdapter(seAdapter);
-                                OrgInfoModel allOrg = new OrgInfoModel();
-                                allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
-                                oSubTreeListSpinnerFour.add(0, allOrg);
-                                oSubTreeListSpinnerFour.add(1, orgInfoModel);
-
-                                lastOrgId = orgId;
-
-                            } else {
-                                containerFour.setVisibility(View.GONE);
-                                spinnerIndexFour.setVisibility(View.GONE);
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-
-                                containerDriver.setVisibility(View.VISIBLE);
-                                spinnerIndexDriver.setVisibility(View.VISIBLE);
-                                api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-                                    @Override
-                                    public void OnResponse(List<DriverModel> driverModels) {
-                                        if (driverModels != null && driverModels.size() > 0) {
-                                            List<String> name = new ArrayList<>();
-                                            name.add(0, "همه موارد");
-                                            for (int i = 0; i < driverModels.size(); i++) {
-                                                if (driverModels.get(i).getLName() == null)
-                                                    driverModels.get(i).setLName(" ");
-                                                if (driverModels.get(i).getFName() == null)
-                                                    driverModels.get(i).setFName(" ");
-                                                name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
-
-                                            }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
-                                            spinnerIndexDriver.setAdapter(seAdapter);
-
-                                            oSubTreeListSpinnerDriver.addAll(driverModels);
-                                            lastOrgId = orgId;
-                                        }
-                                    }
-                                }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-                            }
-                        }
-                    });
-                } else {
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        spinnerIndexFour.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int position, final long id) {
-                SP_FOUR = position;
-
-
-                if (position == 0) {
-                    if (oSubTreeListSpinnerFour.get(0) != null) {
-                        String car_count = oSubTreeListSpinnerFour.get(0).getAllCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                } else {
-                    if (oSubTreeListSpinnerFour.get(1).getOrgModel() != null) {
-                        String car_count = oSubTreeListSpinnerFour.get(1).getOrgModel().get(position - 1).getCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-
-                userAccessOrgName = new ArrayList<>();
-                userAccessOrgName.add(0, getString(R.string.all_item));
-
-                final int orgId;
-                if (position != 0) {
-                    orgId = oSubTreeListSpinnerFour.get(1).getOrgModel().get(position - 1).getOrg_Id();
-                    handleSubTree.getUserAccessByUserNameOrParentIdHandler(Constants.URL_GET_SUB_TREE + "?orgId=" + orgId + "&level=2", new HandleSubTree.OnGetOrgInfoHandler() {
-                        @Override
-                        public void onGetOrg(OrgInfoModel orgInfoModel) {
-                            if (orgInfoModel.getOrgModel() != null && orgInfoModel.getOrgModel().size() > 0) {
-                                for (int i = 0; i < orgInfoModel.getOrgModel().size(); i++) {
-                                    userAccessOrgName.add(i + 1, orgInfoModel.getOrgModel().get(i).getOrg_name());
-                                }
-                                containerFive.setVisibility(View.VISIBLE);
-                                spinnerIndexFive.setVisibility(View.VISIBLE);
-
-                                containerDriver.setVisibility(View.GONE);
-                                spinnerIndexDriver.setVisibility(View.GONE);
-                                ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, userAccessOrgName);
-                                spinnerIndexFive.setAdapter(seAdapter);
-                                OrgInfoModel allOrg = new OrgInfoModel();
-                                allOrg.setAllCarCount(orgInfoModel.getAllCarCount());
-                                oSubTreeListSpinnerFive.add(0, allOrg);
-                                oSubTreeListSpinnerFive.add(1, orgInfoModel);
-
-                                lastOrgId = orgId;
-
-                            } else {
-                                //TODO CALL DRIVER
-                                containerFive.setVisibility(View.GONE);
-                                spinnerIndexFive.setVisibility(View.GONE);
-                                containerDriver.setVisibility(View.VISIBLE);
-                                spinnerIndexDriver.setVisibility(View.VISIBLE);
-
-                                api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-                                    @Override
-                                    public void OnResponse(List<DriverModel> driverModels) {
-                                        if (driverModels != null && driverModels.size() > 0) {
-                                            List<String> name = new ArrayList<>();
-                                            name.add(0, "همه موارد");
-                                            for (int i = 0; i < driverModels.size(); i++) {
-                                                if (driverModels.get(i).getLName() == null)
-                                                    driverModels.get(i).setLName(" ");
-                                                if (driverModels.get(i).getFName() == null)
-                                                    driverModels.get(i).setFName(" ");
-                                                name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
-
-                                            }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
-                                            spinnerIndexDriver.setAdapter(seAdapter);
-
-                                            oSubTreeListSpinnerDriver.addAll(driverModels);
-                                            lastOrgId = orgId;
-                                        }
-                                    }
-                                }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-                            }
-                        }
-                    });
-                } else {
-                    //TODO ALL ITEMS
-                }
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        spinnerIndexFive.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, final int position, final long id) {
-                SP_FIVE = position;
-
-
-                if (position == 0) {
-                    if (oSubTreeListSpinnerFive.get(0) != null) {
-                        String car_count = oSubTreeListSpinnerFive.get(0).getAllCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                } else {
-                    if (oSubTreeListSpinnerFive.get(1).getOrgModel() != null) {
-                        String car_count = oSubTreeListSpinnerFive.get(1).getOrgModel().get(position - 1).getCarCount() + "";
-                        carCount.setText(car_count);
-                    }
-                }
-
-
-                userAccessOrgName = new ArrayList<>();
-                userAccessOrgName.add(0, getString(R.string.all_item));
-
-                final int orgId;
-                if (position != 0) {
-                    orgId = oSubTreeListSpinnerThree.get(1).getOrgModel().get(position - 1).getOrg_Id();
-
-                    handleSubTree.getUserAccessByUserNameOrParentIdHandler(Constants.URL_GET_SUB_TREE + "?orgId=" + orgId + "&level=2", new HandleSubTree.OnGetOrgInfoHandler() {
-                        @Override
-                        public void onGetOrg(OrgInfoModel orgInfoModel) {
-                            if (orgInfoModel.getOrgModel() != null && orgInfoModel.getOrgModel().size() > 0) {
-                                for (int i = 0; i < orgInfoModel.getOrgModel().size(); i++) {
-                                    userAccessOrgName.add(i + 1, orgInfoModel.getOrgModel().get(i).getOrg_name());
-                                }
-                                containerDriver.setVisibility(View.VISIBLE);
-                                spinnerIndexDriver.setVisibility(View.VISIBLE);
-
-                                api.getUserAllDriver(new FilterApi.OnUserAllDriversBack() {
-                                    @Override
-                                    public void OnResponse(List<DriverModel> driverModels) {
-                                        if (driverModels != null && driverModels.size() > 0) {
-                                            List<String> name = new ArrayList<>();
-                                            name.add(0, "همه موارد");
-                                            for (int i = 0; i < driverModels.size(); i++) {
-                                                if (driverModels.get(i).getLName() == null)
-                                                    driverModels.get(i).setLName(" ");
-                                                if (driverModels.get(i).getFName() == null)
-                                                    driverModels.get(i).setFName(" ");
-                                                name.add(i + 1, driverModels.get(i).getFName() + " " + driverModels.get(i).getLName() + " - " + driverModels.get(i).getDrv_ID());
-
-                                            }
-                                            ArrayAdapter seAdapter = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, name);
-                                            spinnerIndexDriver.setAdapter(seAdapter);
-
-                                            oSubTreeListSpinnerDriver.addAll(driverModels);
-
-                                            lastOrgId = orgId;
-                                        }
-                                    }
-                                }, Constants.URL_GET_USER_ALL_DRIVER + orgId);
-                            }
-
-                        }
-                    });
-                } else {
-                    //TODO ALL ITEMS
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        pathSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0) {
-                    isPathSelected = true;
-                    routeName = MainActivity.rah_name.get(position - 1);
-                } else {
-                    isPathSelected = false;
-
-                }
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-    }
+    //endregion
 
 
     private void initializeView() {
@@ -1324,7 +784,7 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
                 Integer stateId = adapterLevelOne.getTreeItemId(position);
                 if (stateId != -1) {
                     reportManager.callGetTreeItem(stateId);
-                }else{
+                } else {
                     containerTwo.setVisibility(View.GONE);
                 }
             }
@@ -1575,6 +1035,46 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
         Util.gotoActivity(this, RahRFIDReportList.class, bundle, false);
     }
 
+
+    @Override
+    public void fillLineData(List<String> lines) {
+
+        this.linesNames = lines;
+        if (lines != null && lines.size() > 0) {
+            ArrayAdapter a = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, lines);
+            pathSpinner.setAdapter(a);
+        }
+
+    }
+
+    @Override
+    public void fillTreeItem(List<TreeItem> treeItems) {
+
+        if (!treeItems.isEmpty()) {
+            adapterLevelOne = new SpinnerAdapter<>(RahRFIDFilterActivity.this, treeItems);
+            spinnerIndexOne.setAdapter(adapterLevelOne);
+        }
+    }
+
+    @Override
+    public void fillCarTreeItem(List<CarTreeItem> carTreeItems) {
+
+        if (!carTreeItems.isEmpty()) {
+            containerTwo.setVisibility(View.VISIBLE);
+            adapterLevelTwo = new SpinnerAdapter<>(RahRFIDFilterActivity.this, carTreeItems);
+            spinnerIndexTwo.setAdapter(adapterLevelTwo);
+        }
+
+
+    }
+
+
+    private String parseSearchLastPositionItem(SearchLastPositionItem search) {
+        return new Gson().toJson(search);
+    }
+
+
+    //region Inner Classes
     private class AcceptClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
@@ -1678,39 +1178,6 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    @Override
-    public void fillLineData(List<String> lines) {
-
-        this.linesNames = lines;
-        if (lines != null && lines.size() > 0) {
-            ArrayAdapter a = new ArrayAdapter(RahRFIDFilterActivity.this, R.layout.spinner_item, lines);
-            pathSpinner.setAdapter(a);
-        }
-
-    }
-
-    @Override
-    public void fillTreeItem(List<TreeItem> treeItems) {
-
-        if (!treeItems.isEmpty()) {
-            adapterLevelOne = new SpinnerAdapter<>(RahRFIDFilterActivity.this, treeItems);
-            spinnerIndexOne.setAdapter(adapterLevelOne);
-        }
-    }
-
-    @Override
-    public void fillCarTreeItem(List<CarTreeItem> carTreeItems) {
-
-        if (!carTreeItems.isEmpty()) {
-            containerTwo.setVisibility(View.VISIBLE);
-            adapterLevelTwo = new SpinnerAdapter<>(RahRFIDFilterActivity.this, carTreeItems);
-            spinnerIndexTwo.setAdapter(adapterLevelTwo);
-        }
-
-
-    }
-
-
     private class PathFieldOnItemListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -1735,9 +1202,5 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             Util.gotoActivity(RahRFIDFilterActivity.this, MainActivity.class, bundle, false);
         }
     }
-
-
-    private String parseSearchLastPositionItem(SearchLastPositionItem search) {
-        return new Gson().toJson(search);
-    }
+    //endregion
 }

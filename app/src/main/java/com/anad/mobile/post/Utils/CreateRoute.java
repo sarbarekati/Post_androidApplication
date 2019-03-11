@@ -46,21 +46,21 @@ public class CreateRoute {
     private Context context;
     private String startDate;
 
-    public CreateRoute(Context context,String startDate,String carId,List<Points> list,int min_speed,int max_speed,int stop_time) {
+    private CreateRoute(Context context, String startDate, String carId, List<Points> list, int min_speed, int max_speed, int stop_time) {
         decodeData = new DecodeData();
         this.context = context;
         this.startDate = startDate;
         util = Util.getInstance();
         pointsList = list;
-        if(min_speed == 0)
+        if (min_speed == 0)
             minSpeed = 20;
         else
             this.minSpeed = min_speed;
-        if(max_speed == 0)
+        if (max_speed == 0)
             maxSpeed = 100;
         else
             this.maxSpeed = max_speed;
-        if(stop_time == 0)
+        if (stop_time == 0)
             stopTime = 2;
         else
             this.stopTime = stop_time;
@@ -68,8 +68,18 @@ public class CreateRoute {
     }
 
 
+    private CreateRoute(Builder builder) {
+        decodeData = new DecodeData();
+        util = Util.getInstance();
 
-    public void getPointsOnMap(GoogleMap googleMap, String Body,boolean isContinues) {
+        this.context = builder.context;
+        this.maxSpeed = builder.maxSpeed;
+        this.minSpeed = builder.minSpeed;
+        this.stopTime = builder.minSpeed;
+    }
+
+
+    public void getPointsOnMap(GoogleMap googleMap, String Body, boolean isContinues) {
         ArrayList<String> bodyRecord = decodeData.getBodyRecords(Body);
 
 
@@ -99,21 +109,21 @@ public class CreateRoute {
             for (int i = 0; i < pointsList.size(); i++) {
                 LatLng latLng = new LatLng(pointsList.get(i).getN(), pointsList.get(i).getE());
                 polylineOptions.add(latLng);
-                }
+            }
 
 
             int color = getRandomColor();
 
 
             polylineOptions.width(5).color(color);
-            if(!isContinues)
+            if (!isContinues)
                 googleMap.clear();
             googleMap.addPolyline(polylineOptions);
 
             getMaxMinPoint(pointsList);
 
             //TODO pass speed limit here
-                List<HashMap<Integer, Points>> pointsSorts = sortBySpeed(pointsList, maxSpeed, minSpeed);
+            List<HashMap<Integer, Points>> pointsSorts = sortBySpeed(pointsList, maxSpeed, minSpeed);
 
 
             Marker marker;
@@ -123,7 +133,7 @@ public class CreateRoute {
             List<Points> stopPoints = new ArrayList<>();
 
 
-            if(pointsSorts.size() > 0) {
+            if (pointsSorts.size() > 0) {
                 pMax = pointsSorts.get(0);
                 pMin = pointsSorts.get(1);
                 if (pMax.size() > 0) {
@@ -133,7 +143,7 @@ public class CreateRoute {
                         marker = googleMap.addMarker(new MarkerOptions().position(latLng));
                         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker_blue));
 
-                        marker.setAnchor(0.5f,0.5f);
+                        marker.setAnchor(0.5f, 0.5f);
                     }
                 }
                 if (pMin.size() > 0) {
@@ -141,20 +151,20 @@ public class CreateRoute {
                         latLng = new LatLng(pMin.get(j).getN(), pMin.get(j).getE());
                         marker = googleMap.addMarker(new MarkerOptions().position(latLng));
                         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker_green));
-                        marker.setAnchor(0.5f,0.5f);
+                        marker.setAnchor(0.5f, 0.5f);
                     }
                 }
             }
 
 
             if (bodyRecord.size() > 0) {
-                stopPoints =  getStopPoint(bodyRecord, stopTime);
-                if(stopPoints.size() > 0){
-                    for (Points p:stopPoints) {
-                        latLng = new LatLng(p.getN(),p.getE());
+                stopPoints = getStopPoint(bodyRecord, stopTime);
+                if (stopPoints.size() > 0) {
+                    for (Points p : stopPoints) {
+                        latLng = new LatLng(p.getN(), p.getE());
                         marker = googleMap.addMarker(new MarkerOptions().position(latLng));
                         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker_red));
-                        marker.setAnchor(0.5f,0.5f);
+                        marker.setAnchor(0.5f, 0.5f);
                     }
                 }
             }
@@ -165,13 +175,13 @@ public class CreateRoute {
         }
 
 
-
     }
 
 
-    public void getPointOnOsmMap(MapView mapView,String body,boolean isContinues){
+    public void getPointOnOsmMap(MapView mapView, String body, boolean isContinues) {
         ArrayList<String> bodyRecord = decodeData.getBodyRecords(body);
 
+        pointsList = new ArrayList<>();
 
         String route;
         String[] list;
@@ -197,12 +207,10 @@ public class CreateRoute {
             Polyline line = new Polyline();
 
             List<GeoPoint> geoPoints = new ArrayList<>();
-//            PolylineOptions polylineOptions = new PolylineOptions();
-
 
             for (int i = 0; i < pointsList.size(); i++) {
                 LatLng latLng = new LatLng(pointsList.get(i).getN(), pointsList.get(i).getE());
-                geoPoints.add(new GeoPoint(latLng.latitude,latLng.longitude));
+                geoPoints.add(new GeoPoint(latLng.latitude, latLng.longitude));
             }
 
 
@@ -212,7 +220,7 @@ public class CreateRoute {
             line.setPoints(geoPoints);
 
 
-            if(!isContinues)
+            if (!isContinues)
                 mapView.getOverlays().clear();
             mapView.getOverlayManager().add(line);
 
@@ -220,14 +228,13 @@ public class CreateRoute {
 
             List<HashMap<Integer, Points>> pointsSorts = sortBySpeed(pointsList, maxSpeed, minSpeed);
 
-           // Marker marker;
             org.osmdroid.views.overlay.Marker marker;
             LatLng latLng;
 
 
             List<Points> stopPoints = new ArrayList<>();
 
-            if(pointsSorts.size() > 0) {
+            if (pointsSorts.size() > 0) {
                 pMax = pointsSorts.get(0);
                 pMin = pointsSorts.get(1);
                 if (pMax.size() > 0) {
@@ -243,9 +250,9 @@ public class CreateRoute {
                             }
                         });
 
-                        marker.setPosition(new GeoPoint(latLng.latitude,latLng.longitude));
-                        marker.setIcon(ContextCompat.getDrawable(context,R.drawable.map_marker_blue));
-                        marker.setAnchor(0.5f,1f);
+                        marker.setPosition(new GeoPoint(latLng.latitude, latLng.longitude));
+                        marker.setIcon(ContextCompat.getDrawable(context, R.drawable.map_marker_blue));
+                        marker.setAnchor(0.5f, 1f);
                         mapView.getOverlays().add(marker);
                     }
                 }
@@ -260,9 +267,9 @@ public class CreateRoute {
                             }
                         });
 
-                        marker.setPosition(new GeoPoint(latLng.latitude,latLng.longitude));
-                        marker.setIcon(ContextCompat.getDrawable(context,R.drawable.map_marker_green));
-                        marker.setAnchor(0.5f,1f);
+                        marker.setPosition(new GeoPoint(latLng.latitude, latLng.longitude));
+                        marker.setIcon(ContextCompat.getDrawable(context, R.drawable.map_marker_green));
+                        marker.setAnchor(0.5f, 1f);
                         mapView.getOverlays().add(marker);
                     }
                 }
@@ -270,10 +277,10 @@ public class CreateRoute {
 
 
             if (bodyRecord.size() > 0) {
-                stopPoints =  getStopPoint(bodyRecord, stopTime);
-                if(stopPoints.size() > 0){
-                    for (Points p:stopPoints) {
-                        latLng = new LatLng(p.getN(),p.getE());
+                stopPoints = getStopPoint(bodyRecord, stopTime);
+                if (stopPoints.size() > 0) {
+                    for (Points p : stopPoints) {
+                        latLng = new LatLng(p.getN(), p.getE());
                         marker = new org.osmdroid.views.overlay.Marker(mapView);
                         marker.setOnMarkerClickListener(new org.osmdroid.views.overlay.Marker.OnMarkerClickListener() {
                             @Override
@@ -282,23 +289,20 @@ public class CreateRoute {
                             }
                         });
 
-                        marker.setPosition(new GeoPoint(latLng.latitude,latLng.longitude));
-                        marker.setIcon(ContextCompat.getDrawable(context,R.drawable.map_marker_red));
-                        marker.setAnchor(0.5f,1f);
+                        marker.setPosition(new GeoPoint(latLng.latitude, latLng.longitude));
+                        marker.setIcon(ContextCompat.getDrawable(context, R.drawable.map_marker_red));
+                        marker.setAnchor(0.5f, 1f);
                         mapView.getOverlays().add(marker);
                     }
                 }
             }
 
 
-
-            mapView.zoomToBoundingBox(new BoundingBox(MAX_LAT,MAX_LNG,MIN_LAT,MIN_LNG),true);
+            mapView.zoomToBoundingBox(new BoundingBox(MAX_LAT, MAX_LNG, MIN_LAT, MIN_LNG), true);
 
 
         }
     }
-
-
 
 
     private int getRandomColor() {
@@ -306,7 +310,7 @@ public class CreateRoute {
         int red = random.nextInt(256);
         int green = random.nextInt(256);
         int blue = random.nextInt(256);
-        return Color.argb(255,red,green,blue);
+        return Color.argb(255, red, green, blue);
     }
 
 
@@ -325,7 +329,7 @@ public class CreateRoute {
 
         List<Double> e = new ArrayList<>();
         List<Double> n = new ArrayList<>();
-        for (Points p:points) {
+        for (Points p : points) {
             e.add(p.getE());
             n.add(p.getN());
         }
@@ -391,7 +395,7 @@ public class CreateRoute {
         int sHour;
         int sMin;
 
-        if(stopTime != 0) {
+        if (stopTime != 0) {
 
             List<Points> p = new ArrayList<>();
 
@@ -430,6 +434,43 @@ public class CreateRoute {
         }
 
         return new ArrayList<>();
+    }
+
+
+    public static class Builder {
+        Context context;
+        private int minSpeed = 20;
+        private int maxSpeed = 100;
+        private int stopTime = 2;
+
+        public Builder(Context context) {
+            this.context = context;
+        }
+
+
+        public Builder withMinSpeed(int minSpeed) {
+            if (minSpeed != 0)
+                this.minSpeed = minSpeed;
+            return this;
+        }
+
+        public Builder withMaxSpeed(int maxSpeed) {
+            if (maxSpeed != 0)
+                this.maxSpeed = maxSpeed;
+            return this;
+        }
+
+        public Builder withStopTime(int stopTime) {
+            if (stopTime != 0)
+                this.stopTime = stopTime;
+            return this;
+        }
+
+        public CreateRoute build() {
+            return new CreateRoute(this);
+        }
+
+
     }
 
 }

@@ -7,12 +7,14 @@ import com.anad.mobile.post.MapManager.Model.SearchLastPositionItem;
 import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.Line;
 import com.anad.mobile.post.Models.FilterModel.TreeItem;
+import com.anad.mobile.post.Models.ShowPathModels.Route;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,4 +55,7 @@ public interface EndPointsInterface {
 
     @POST("Main/LastPosition/MobileGetLastPosition")
     Call<List<LastPosition>> getLastPosition(@Header("Cookie") String userCookie, @Body SearchLastPositionItem search);
+
+    @GET("Main/Route/GetByDeviceAndDate")
+    Call<List<Route>> getDailyRoute(@Header("Cookie") String userCookie, @Query("id") Integer carId, @Query("StartDate")String startDate, @Query("EndDate") String endDate);
 }

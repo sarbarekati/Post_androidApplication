@@ -19,11 +19,13 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASE_URL = BuildConfig.BASE_URL;
-    private static final String TEST_BASE_URL = "http://9231caa2.ngrok.io";
+    //region Fields
+//    private static final String BASE_URL = BuildConfig.BASE_URL;
+    private static final String BASE_URL = "http://094a1ca6.ngrok.io";
     private static Retrofit retrofit = null;
     private static PostSharedPreferences preferences;
-
+//endregion
+    //region Singleton Constructor
     public static Retrofit getInstance(final Context context) {
 
 
@@ -54,7 +56,7 @@ public class ApiClient {
             OkHttpClient client = builder.build();
             Gson gson = new GsonBuilder().setLenient().create();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(TEST_BASE_URL)
+                    .baseUrl(BASE_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
@@ -62,5 +64,6 @@ public class ApiClient {
         }
         return retrofit;
     }
+    //endregion
 
 }

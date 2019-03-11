@@ -82,6 +82,7 @@ public class ReportManager implements IReportResponse, OnLoginResponse, ITreeIte
 
     public void callGetTreeItem(Integer stateId) {
         treeItemApi.setTreeItemResponse(this);
+        //for call state and country tree item data
         if (stateId == -1) {
             treeItemApi.callTreeItemApi(getCookies(), stateId);
         }else{

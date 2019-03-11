@@ -158,6 +158,9 @@
     <string name="party_type">نقش کاریر</string>
     <string name="please_enter_back_again">برای خروج بار دیگر دکمه بازگشت را فشار دهید.</string>
     <string name="please_select_your_filter_first">ابتدا فیلتر های موردنظر را انتخاب نمایید.</string>
+    <string name="No_Car_for_this_Date">در این تاریخ متحرکی وجود ندارد.</string>
+    <string name="choose_date">انتخاب تاریخ</string>
+    <string name="please_select_a_date">لطفا تاریخ را انتخاب نمایید.</string>
 
 
     <string-array name="Report_filters">

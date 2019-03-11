@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.anad.mobile.post.API.Retrofit.ApiClient;
 import com.anad.mobile.post.Models.Line;
+import com.anad.mobile.post.Models.ShowPathModels.IDailyRouteResponse;
+import com.anad.mobile.post.Models.ShowPathModels.Route;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.ARP.ARPReport;
 import com.anad.mobile.post.ReportManager.model.Base.IMiddlePointResponse;
@@ -19,6 +21,7 @@ import com.anad.mobile.post.Utils.NetworkUtils.EndPointsInterface;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.MediaType;
@@ -35,6 +38,11 @@ public class ReportApiCaller {
     private static ReportApiCaller reportApiCaller = null;
     private IReportResponse reportResponseListener;
     private IMiddlePointResponse iMiddlePointResponse;
+    private IDailyRouteResponse iDailyRouteResponse;
+
+    public void setIDailyRouteResponse(IDailyRouteResponse iDailyRouteResponse) {
+        this.iDailyRouteResponse = iDailyRouteResponse;
+    }
 
     private static final String TAG = "ReportApiCaller";
 
@@ -147,6 +155,29 @@ public class ReportApiCaller {
                 reportResponseListener.onFailed(t.toString());
             }
         });
+    }
+
+
+    public void callDailyRouteApi(String cookie, Integer carId, String startDate,String endDate){
+
+        Call<List<Route>> call = ApiClient.getInstance(context)
+                .create(EndPointsInterface.class)
+                .getDailyRoute(cookie,carId,startDate,endDate);
+        call.enqueue(new Callback<List<Route>>() {
+            @Override
+            public void onResponse(Call<List<Route>> call, Response<List<Route>> response) {
+
+                iDailyRouteResponse.onSuccessDailyRoute(response.body());
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Route>> call, Throwable t) {
+                iDailyRouteResponse.onFailed(t.getMessage());
+            }
+        });
+
+
     }
 
 

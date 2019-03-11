@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.anad.mobile.post.Models.FilterModel.TreeItem;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.Utils.AdapterUtils.SpinnerItems;
 

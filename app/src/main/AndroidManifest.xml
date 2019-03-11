@@ -111,7 +111,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Activity.ShowPathActivity"
+            android:name=".Activity.ShowPath.ShowPathActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
