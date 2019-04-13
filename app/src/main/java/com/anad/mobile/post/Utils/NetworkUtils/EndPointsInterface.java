@@ -14,7 +14,6 @@ import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariMiddlePoint;
 import com.anad.mobile.post.ReportManager.model.Rahsepari.RahsepariReport;
 import com.anad.mobile.post.ReportManager.model.Base.SearchReportItem;
 
-import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;

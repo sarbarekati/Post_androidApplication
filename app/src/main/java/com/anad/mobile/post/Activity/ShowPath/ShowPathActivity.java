@@ -31,7 +31,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anad.mobile.post.API.FilterApi;
-import com.anad.mobile.post.API.ReportAPI;
 import com.anad.mobile.post.Activity.MainActivity;
 import com.anad.mobile.post.Adapter.CustomInfoWindowAdapter;
 import com.anad.mobile.post.Adapter.SpinnerAdapter;
@@ -39,19 +38,12 @@ import com.anad.mobile.post.Models.Cars;
 import com.anad.mobile.post.Models.DriverModel;
 import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
 import com.anad.mobile.post.Models.FilterModel.TreeItem;
-import com.anad.mobile.post.Models.HandleSubTree;
-import com.anad.mobile.post.Models.Org;
-import com.anad.mobile.post.Models.OrgInfoModel;
 import com.anad.mobile.post.Models.Points;
-import com.anad.mobile.post.Models.Rout;
 import com.anad.mobile.post.Models.ShowPathModels.Route;
-import com.anad.mobile.post.Models.SubTree;
 import com.anad.mobile.post.R;
 import com.anad.mobile.post.Storage.PostSharedPreferences;
-import com.anad.mobile.post.Utils.Constants;
 import com.anad.mobile.post.Utils.CreateRoute;
 import com.anad.mobile.post.Utils.JalaliCalendar;
-import com.anad.mobile.post.Utils.SingletonApi;
 import com.anad.mobile.post.Utils.Util;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -99,7 +91,6 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
             containerSpinner;
 
     String s;
-    private FilterApi api;
     private boolean isPlay;
     private LinearLayout card_car_number;
     private PostSharedPreferences preferences;
@@ -180,8 +171,6 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
             getLocationPermission();
             initMap();
 
-
-            api = FilterApi.getInstance(this);
             fab = findViewById(R.id.click_fab);
 
 
@@ -551,7 +540,6 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
 
                 initDate.setPersianDate(yearFilter, monthFilter, dayFilter);
 
-
                 PersianDatePickerDialog datePickerStart = new PersianDatePickerDialog(this)
                         .setPositiveButtonString("تائید")
                         .setNegativeButton("انصراف")
@@ -642,7 +630,7 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
 
                 txtDate.setText(currentDate);
 
-                presenter.getDailyRoute(driverIds,txtDate.getText().toString(),txtDate.getText().toString());
+                presenter.getDailyRoute(driverIds, txtDate.getText().toString(), txtDate.getText().toString());
 
                 break;
 
@@ -694,11 +682,7 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
                 currentDate = yearP + "/" + sPMonth + "/" + sPDay;
 
                 txtDate.setText(currentDate);
-
-               // getRoutInformation(txtDate.getText().toString(), car_Id + "", new ArrayList<Points>(), min_speed, max_speed, stop_time);
-
-                presenter.getDailyRoute(driverIds,txtDate.getText().toString(),txtDate.getText().toString());
-
+                presenter.getDailyRoute(driverIds, txtDate.getText().toString(), txtDate.getText().toString());
 
                 break;
         }
@@ -745,9 +729,6 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
 
         return false;
     }
-
-
-
 
 
     private void initialize() {
@@ -934,13 +915,13 @@ public class ShowPathActivity extends AppCompatActivity implements LocationListe
     @Override
     public void renderDailyRoute(List<Route> routes) {
 
-        String body =  routes.get(0).getBody();
+        String body = routes.get(0).getBody();
         CreateRoute.Builder builder = new CreateRoute.Builder(ShowPathActivity.this)
                 .withMaxSpeed(max_speed)
                 .withMinSpeed(min_speed)
                 .withStopTime(stop_time);
         CreateRoute cr = builder.build();
-        cr.getPointOnOsmMap(mapView,body,isContinues);
+        cr.getPointOnOsmMap(mapView, body, isContinues);
 
 
     }

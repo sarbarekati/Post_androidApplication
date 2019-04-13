@@ -46,27 +46,6 @@ public class CreateRoute {
     private Context context;
     private String startDate;
 
-    private CreateRoute(Context context, String startDate, String carId, List<Points> list, int min_speed, int max_speed, int stop_time) {
-        decodeData = new DecodeData();
-        this.context = context;
-        this.startDate = startDate;
-        util = Util.getInstance();
-        pointsList = list;
-        if (min_speed == 0)
-            minSpeed = 20;
-        else
-            this.minSpeed = min_speed;
-        if (max_speed == 0)
-            maxSpeed = 100;
-        else
-            this.maxSpeed = max_speed;
-        if (stop_time == 0)
-            stopTime = 2;
-        else
-            this.stopTime = stop_time;
-        this.carId = carId;
-    }
-
 
     private CreateRoute(Builder builder) {
         decodeData = new DecodeData();

@@ -8,10 +8,26 @@ import java.util.Date;
 
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 
+/**
+ *
+ * Contain Date and Time Utility Methods
+ *
+ *
+ * */
+
+
 public class DateTimeUtils {
 
-
-    public static String[] getCurrentDateTime(){
+    /**
+     *
+     * Get Current Date like 17:00 - 1397/12/22
+     *
+     * @return Array of Strings with two value hour and date
+     * @auther Elias Mohammadi
+     *
+     *
+     * */
+    public static String[] getPersianCurrentDateTime(){
         Date c = Calendar.getInstance().getTime();
         Calendar c2 = Calendar.getInstance();
         PersianCal persian = new PersianCal(c2);
@@ -19,16 +35,21 @@ public class DateTimeUtils {
 
         int hour = c.getHours();
         String dateTime = String.valueOf(hour) + "--" + date;
-        String[] currentDateTime = dateTime.split("--");
-
-        return currentDateTime;
+        return dateTime.split("--");
     }
 
+    /**
+     *
+     * Get Current Hour
+     *
+     * @return return string as an current hour
+     *
+     * */
     public static String getCurrentHour(){
-        return getCurrentDateTime()[0];
+        return getPersianCurrentDateTime()[0];
     }
     public static String getCurrentDate(){
-        return getCurrentDateTime()[1];
+        return getPersianCurrentDateTime()[1];
     }
 
 
@@ -84,7 +105,7 @@ public class DateTimeUtils {
         return Hour + ":" + Minute;
     }
 
-    public static String convertToGerGorian(String persianDate){
+    public static String convertToGregorian(String persianDate){
         JalaliCalendar jalaliCalendar = new JalaliCalendar();
         return jalaliCalendar.getGregorian(persianDate);
 

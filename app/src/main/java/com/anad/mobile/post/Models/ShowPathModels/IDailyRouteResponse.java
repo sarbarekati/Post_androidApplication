@@ -6,4 +6,4 @@ public interface IDailyRouteResponse {
 
     void onSuccessDailyRoute(List<Route> routes);
     void onFailed(String message);
-}
+    }

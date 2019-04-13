@@ -1,7 +1,6 @@
 package com.anad.mobile.post.Activity.RahRFIDFilter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -32,9 +31,7 @@ import com.anad.mobile.post.MapManager.Model.SearchLastPositionItem;
 import com.anad.mobile.post.Models.Cars;
 import com.anad.mobile.post.Models.DriverModel;
 import com.anad.mobile.post.Models.FilterModel.CarTreeItem;
-import com.anad.mobile.post.Models.HandleSubTree;
 import com.anad.mobile.post.Models.LastPosition;
-import com.anad.mobile.post.Models.Org;
 import com.anad.mobile.post.Models.OrgInfoModel;
 import com.anad.mobile.post.Models.SubTree;
 import com.anad.mobile.post.Models.FilterModel.TreeItem;
@@ -939,8 +936,8 @@ public class RahRFIDFilterActivity extends AppCompatActivity implements View.OnC
             isCarCode = false;
         }
 
-        START_DATE = DateTimeUtils.convertToGerGorian(txtStartDate.getText().toString());
-        END_DATE = DateTimeUtils.convertToGerGorian(txtEndDate.getText().toString());
+        START_DATE = DateTimeUtils.convertToGregorian(txtStartDate.getText().toString());
+        END_DATE = DateTimeUtils.convertToGregorian(txtEndDate.getText().toString());
 
         return SearchReportItem.createReportFilter(driverIds,
                 lineIds, START_DATE, END_DATE,
