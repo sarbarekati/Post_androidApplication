@@ -34,7 +34,7 @@ android {
             //  buildConfigField("String", "BASE_URL", "\"http://130.185.78.110:8090/\"")
            // buildConfigField("String", "BASE_URL", "\"http://91.207.138.90:8081/\"")
 //            buildConfigField("String", "BASE_URL", "\"http://post.anadgroup.ir/\"")
-            buildConfigField("String", "BASE_URL", "\"http://10.1.1.226/\"")
+            buildConfigField("String", "BASE_URL", "\"http://10.1.1.103/\"")
 
             resValue("string", "GOOGLE_API_KEY", '"AIzaSyCbBaSEEsJ6J36nukXtAHHcnnMA5tO8gJs"')
         }

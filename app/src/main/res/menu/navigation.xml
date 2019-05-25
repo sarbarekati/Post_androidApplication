@@ -19,13 +19,14 @@
         app:showAsAction="ifRoom"
         />
 
-    <item
-        android:id="@+id/Main_bottom_nav_alarms"
-        android:title="@string/bottom_nav_alarms"
-        android:icon="@drawable/ic_bell_ring_white_24dp"
-        android:enabled="true"
-        app:showAsAction="ifRoom"
-        />
+    <!--<item-->
+        <!--android:id="@+id/Main_bottom_nav_alarms"-->
+        <!--android:title="@string/bottom_nav_alarms"-->
+        <!--android:icon="@drawable/ic_bell_ring_white_24dp"-->
+        <!--android:enabled="true"-->
+        <!--app:showAsAction="ifRoom"-->
+        <!--android:visible="false"-->
+        <!--/>-->
 
 
     <item

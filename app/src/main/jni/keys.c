@@ -25,4 +25,5 @@ JNIEXPORT jstring JNICALL
 Java_com_anad_mobile_post_Utils_Constants_getMapServerAddress(JNIEnv *env,jobject instance){
 //    return (*env)->NewStringUTF(env,"http://130.185.78.110:9897/geoserver/ows?service=wms&version=1.1.1&request=GetCapabilities");
     return (*env)->NewStringUTF(env,"http://91.207.138.90:9897/geoserver/ows?service=wms&version=1.1.1&request=GetCapabilities");//for post application
+//    return (*env)->NewStringUTF(env,"http://10.1.1.103:9797/geoserver/ows?service=wms&version=1.1.1&request=GetCapabilities");//for post application
 }

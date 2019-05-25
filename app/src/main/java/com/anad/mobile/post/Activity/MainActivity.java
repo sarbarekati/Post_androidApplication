@@ -100,11 +100,11 @@ public class MainActivity extends AppCompatActivity implements IMapView {
                                     .replace(R.id.Main_frameLayout_fragment_container, new ReportFragment())
                                     .commit();
                             break;
-                        case R.id.Main_bottom_nav_alarms:
-                            getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.Main_frameLayout_fragment_container, new AlarmFragment())
-                                    .commit();
-                            break;
+//                        case R.id.Main_bottom_nav_alarms:
+//                            getSupportFragmentManager().beginTransaction()
+//                                    .replace(R.id.Main_frameLayout_fragment_container, new AlarmFragment())
+//                                    .commit();
+//                            break;
                     /*case R.id.Main_bottom_nav_more:
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.Main_frameLayout_fragment_container, new MoreFragment())

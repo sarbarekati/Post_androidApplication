@@ -76,6 +76,7 @@ public class OsmMapFragment extends Fragment implements FloatingActionMenu.OnMen
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        //TODO CHANGE MAP LOADING
         ctx = getActivity().getApplicationContext();
         preferences = new PostSharedPreferences(ctx);
 

@@ -64,7 +64,6 @@ public class AlarmApi {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i(TAG, "onResponse: "+response);
                 onAlarmsCallBack.OnResponse(setAlarms(response));
             }
         }, new Response.ErrorListener() {

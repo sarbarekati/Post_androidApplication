@@ -20,8 +20,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ApiClient {
 
     //region Fields
-//    private static final String BASE_URL = BuildConfig.BASE_URL;
-    private static final String BASE_URL = "http://094a1ca6.ngrok.io";
+    private static final String BASE_URL = BuildConfig.BASE_URL;
+   // private static final String BASE_URL = "http://58ea93e0.ngrok.io/";
     private static Retrofit retrofit = null;
     private static PostSharedPreferences preferences;
 //endregion

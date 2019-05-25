@@ -93,28 +93,6 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-<!--    <android.support.design.widget.NavigationView
-        android:layout_width="@dimen/Main_Navigation_view_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:id="@+id/Main_navigation_view">
-
-    </android.support.design.widget.NavigationView>-->
-
-   <!-- <com.rom4ek.arcnavigationview.ArcNavigationView
-        android:id="@+id/Main_navigation_view"
-        android:layout_width="320dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:background="@color/gray_100"
-        android:fitsSystemWindows="true"
-        app:itemBackground="@android:color/white"
-        app:arc_cropDirection="cropOutside"
-        android:layoutDirection="rtl"
-        app:headerLayout="@layout/navigation_header"
-        app:arc_width="96dp"
-        android:visibility="gone"
-        />-->
 
 
 
